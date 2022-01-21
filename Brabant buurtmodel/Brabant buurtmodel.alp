@@ -224,6 +224,45 @@
 						<Type><![CDATA[GISRegion]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1642758228457</Id>
+					<Name><![CDATA[isConnectedLVCableHighlighted]]></Name>
+					<X>50</X><Y>1650</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1642758519909</Id>
+					<Name><![CDATA[highlightedGISRoute]]></Name>
+					<X>390</X><Y>1570</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[GISRoute]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1642758539109</Id>
+					<Name><![CDATA[previousHighlightedGISRoute]]></Name>
+					<X>390</X><Y>1590</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[GISRoute]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1642697735827</Id>
 					<Name><![CDATA[buildingGISRegions]]></Name>
@@ -269,6 +308,24 @@
 						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
 						<ElementClass><![CDATA[NonResidentialAddress]]></ElementClass>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1642756922586</Id>
+					<Name><![CDATA[LVNetworkCollection]]></Name>
+					<X>50</X><Y>1550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[GISNetwork]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{network, network1}]]></Code>
+						</CollectionInitializer>
 					</Properties>
 
 				</Variable>
@@ -373,6 +430,12 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[gisRegion]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[gisRoute]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[gisNetwork]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
@@ -1851,12 +1914,42 @@ else {
 							<LineColor/>
 							<NameColumnIndex>0</NameColumnIndex>
 							<Visible>true</Visible>
-							<Bounds><LonMin>5.069015174351515</LonMin><LatMin>51.544658627921486</LatMin><LonMax>5.0770707678892775</LonMax><LatMax>51.54793227704121</LatMax></Bounds>
+							<Bounds><LonMin>5.065966675871409</LonMin><LatMin>51.54391619613627</LatMin><LonMax>5.0779094539459875</LonMax><LatMax>51.54821814188135</LatMax></Bounds>
+						</GISShapeFile>
+						<GISShapeFile>
+							<ShapeResourceReference>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[Afrikaanderbuurt_midden_lv_cables.shp]]></ClassName>
+							</ShapeResourceReference>
+							<DbfResourceReference>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[Afrikaanderbuurt_midden_lv_cables.dbf]]></ClassName>
+							</DbfResourceReference>						
+							<FillColor>-1</FillColor>
+							<LineColor/>
+							<NameColumnIndex>0</NameColumnIndex>
+							<Visible>true</Visible>
+							<Bounds><LonMin>5.065966675871409</LonMin><LatMin>51.54391619613627</LatMin><LonMax>5.0779094539459875</LonMax><LatMax>51.54821814188135</LatMax></Bounds>
+						</GISShapeFile>
+						<GISShapeFile>
+							<ShapeResourceReference>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[Afrikaanderbuurt_midden_mv_cables.shp]]></ClassName>
+							</ShapeResourceReference>
+							<DbfResourceReference>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[Afrikaanderbuurt_midden_mv_cables.dbf]]></ClassName>
+							</DbfResourceReference>						
+							<FillColor>-1</FillColor>
+							<LineColor/>
+							<NameColumnIndex>0</NameColumnIndex>
+							<Visible>true</Visible>
+							<Bounds><LonMin>5.065155387754767</LonMin><LatMin>51.54312653638466</LatMin><LonMax>5.080125200915876</LonMax><LatMax>51.54790206914653</LatMax></Bounds>
 						</GISShapeFile>
 					</GISShapes>
-					<Latitude>51.54664317711702</Latitude>
-					<Longitude>5.072184998182742</Longitude>
-					<Scale>5000</Scale>
+					<Latitude>51.54641423836079</Latitude>
+					<Longitude>5.070749892385957</Longitude>
+					<Scale>947</Scale>
 					<BorderColor>-4144960</BorderColor>
 					<FillColor>-1</FillColor>
 					<ShowTiles>true</ShowTiles>
@@ -6859,32 +6952,6 @@ else {
 				<GISRegion>
 					<FillColor>2144175423</FillColor>
 					<FillMaterial>null</FillMaterial>
-					<Id>1642697099550</Id>
-					<Name><![CDATA[_7942787_0]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>51.54670556874356</X><Y>5.070437935328682</Y></Point>
-						<Point><X>51.54671193099741</X><Y>5.070463840741193</Y></Point>
-						<Point><X>51.54668644545565</X><Y>5.070479444032888</Y></Point>
-						<Point><X>51.54668044235458</X><Y>5.070453391964459</Y></Point>
-						<Point><X>51.54670556874356</X><Y>5.070437935328682</Y></Point>
-						<Point><X>51.54670556874356</X><Y>5.070437935328682</Y></Point>
-					</Points>
-				</GISRegion>
-				<GISRegion>
-					<FillColor>2144175423</FillColor>
-					<FillMaterial>null</FillMaterial>
 					<Id>1642697099551</Id>
 					<Name><![CDATA[_7942790_0]]></Name>
 					<X>0</X><Y>0</Y>
@@ -8765,32 +8832,6 @@ else {
 						<Point><X>51.54747576601657</X><Y>5.0698823221752605</Y></Point>
 						<Point><X>51.547529719659956</X><Y>5.069893608648709</Y></Point>
 						<Point><X>51.547529719659956</X><Y>5.069893608648709</Y></Point>
-					</Points>
-				</GISRegion>
-				<GISRegion>
-					<FillColor>2144175423</FillColor>
-					<FillMaterial>null</FillMaterial>
-					<Id>1642697099617</Id>
-					<Name><![CDATA[_7944622_0]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>51.54451093860721</X><Y>5.069136142270406</Y></Point>
-						<Point><X>51.54450707201733</X><Y>5.069049717584124</Y></Point>
-						<Point><X>51.544532331348066</X><Y>5.069046845010909</Y></Point>
-						<Point><X>51.5445361979009</X><Y>5.069133255329425</Y></Point>
-						<Point><X>51.54451093860721</X><Y>5.069136142270406</Y></Point>
-						<Point><X>51.54451093860721</X><Y>5.069136142270406</Y></Point>
 					</Points>
 				</GISRegion>
 				<GISRegion>
@@ -12106,33 +12147,6 @@ else {
 				<GISRegion>
 					<FillColor>2144175423</FillColor>
 					<FillMaterial>null</FillMaterial>
-					<Id>1642697099736</Id>
-					<Name><![CDATA[_7971621_0]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>51.5464875246201</X><Y>5.0708207703808466</Y></Point>
-						<Point><X>51.54654964976784</X><Y>5.070782566736537</Y></Point>
-						<Point><X>51.54658286008894</X><Y>5.070831351587959</Y></Point>
-						<Point><X>51.54654152904722</X><Y>5.0709040100065454</Y></Point>
-						<Point><X>51.54648908811938</X><Y>5.070827218071006</Y></Point>
-						<Point><X>51.5464875246201</X><Y>5.0708207703808466</Y></Point>
-						<Point><X>51.5464875246201</X><Y>5.0708207703808466</Y></Point>
-					</Points>
-				</GISRegion>
-				<GISRegion>
-					<FillColor>2144175423</FillColor>
-					<FillMaterial>null</FillMaterial>
 					<Id>1642697099737</Id>
 					<Name><![CDATA[_7971623_0]]></Name>
 					<X>0</X><Y>0</Y>
@@ -14010,13 +14024,7 @@ else {
 						<Point><X>51.545502656294715</X><Y>5.070814853409311</Y></Point>
 						<Point><X>51.545508688781176</X><Y>5.070659189089173</Y></Point>
 						<Point><X>51.54556697717866</X><Y>5.0706646793455565</Y></Point>
-						<Point><X>51.54556506021428</X><Y>5.070716922468474</Y></Point>
-						<Point><X>51.545561276752316</X><Y>5.070820154143044</Y></Point>
-						<Point><X>51.54556204999725</X><Y>5.070820235257427</Y></Point>
-						<Point><X>51.54556128197902</X><Y>5.070838693295489</Y></Point>
-						<Point><X>51.54552402365558</X><Y>5.070835262102458</Y></Point>
-						<Point><X>51.54552481918499</X><Y>5.0708170057141215</Y></Point>
-						<Point><X>51.545502656294715</X><Y>5.070814853409311</Y></Point>
+						<Point><X>51.54556214523193</X><Y>5.070822691065888</Y></Point>
 						<Point><X>51.545502656294715</X><Y>5.070814853409311</Y></Point>
 					</Points>
 				</GISRegion>
@@ -19417,32 +19425,6 @@ else {
 				<GISRegion>
 					<FillColor>2144175423</FillColor>
 					<FillMaterial>null</FillMaterial>
-					<Id>1642697099998</Id>
-					<Name><![CDATA[_8015092_0]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-5952982</LineColor>
-					<LineMaterial>null</LineMaterial>
-					<LineWidth>1</LineWidth>
-					<LineStyle>DASHED</LineStyle>
-					<ReadOnly>false</ReadOnly>
-					<Points>
-						<Point><X>51.545113473232206</X><Y>5.069780012495706</Y></Point>
-						<Point><X>51.545086350707095</X><Y>5.069778644986268</Y></Point>
-						<Point><X>51.545086902007235</X><Y>5.069749953265028</Y></Point>
-						<Point><X>51.54511402449348</X><Y>5.069751306341601</Y></Point>
-						<Point><X>51.545113473232206</X><Y>5.069780012495706</Y></Point>
-						<Point><X>51.545113473232206</X><Y>5.069780012495706</Y></Point>
-					</Points>
-				</GISRegion>
-				<GISRegion>
-					<FillColor>2144175423</FillColor>
-					<FillMaterial>null</FillMaterial>
 					<Id>1642697099999</Id>
 					<Name><![CDATA[_8015158_0]]></Name>
 					<X>0</X><Y>0</Y>
@@ -19867,6 +19849,538 @@ else {
 						<Point><X>51.54430098134062</X><Y>5.069159292841307</Y></Point>
 					</Points>
 				</GISRegion>
+						<GISNetwork>
+							<Id>1642752743099</Id>
+							<Name><![CDATA[network]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1642697099550</Id>
+					<Name><![CDATA[_7942787_0]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54670556874356</X><Y>5.070437935328682</Y></Point>
+						<Point><X>51.54671193099741</X><Y>5.070463840741193</Y></Point>
+						<Point><X>51.54668644545565</X><Y>5.070479444032888</Y></Point>
+						<Point><X>51.54668044235458</X><Y>5.070453391964459</Y></Point>
+						<Point><X>51.54670556874356</X><Y>5.070437935328682</Y></Point>
+						<Point><X>51.54670556874356</X><Y>5.070437935328682</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRoute TargetId="1642697099550">
+
+					<Id>1642752660326</Id>
+					<Name><![CDATA[gisRoute]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54821176943195</X><Y>5.06939835388758</Y></Point>
+						<Point><X>51.548218171738746</X><Y>5.069590536252765</Y></Point>
+						<Point><X>51.54816321857609</X><Y>5.0698376278651445</Y></Point>
+						<Point><X>51.54817335557225</X><Y>5.069844491521043</Y></Point>
+						<Point><X>51.547816425241834</X><Y>5.071277279690054</Y></Point>
+						<Point><X>51.54733677902787</X><Y>5.071671081947284</Y></Point>
+						<Point><X>51.5470401321201</X><Y>5.0707350508739975</Y></Point>
+						<Point><X>51.54694676263924</X><Y>5.070595203885046</Y></Point>
+						<Point><X>51.546923286853904</X><Y>5.070505118401365</Y></Point>
+						<Point><X>51.54691421666087</X><Y>5.070508550229316</Y></Point>
+						<Point><X>51.546811243166125</X><Y>5.0706895791536635</Y></Point>
+						<Point><X>51.546706135265346</X><Y>5.070491391089567</Y></Point>
+						<Point><X>51.546711930997404</X><Y>5.070463840741193</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099550">
+
+					<Id>1642752784705</Id>
+					<Name><![CDATA[gisRoute1]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54789592117814</X><Y>5.069422376683228</Y></Point>
+						<Point><X>51.5479012564709</X><Y>5.069588820338789</Y></Point>
+						<Point><X>51.54688220420043</X><Y>5.069388058403731</Y></Point>
+						<Point><X>51.54682564879859</X><Y>5.0701190377570216</Y></Point>
+						<Point><X>51.54684485630143</X><Y>5.070201401627815</Y></Point>
+						<Point><X>51.54669119605162</X><Y>5.070182526574092</Y></Point>
+						<Point><X>51.54667945809453</X><Y>5.07033352700388</Y></Point>
+						<Point><X>51.546683726442915</X><Y>5.070374708939276</Y></Point>
+						<Point><X>51.54669368864501</X><Y>5.070445243437428</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099550">
+
+					<Id>1642752916673</Id>
+					<Name><![CDATA[gisRoute2]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54589441494371</X><Y>5.070060904879445</Y></Point>
+						<Point><X>51.54647244527851</X><Y>5.07017660278148</Y></Point>
+						<Point><X>51.54647729585165</X><Y>5.070133703559377</Y></Point>
+						<Point><X>51.54668991213279</X><Y>5.070174002828628</Y></Point>
+						<Point><X>51.546676977330385</X><Y>5.07035469955203</Y></Point>
+						<Point><X>51.54669198015835</X><Y>5.070446294422345</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099550">
+
+					<Id>1642752941363</Id>
+					<Name><![CDATA[gisRoute3]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54587743771798</X><Y>5.070179202734334</Y></Point>
+						<Point><X>51.546465977846864</X><Y>5.0702975005892235</Y></Point>
+						<Point><X>51.54645789355601</X><Y>5.070374199198438</Y></Point>
+						<Point><X>51.546503973994675</X><Y>5.070562695780405</Y></Point>
+						<Point><X>51.54655652180639</X><Y>5.070778491867345</Y></Point>
+						<Point><X>51.54658077462211</X><Y>5.070817491160168</Y></Point>
+						<Point><X>51.54666552991335</X><Y>5.070622832108881</Y></Point>
+						<Point><X>51.54666485094979</X><Y>5.0706003950967995</Y></Point>
+						<Point><X>51.546685052404584</X><Y>5.070583477693479</Y></Point>
+						<Point><X>51.54670850590482</X><Y>5.070541896157569</Y></Point>
+						<Point><X>51.546694841954604</X><Y>5.070474303353559</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099550">
+
+					<Id>1642753180031</Id>
+					<Name><![CDATA[gisRoute4]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.546209974605425</X><Y>5.069262719353052</Y></Point>
+						<Point><X>51.54681144520083</X><Y>5.069377117278659</Y></Point>
+						<Point><X>51.54674407657794</X><Y>5.070186222607044</Y></Point>
+						<Point><X>51.546695247737716</X><Y>5.070178422748481</Y></Point>
+						<Point><X>51.546681019456535</X><Y>5.070354179561459</Y></Point>
+						<Point><X>51.546695253513626</X><Y>5.070444280799894</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1642697099736</Id>
+					<Name><![CDATA[_7971621_0]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.5464875246201</X><Y>5.0708207703808466</Y></Point>
+						<Point><X>51.54654964976784</X><Y>5.070782566736537</Y></Point>
+						<Point><X>51.54658286008894</X><Y>5.070831351587959</Y></Point>
+						<Point><X>51.54654152904722</X><Y>5.0709040100065454</Y></Point>
+						<Point><X>51.54648908811938</X><Y>5.070827218071006</Y></Point>
+						<Point><X>51.5464875246201</X><Y>5.0708207703808466</Y></Point>
+						<Point><X>51.5464875246201</X><Y>5.0708207703808466</Y></Point>
+					</Points>
+				</GISRegion>
+						<GISNetwork>
+							<Id>1642753317647</Id>
+							<Name><![CDATA[network1]]></Name>
+							<X>0</X><Y>0</Y>
+							<Label><X>10</X><Y>0</Y></Label>
+							<PublicFlag>true</PublicFlag>
+							<PresentationFlag>true</PresentationFlag>
+							<ShowLabel>false</ShowLabel>
+							<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+
+			<Presentation>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1642697099998</Id>
+					<Name><![CDATA[_8015092_0]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.545113473232206</X><Y>5.069780012495706</Y></Point>
+						<Point><X>51.545086350707095</X><Y>5.069778644986268</Y></Point>
+						<Point><X>51.545086902007235</X><Y>5.069749953265028</Y></Point>
+						<Point><X>51.54511402449348</X><Y>5.069751306341601</Y></Point>
+						<Point><X>51.545113473232206</X><Y>5.069780012495706</Y></Point>
+						<Point><X>51.545113473232206</X><Y>5.069780012495706</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRoute TargetId="1642697099998">
+
+					<Id>1642753290178</Id>
+					<Name><![CDATA[gisRoute5]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.546204046092285</X><Y>5.069265319305907</Y></Point>
+						<Point><X>51.54533092935321</X><Y>5.069109322134624</Y></Point>
+						<Point><X>51.54530344207273</X><Y>5.069106722181769</Y></Point>
+						<Point><X>51.54528727307645</X><Y>5.06914572147459</Y></Point>
+						<Point><X>51.54527433787529</X><Y>5.069761910301156</Y></Point>
+						<Point><X>51.545185408267784</X><Y>5.0697671102068655</Y></Point>
+						<Point><X>51.54518217446061</X><Y>5.069795709688267</Y></Point>
+						<Point><X>51.545113473232206</X><Y>5.069780012495706</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099998">
+
+					<Id>1642753343387</Id>
+					<Name><![CDATA[gisRoute6]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54589004937203</X><Y>5.070057264945451</Y></Point>
+						<Point><X>51.54536876475918</X><Y>5.069950146887837</Y></Point>
+						<Point><X>51.54526851703357</X><Y>5.069948066925553</Y></Point>
+						<Point><X>51.545271750834615</X><Y>5.069774390074858</Y></Point>
+						<Point><X>51.54518443812566</X><Y>5.069778549999427</Y></Point>
+						<Point><X>51.5451812043184</X><Y>5.069796229678838</Y></Point>
+						<Point><X>51.545108702587534</X><Y>5.069779771961199</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099998">
+
+					<Id>1642753381286</Id>
+					<Name><![CDATA[gisRoute7]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54587517408744</X><Y>5.070178942739052</Y></Point>
+						<Point><X>51.54544443547675</X><Y>5.070089504360849</Y></Point>
+						<Point><X>51.5452672235131</X><Y>5.070079104549431</Y></Point>
+						<Point><X>51.545271750834615</X><Y>5.069772310112575</Y></Point>
+						<Point><X>51.54518185107988</X><Y>5.069773350093716</Y></Point>
+						<Point><X>51.54517991079545</X><Y>5.069795189697697</Y></Point>
+						<Point><X>51.54510882414705</X><Y>5.069779778090194</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099998">
+
+					<Id>1642753606376</Id>
+					<Name><![CDATA[gisRoute8]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54596421013855</X><Y>5.070931889085776</Y></Point>
+						<Point><X>51.54524738952774</X><Y>5.070871223519166</Y></Point>
+						<Point><X>51.54526894820706</X><Y>5.0697809766220905</Y></Point>
+						<Point><X>51.54518594723563</X><Y>5.069775776716381</Y></Point>
+						<Point><X>51.54518271342848</X><Y>5.069801776244929</Y></Point>
+						<Point><X>51.54510058511149</X><Y>5.069779362680492</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099998">
+
+					<Id>1642753651860</Id>
+					<Name><![CDATA[gisRoute9]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54595882055204</X><Y>5.071061886728511</Y></Point>
+						<Point><X>51.545245233659244</X><Y>5.070987354746676</Y></Point>
+						<Point><X>51.545267870273335</X><Y>5.069784443225897</Y></Point>
+						<Point><X>51.54518918104255</X><Y>5.069777510018285</Y></Point>
+						<Point><X>51.545181635492725</X><Y>5.069796576339219</Y></Point>
+						<Point><X>51.54510738404987</X><Y>5.06977970548092</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099998">
+
+					<Id>1642753766777</Id>
+					<Name><![CDATA[gisRoute10]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54522259703392</X><Y>5.071943270746259</Y></Point>
+						<Point><X>51.5452630195713</X><Y>5.06978010997114</Y></Point>
+						<Point><X>51.54518379136425</X><Y>5.069774910065431</Y></Point>
+						<Point><X>51.545180557556954</X><Y>5.069795709688268</Y></Point>
+						<Point><X>51.54510139368329</X><Y>5.069779403448436</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRegion>
+					<FillColor>2144175423</FillColor>
+					<FillMaterial>null</FillMaterial>
+					<Id>1642697099617</Id>
+					<Name><![CDATA[_7944622_0]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54451093860721</X><Y>5.069136142270406</Y></Point>
+						<Point><X>51.54450707201733</X><Y>5.069049717584124</Y></Point>
+						<Point><X>51.544532331348066</X><Y>5.069046845010909</Y></Point>
+						<Point><X>51.5445361979009</X><Y>5.069133255329425</Y></Point>
+						<Point><X>51.54451093860721</X><Y>5.069136142270406</Y></Point>
+						<Point><X>51.54451093860721</X><Y>5.069136142270406</Y></Point>
+					</Points>
+				</GISRegion>
+				<GISRoute SourceId="1642697099617" TargetId="1642697099998">
+
+					<Id>1642753863502</Id>
+					<Name><![CDATA[gisRoute11]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.544536197900904</X><Y>5.069133255329425</Y></Point>
+						<Point><X>51.5451466025665</X><Y>5.069065122936096</Y></Point>
+						<Point><X>51.54515307018569</X><Y>5.069145721474592</Y></Point>
+						<Point><X>51.54516277161276</X><Y>5.069143121521738</Y></Point>
+						<Point><X>51.54515307018569</X><Y>5.069478515439996</Y></Point>
+						<Point><X>51.54515953780397</X><Y>5.06948111539285</Y></Point>
+						<Point><X>51.54515630399494</X><Y>5.069738510725466</Y></Point>
+						<Point><X>51.54510614128805</X><Y>5.069750913067077</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099998">
+
+					<Id>1642753900181</Id>
+					<Name><![CDATA[gisRoute12]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.544664762351026</X><Y>5.069517514732816</Y></Point>
+						<Point><X>51.54465991158466</X><Y>5.0695461142142175</Y></Point>
+						<Point><X>51.544671230038716</X><Y>5.069728110914047</Y></Point>
+						<Point><X>51.54510941373828</X><Y>5.0696865116683725</Y></Point>
+						<Point><X>51.54510599093902</X><Y>5.06975090556652</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+				<GISRoute TargetId="1642697099998">
+
+					<Id>1642753936411</Id>
+					<Name><![CDATA[gisRoute13]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-5952982</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineWidth>1</LineWidth>
+					<LineStyle>DASHED</LineStyle>
+					<ReadOnly>false</ReadOnly>
+					<Points>
+						<Point><X>51.54462110543512</X><Y>5.071750874235012</Y></Point>
+						<Point><X>51.544933170617334</X><Y>5.071522078383798</Y></Point>
+						<Point><X>51.54495257356318</X><Y>5.0706588940360335</Y></Point>
+						<Point><X>51.54499299634043</X><Y>5.070565295733265</Y></Point>
+						<Point><X>51.54503180217281</X><Y>5.070586095356102</Y></Point>
+						<Point><X>51.54514498566156</X><Y>5.070591295261812</Y></Point>
+						<Point><X>51.54516923922965</X><Y>5.0698009095939796</Y></Point>
+						<Point><X>51.545113473232206</X><Y>5.069780012495706</Y></Point>
+					</Points>
+					<Bidirectional>true</Bidirectional>
+
+				</GISRoute>
+			</Presentation>
+
+						</GISNetwork>
 			</Presentation>
 
 				</GISMap>
@@ -20191,6 +20705,40 @@ else {
 			</Presentation>
 
 				</Group>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1642758186349</Id>
+					<Name><![CDATA[lsCableSelection]]></Name>
+					<X>1480</X><Y>340</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="140" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[if (lsCableSelection.isSelected() == true){
+	highlightedGISRoute = randomFrom(householdsInBuilding).gisRoute;
+	highlightedGISRoute.setLineColor( yellow );
+	
+	if (previousHighlightedGISRoute != null && previousHighlightedGISRoute != highlightedGISRoute ) {
+		previousHighlightedGISRoute.setLineColor( green );
+	}
+	previousHighlightedGISRoute = highlightedGISRoute;
+}
+else {
+	highlightedGISRoute.setLineColor ( green );
+}]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Selecteer LS-kabel]]></LabelText>
+						<LinkTo>true</LinkTo>
+						<Link>isConnectedLVCableHighlighted</Link>
+	 				</ExtendedProperties>
+				</Control>
 			</Presentation>
 
 				</Level>
@@ -20216,7 +20764,8 @@ else {
 			<Id>1642697396840</Id>
 			<Name><![CDATA[Household]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
-			<StartupCode><![CDATA[findGisRegion();]]></StartupCode>
+			<StartupCode><![CDATA[findGisRegion();
+findGisRoute();]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1642697396838</Id>
@@ -20310,6 +20859,21 @@ else {
 			<CurrentLevel>1642697396839</CurrentLevel>
 			<ConnectionsId>1642697396835</ConnectionsId>
 			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1642757272775</Id>
+					<Name><![CDATA[distanceToNearestPath]]></Name>
+					<X>300</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[999999]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1642697396841</Id>
 					<Name><![CDATA[gid]]></Name>
@@ -20709,6 +21273,48 @@ else {
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1642756972857</Id>
+					<Name><![CDATA[gisRoute]]></Name>
+					<X>300</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[GISRoute]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1642756972855</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1642757079489</Id>
+					<Name><![CDATA[gisNetwork]]></Name>
+					<X>300</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[GISNetwork]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1642757079487</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 			</Variables>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
@@ -20753,6 +21359,35 @@ if ( count != 1 ) {
 	traceln(this.getName() + " count cannot be correct: " + count);
 }
 */]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1642757097031</Id>
+					<Name><![CDATA[findGisRoute]]></Name>
+					<X>300</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[for (GISNetwork g : main.LVNetworkCollection) {
+	for (int i = 0; i < g.getPathCount(); i++) {
+		GISRoute r = g.getPath(i);
+		if (distanceToNearestPath > r.getNearestPoint( ycoord, xcoord, main.pointDummy)) {
+			distanceToNearestPath = r.getNearestPoint( ycoord, xcoord, main.pointDummy);
+			gisRoute = r;
+			gisNetwork = g;
+		}
+	}
+}
+
+if (gisRoute != null){
+	gisRoute.setLineColor( green );
+	gisRoute.setLineStyle( LINE_STYLE_SOLID );
+}
+else {
+	traceln(this + " has no GISRoute connection");
+}]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -23364,6 +23999,30 @@ if (gisRegion == null ) {
 		</Resource>
 		<Resource>
 			<Path><![CDATA[drop down arrow.png]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[Afrikaanderbuurt_midden_lv_cables.shp]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[Afrikaanderbuurt_midden_lv_cables.dbf]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[Afrikaanderbuurt_midden_lv_cables.shx]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[Afrikaanderbuurt_midden_mv_cables.shp]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[Afrikaanderbuurt_midden_mv_cables.dbf]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[Afrikaanderbuurt_midden_mv_cables.shx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>

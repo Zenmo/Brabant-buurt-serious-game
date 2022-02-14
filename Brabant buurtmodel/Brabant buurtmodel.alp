@@ -4,7 +4,7 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.9.202112171712" AlpVersion="8.7.3">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.9.202112171740" AlpVersion="8.7.3">
 <Model>
 	<Id>1642419773326</Id>
 	<Name><![CDATA[Brabant buurtmodel]]></Name>
@@ -263,6 +263,162 @@
 						<Type><![CDATA[GISRoute]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357789871</Id>
+					<Name><![CDATA[utilityScalePVField]]></Name>
+					<X>1300</X><Y>1300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357801432</Id>
+					<Name><![CDATA[utilityScalePVRooftop]]></Name>
+					<X>1300</X><Y>1320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357811544</Id>
+					<Name><![CDATA[LTWarmteSupply]]></Name>
+					<X>1300</X><Y>1380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357842759</Id>
+					<Name><![CDATA[MTWarmteSupply]]></Name>
+					<X>1300</X><Y>1400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357879576</Id>
+					<Name><![CDATA[householdRooftopPVSupply]]></Name>
+					<X>1300</X><Y>1340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357893204</Id>
+					<Name><![CDATA[windElectricitySupply]]></Name>
+					<X>1300</X><Y>1360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357929103</Id>
+					<Name><![CDATA[householdsNaturalGasDemand]]></Name>
+					<X>1300</X><Y>1450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357955860</Id>
+					<Name><![CDATA[householdsGreenGasDemand]]></Name>
+					<X>1300</X><Y>1470</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357968254</Id>
+					<Name><![CDATA[LTWarmteDemand]]></Name>
+					<X>1300</X><Y>1490</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357986720</Id>
+					<Name><![CDATA[MTWarmteDemand]]></Name>
+					<X>1300</X><Y>1510</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644357999975</Id>
+					<Name><![CDATA[baseloadElectricityDemand]]></Name>
+					<X>1300</X><Y>1530</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358017025</Id>
+					<Name><![CDATA[heatPumpElectricityDemand]]></Name>
+					<X>1300</X><Y>1550</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358041898</Id>
+					<Name><![CDATA[EVElectricityDemand]]></Name>
+					<X>1300</X><Y>1570</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1642697735827</Id>
 					<Name><![CDATA[buildingGISRegions]]></Name>
@@ -330,6 +486,264 @@
 
 				</Variable>
 			</Variables>
+			<ActionChartElements>
+				<ActionChartElement Class="ActionChart">
+					<Id>1644358453116</Id>
+					<Name><![CDATA[electricityCalculations]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>200</X><Y>1840</Y>
+					<Label><X>-30</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties AccessType="default" StaticFunction="false" Width="20" Height="20" Next="1644358453118" >
+						<FillColor/>
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					</Properties>
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1644358453118</Id>
+					<Name><![CDATA[code]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>200</X><Y>1890</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Baseload electricity demand]]></Comment>
+					<Properties Width="140" Height="80" Previous="1644358453116" Next="1644358453119" >
+						<FillColor/>
+						<Code><![CDATA[for (Neighborhood n : neighborhoods){
+	n.electricityCalculation();
+}]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Decision">
+					<Id>1644358453119</Id>
+					<Name><![CDATA[decision]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>200</X><Y>1990</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[whole hour]]></Comment>
+					<Properties Width="100" Height="50" Appearance="0" Previous="1644358453118" Next="1644358453132" TrueAction="1644358453121" >
+						<FillColor/>
+						<Condition><![CDATA[time() == floor(time())]]></Condition>
+					</Properties>
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1644358453121</Id>
+					<Name><![CDATA[code6]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>270</X><Y>2045</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Heat demand]]></Comment>
+					<Properties Width="100" Height="55" Previous="1644358453119" Next="1644358453122" >
+						<FillColor/>
+						<Code><![CDATA[heatDemandFraction();
+for(Neighborhood n : neighborhoods){
+	n.heatDemandCalculation();
+}
+
+spaceHeatingDemand = sum(neighborhoods, x->x.spaceHeatingDemand);
+
+
+/*
+for (Gemeente g : gemeentes){
+	//g.energyDemandCalculations();
+}
+
+industryElectricityDemand = sum(gemeentes, x->x.industryElectricityDemand);
+agricultureElectricityDemand = sum(gemeentes, x->x.agricultureElectricityDemand);
+industrynaturalGasDemand = sum(gemeentes, x->x.industrynaturalGasDemand);
+agriculturenaturalGasDemand = sum(gemeentes, x->x.agriculturenaturalGasDemand);
+*/]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1644358453122</Id>
+					<Name><![CDATA[code4]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>270</X><Y>2120</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Electricity demand]]></Comment>
+					<Properties Width="100" Height="55" Previous="1644358453121" Next="1644358453124" >
+						<FillColor/>
+						<Code><![CDATA[for (Gemeente g : gemeentes){
+	g.energyDemandCalculations();
+}
+
+industryElectricityDemand = sum(gemeentes, x->x.industryElectricityDemand);
+agricultureElectricityDemand = sum(gemeentes, x->x.agricultureElectricityDemand);
+industryNaturalGasDemand = sum(gemeentes, x->x.industryNaturalGasDemand);
+agricultureNaturalGasDemand = sum(gemeentes, x->x.agricultureNaturalGasDemand);]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1644358453124</Id>
+					<Name><![CDATA[code7]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>270</X><Y>2195</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Heat supply]]></Comment>
+					<Properties Width="100" Height="55" Previous="1644358453122" Next="1644358453125" >
+						<FillColor/>
+						<Code><![CDATA[
+for(Neighborhood n : neighborhoods){
+	if (n.totaalAantalAansluitingen > 0){
+		n.heatSupplyCalculation();
+	}
+}
+
+/*
+for (Gemeente g : gemeentes){
+	//g.energyDemandCalculations();
+}
+*/
+
+//Heat Supply
+builtEnvironmentNaturalGasDemand = sumWhere(neighborhoods, x ->x.naturalGasDemand, x->x.naturalGasDemand > 0); 
+builtEnvironmentBaseloadElectricityDemand = sum(neighborhoods, x->x.baseloadElectricityDemand);
+builtEnvironmentHeatPumpElectricityDemand = sum(neighborhoods, x->x.heatPumpElectricityDemand);
+builtEnvironmentHybridHeatPumpNaturalGasDemand = sum(neighborhoods, x->x.hybridHeatPumpNaturalGasDemand);
+builtEnvironmentHybridHeatPumpElectricityDemand = sum(neighborhoods, x->x.hybridHeatPumpElectricityDemand);
+builtEnvironmentLTDistrictHeatingHeatDemand = sum(neighborhoods, x->x.LTDistrictHeatingHeatDemand);
+builtEnvironmentMTDistrictHeatingHeatDemand = sum(neighborhoods, x->x.MTDistrictHeatingHeatDemand);
+builtEnvironmentGreenGasDemand = sum(neighborhoods, x->x.greenGasDemand);
+builtEnvironmentEVElectricityDemand = sum(neighborhoods, x->x.EVElectricityDemand);]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1644358453125</Id>
+					<Name><![CDATA[code1]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>270</X><Y>2270</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[wind]]></Comment>
+					<Properties Width="100" Height="30" Previous="1644358453124" Next="1644358453127" >
+						<FillColor/>
+						<Code><![CDATA[for (WindTurbine w : windTurbines) { 
+	w.electricitySupplyCalculation();
+}
+
+windElectricitySupply = sum(windTurbines, x -> x.electricitySupply);]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1644358453127</Id>
+					<Name><![CDATA[code2]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>270</X><Y>2320</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[solar]]></Comment>
+					<Properties Width="100" Height="30" Previous="1644358453125" Next="1644358453128" >
+						<FillColor/>
+						<Code><![CDATA[for (Neighborhood n : neighborhoods){
+	n.pvSupplyCalculation();
+}
+
+householdRooftopPVSupply = sum(neighborhoods, x -> x.rooftopSolarElectricitySupply);
+
+for (Gemeente g : gemeentes){
+	g.utilityScaleSolarCalculations();
+}
+utilityScalePVRooftop = sum(gemeentes, x->x.utilityScalePVRooftop);
+utilityScalePVField = sum(gemeentes, x->x.utilityScalePVField);
+utilityScalePVSupply = utilityScalePVRooftop + utilityScalePVField;]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1644358453128</Id>
+					<Name><![CDATA[code8]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>270</X><Y>2370</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Trafo]]></Comment>
+					<Properties Width="100" Height="30" Previous="1644358453127" Next="1644358453130" >
+						<FillColor/>
+						<Code><![CDATA[for ( HSMSTransformer h : hSMSTransformers ) {
+	if (gisRegion != null){
+		h.sumTransformerLoad();
+	}
+}]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1644358453130</Id>
+					<Name><![CDATA[code3]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>270</X><Y>2420</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Charts]]></Comment>
+					<Properties Width="100" Height="30" Previous="1644358453128" >
+						<FillColor/>
+						<Code><![CDATA[energyDemandChart.updateData();
+energySupplyChart.updateData();
+
+energyDemandChart1.updateData();
+energySupplyChart1.updateData();]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Return">
+					<Id>1644358453132</Id>
+					<Name><![CDATA[returnStatement]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>200</X><Y>2490</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="80" Height="20" Previous="1644358453119" >
+						<FillColor/>
+					</Properties>	
+				</ActionChartElement>
+			</ActionChartElements>
+			<Events>
+				<Event>
+					<Id>1644358379790</Id>
+					<Name><![CDATA[supplyDemandCalculationTrigger]]></Name>
+					<X>100</X><Y>1800</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="cyclic">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1644393600000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[0.25]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+				</Event>
+			</Events>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1642419773327</Id>
@@ -439,15 +853,6 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[usage]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[buildType]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[xcoord1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[ycoord1]]></Name>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[neighborhood]]></Name>
@@ -890,18 +1295,6 @@
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
 								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[gebruiksdo]]></ItemName>
-							</Value>
-						</Item>
-						<Item>
-							<Key>
-								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[Household]]></ClassName>
-								<ItemName><![CDATA[buildType]]></ItemName>
-							</Key>
-							<Value>
-								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
-								<ItemName><![CDATA[woningtype]]></ItemName>
 							</Value>
 						</Item>	
 					</ParameterToDatabaseColumnMapping>
@@ -2124,9 +2517,9 @@ else {
 							<Bounds><LonMin>5.065155387754767</LonMin><LatMin>51.54312653638466</LatMin><LonMax>5.080125200915876</LonMax><LatMax>51.54790206914653</LatMax></Bounds>
 						</GISShapeFile>
 					</GISShapes>
-					<Latitude>51.54641423836079</Latitude>
-					<Longitude>5.070749892385957</Longitude>
-					<Scale>947</Scale>
+					<Latitude>51.546317226665344</Latitude>
+					<Longitude>5.073339445429252</Longitude>
+					<Scale>3788</Scale>
 					<BorderColor>-4144960</BorderColor>
 					<FillColor>-1</FillColor>
 					<ShowTiles>true</ShowTiles>
@@ -20886,7 +21279,7 @@ else {
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1642758186349</Id>
 					<Name><![CDATA[lsCableSelection]]></Name>
-					<X>1480</X><Y>340</Y>
+					<X>1660</X><Y>300</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20916,6 +21309,275 @@ else {
 						<Link>isConnectedLVCableHighlighted</Link>
 	 				</ExtendedProperties>
 				</Control>
+				<Group>
+					<Id>1644356890519</Id>
+					<Name><![CDATA[vraagEnAanbodGroup]]></Name>
+					<X>1669</X><Y>580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+    			<TimeStackChart>
+					<Id>1644356890528</Id>
+					<Name><![CDATA[energySupplyChart]]></Name>
+					<X>-240</X><Y>50</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1641542400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>470</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>390</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<DatasetExpression>
+					<Id>1644356890520</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-9543</Color>
+					<Expression2><![CDATA[LTWarmteSupply]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[LT-warmte]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644356890521</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-744352</Color>
+					<Expression2><![CDATA[MTWarmteSupply]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[MT-warmte]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644356890522</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-5247250</Color>
+					<Expression2><![CDATA[windElectricitySupply]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Wind op land]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644356890523</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-10496</Color>
+					<Expression2><![CDATA[householdRooftopPVSupply]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[PV kleinschalig]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644356890524</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-989556</Color>
+					<Expression2><![CDATA[utilityScalePVRooftop]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[PV grootschalig op dak]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644356890525</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-6632142</Color>
+					<Expression2><![CDATA[utilityScalePVField]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[PV grootschalig op veld]]></Title>
+					</DatasetExpression>
+					<SamplesToKeep>168</SamplesToKeep>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<LabelFormat>HH_mm</LabelFormat>
+    			</TimeStackChart>
+    			<TimeStackChart>
+					<Id>1644356890538</Id>
+					<Name><![CDATA[energyDemandChart]]></Name>
+					<X>-240</X><Y>-240</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1641542400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>470</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>390</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<DatasetExpression>
+					<Id>1644356890530</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-4144960</Color>
+					<Expression2><![CDATA[householdsNaturalGasDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Aardgas]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644356890531</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-6632142</Color>
+					<Expression2><![CDATA[householdsGreenGasDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Groen gas]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644356890532</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-744352</Color>
+					<Expression2><![CDATA[MTWarmteDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[MT-warmte]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644356890533</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-9543</Color>
+					<Expression2><![CDATA[LTWarmteDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[LT-warmte]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>0</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-5383962</Color>
+					<Expression2><![CDATA[baseloadElectricityDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Elektriciteit apparaten en licht]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>0</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-8097537</Color>
+					<Expression2><![CDATA[heatPumpElectricityDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Elektriciteit warmtepomp]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644356890535</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-12004916</Color>
+					<Expression2><![CDATA[EVElectricityDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Elektriciteit elektrische auto's]]></Title>
+					</DatasetExpression>
+					<SamplesToKeep>168</SamplesToKeep>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<LabelFormat>HH_mm</LabelFormat>
+    			</TimeStackChart>
+				<Text>
+					<Id>1644356890540</Id>
+					<Name><![CDATA[text20]]></Name>
+					<X>-200</X><Y>-250</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Energievraag]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1644356890542</Id>
+					<Name><![CDATA[text21]]></Name>
+					<X>-190</X><Y>40</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Energieaanbod (lokaal)]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -20944,8 +21606,8 @@ else {
 			<StartupCode><![CDATA[findGisRegion();
 findGisRoute();
 
-if (!buildType.equals("")) {	
-	if (buildType.equals("tussenwoning")) {
+if (!woningtype.equals("")) {	
+	if (woningtype.equals("tussenwoning")) {
 		opp = 215.5; //toDo: this value is too large, find a more realistic value
 		heatLossArea = heatLossAreaTussen;
 		glassArea = glassAreaTussen;
@@ -20953,7 +21615,7 @@ if (!buildType.equals("")) {
 		installedAreaPV = amountPVteracced * 1.6;
 		ratedElectricPowerHpHeating = 4;
 	}
-	if (buildType.equals("hoekwoning")) {
+	if (woningtype.equals("hoekwoning")) {
 		opp = 127.5;
 		heatLossArea = heatLossAreaHoek;
 		glassArea = glassAreaHoek;
@@ -20961,7 +21623,7 @@ if (!buildType.equals("")) {
 		installedAreaPV = amountPVcornered * 1.6;
 		ratedElectricPowerHpHeating = 4;
 	}
-	if (buildType.equals("twee-onder-een-kap")) { //toDo: check of dit goede naam is
+	if (woningtype.equals("twee-onder-een-kap")) { //toDo: check of dit goede naam is
 		opp = 142;
 		heatLossArea = heatLossAreaSemiDetached;
 		glassArea = glassAreaSemiDetached;
@@ -20969,7 +21631,7 @@ if (!buildType.equals("")) {
 		installedAreaPV = amountPVsemiDetached * 1.6;
 		ratedElectricPowerHpHeating = 4;
 	}
-	if (buildType.equals("vrijstaande woning")) {
+	if (woningtype.equals("vrijstaande woning")) {
 		opp = 164.7;
 		heatLossArea = heatLossAreaVrij;
 		glassArea = glassAreaVrij;
@@ -20977,7 +21639,7 @@ if (!buildType.equals("")) {
 		installedAreaPV = amountPVdetached * 1.6;
 		ratedElectricPowerHpHeating = 4;
 	}
-	if (buildType.equals("appartement")) {
+	if (woningtype.equals("appartement")) {
 		opp = 106;
 		heatLossArea = heatLossAreaAp;
 		glassArea = glassAreaAp;
@@ -21147,7 +21809,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1642757272775</Id>
 					<Name><![CDATA[distanceToNearestPath]]></Name>
-					<X>-150</X><Y>290</Y>
+					<X>-150</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -21975,6 +22637,162 @@ if (!buildType.equals("")) {
 						<Type><![CDATA[double]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124331</Id>
+					<Name><![CDATA[utilityScalePVField]]></Name>
+					<X>562</X><Y>1102</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124333</Id>
+					<Name><![CDATA[utilityScalePVRooftop]]></Name>
+					<X>562</X><Y>1122</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124335</Id>
+					<Name><![CDATA[LTWarmteSupply]]></Name>
+					<X>562</X><Y>1182</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124337</Id>
+					<Name><![CDATA[MTWarmteSupply]]></Name>
+					<X>562</X><Y>1202</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124339</Id>
+					<Name><![CDATA[householdRooftopPVSupply]]></Name>
+					<X>562</X><Y>1142</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124341</Id>
+					<Name><![CDATA[windElectricitySupply]]></Name>
+					<X>562</X><Y>1162</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124343</Id>
+					<Name><![CDATA[householdsNaturalGasDemand]]></Name>
+					<X>562</X><Y>1252</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124345</Id>
+					<Name><![CDATA[householdsGreenGasDemand]]></Name>
+					<X>562</X><Y>1272</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124347</Id>
+					<Name><![CDATA[LTWarmteDemand]]></Name>
+					<X>562</X><Y>1292</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124349</Id>
+					<Name><![CDATA[MTWarmteDemand]]></Name>
+					<X>562</X><Y>1312</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124351</Id>
+					<Name><![CDATA[baseloadElectricityDemand]]></Name>
+					<X>562</X><Y>1332</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124353</Id>
+					<Name><![CDATA[heatPumpElectricityDemand]]></Name>
+					<X>562</X><Y>1352</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644358124355</Id>
+					<Name><![CDATA[EVElectricityDemand]]></Name>
+					<X>562</X><Y>1372</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1642697396841</Id>
 					<Name><![CDATA[gid]]></Name>
@@ -21999,7 +22817,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396842</Id>
 					<Name><![CDATA[identifica]]></Name>
-					<X>-400</X><Y>90</Y>
+					<X>-400</X><Y>60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22020,7 +22838,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396843</Id>
 					<Name><![CDATA[oppervlakt]]></Name>
-					<X>-400</X><Y>140</Y>
+					<X>-400</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22041,7 +22859,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396844</Id>
 					<Name><![CDATA[status]]></Name>
-					<X>-400</X><Y>190</Y>
+					<X>-400</X><Y>100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22062,7 +22880,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396845</Id>
 					<Name><![CDATA[gebruiksdo]]></Name>
-					<X>-400</X><Y>240</Y>
+					<X>-400</X><Y>120</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22083,7 +22901,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396846</Id>
 					<Name><![CDATA[openbareR]]></Name>
-					<X>-400</X><Y>290</Y>
+					<X>-400</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22104,7 +22922,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396847</Id>
 					<Name><![CDATA[huisnummer]]></Name>
-					<X>-400</X><Y>340</Y>
+					<X>-400</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22125,7 +22943,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396848</Id>
 					<Name><![CDATA[huisletter]]></Name>
-					<X>-400</X><Y>390</Y>
+					<X>-400</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22146,7 +22964,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396849</Id>
 					<Name><![CDATA[toevoeging]]></Name>
-					<X>-400</X><Y>440</Y>
+					<X>-400</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22167,7 +22985,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396850</Id>
 					<Name><![CDATA[postcode]]></Name>
-					<X>-400</X><Y>490</Y>
+					<X>-400</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22188,7 +23006,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396851</Id>
 					<Name><![CDATA[woonplaats]]></Name>
-					<X>-400</X><Y>540</Y>
+					<X>-400</X><Y>240</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22209,7 +23027,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396852</Id>
 					<Name><![CDATA[bouwjaar]]></Name>
-					<X>-400</X><Y>590</Y>
+					<X>-400</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22230,7 +23048,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396853</Id>
 					<Name><![CDATA[pandidenti]]></Name>
-					<X>-400</X><Y>640</Y>
+					<X>-400</X><Y>280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22251,7 +23069,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396854</Id>
 					<Name><![CDATA[pandstatus]]></Name>
-					<X>-400</X><Y>690</Y>
+					<X>-400</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22272,7 +23090,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396855</Id>
 					<Name><![CDATA[rdfSeeals]]></Name>
-					<X>-400</X><Y>740</Y>
+					<X>-400</X><Y>320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22293,7 +23111,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396856</Id>
 					<Name><![CDATA[xcoord]]></Name>
-					<X>-400</X><Y>790</Y>
+					<X>-400</X><Y>340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22314,7 +23132,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396857</Id>
 					<Name><![CDATA[ycoord]]></Name>
-					<X>-400</X><Y>840</Y>
+					<X>-400</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22335,7 +23153,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697396858</Id>
 					<Name><![CDATA[woningtype]]></Name>
-					<X>-400</X><Y>890</Y>
+					<X>-400</X><Y>380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22356,7 +23174,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642697682819</Id>
 					<Name><![CDATA[gisRegion]]></Name>
-					<X>-150</X><Y>40</Y>
+					<X>-150</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22377,7 +23195,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642756972857</Id>
 					<Name><![CDATA[gisRoute]]></Name>
-					<X>-150</X><Y>140</Y>
+					<X>-150</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22398,7 +23216,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1642757079489</Id>
 					<Name><![CDATA[gisNetwork]]></Name>
-					<X>-150</X><Y>240</Y>
+					<X>-150</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22430,70 +23248,6 @@ if (!buildType.equals("")) {
 						<SdArray>false</SdArray>
 						<ParameterEditor>
 							<Id>1643718072912</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1643718072938</Id>
-					<Name><![CDATA[buildType]]></Name>
-					<X>20</X><Y>140</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[String]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<UnitOfValue Class="SpeedUnits"><![CDATA[MPS]]></UnitOfValue>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1643718072936</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1643718072948</Id>
-					<Name><![CDATA[xcoord1]]></Name>
-					<X>20</X><Y>160</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[double]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1643718072946</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1643718072973</Id>
-					<Name><![CDATA[ycoord1]]></Name>
-					<X>20</X><Y>180</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[double]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1643718072971</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -22546,7 +23300,7 @@ if (!buildType.equals("")) {
 				<Variable Class="Parameter">
 					<Id>1643718073012</Id>
 					<Name><![CDATA[opp]]></Name>
-					<X>20</X><Y>240</Y>
+					<X>20</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -23965,7 +24719,7 @@ totalElectricityConsumptionArray.set(i, totalElectricityConsumptionArray.get(i) 
 						<FillColor/>
 						<Code><![CDATA[predictedIrradiancePV = irradiance2018(startHour + time() + i/24);
 
-if (!buildType.equals("other")){
+if (!woningtype.equals("other")){
 	baseLoad = householdDemandProfile(startHour + time() + i/24)*baseloadFactor;
 
 	if (pvHouse == true){
@@ -24177,7 +24931,7 @@ heatBalanceArray.remove(0);
 						<Code><![CDATA[predictedIrradiancePV = irradiance2018(startHour + time() + 24);
 
 
-if (!buildType.equals("other")){
+if (!woningtype.equals("other")){
 	baseLoad = householdDemandProfile(startHour + time() + 24)* baseloadFactor;
 	
 	if (pvHouse == true){
@@ -24271,7 +25025,7 @@ if (helpCount == 4 ) {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1642697674077</Id>
 					<Name><![CDATA[findGisRegion]]></Name>
-					<X>-150</X><Y>90</Y>
+					<X>-150</X><Y>120</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24314,7 +25068,7 @@ if ( count != 1 ) {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1642757097031</Id>
 					<Name><![CDATA[findGisRoute]]></Name>
-					<X>-150</X><Y>190</Y>
+					<X>-150</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -27099,7 +27853,7 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 					<Name><![CDATA[text16]]></Name>
 					<X>1120</X><Y>440</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
@@ -27183,7 +27937,7 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 					<Name><![CDATA[text20]]></Name>
 					<X>1120</X><Y>640</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
@@ -27199,6 +27953,296 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+				<Text>
+					<Id>1644356411044</Id>
+					<Name><![CDATA[text21]]></Name>
+					<X>-160</X><Y>80</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[GIS connection]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>14</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Group>
+					<Id>1644358102426</Id>
+					<Name><![CDATA[vraagEnAanbodGroup]]></Name>
+					<X>1100</X><Y>1290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+
+			<Presentation>
+    			<TimeStackChart>
+					<Id>1644358102435</Id>
+					<Name><![CDATA[energySupplyChart]]></Name>
+					<X>-240</X><Y>50</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1641542400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>470</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>390</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<DatasetExpression>
+					<Id>1644358102427</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-9543</Color>
+					<Expression2><![CDATA[LTWarmteSupply]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[LT-warmte]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102428</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-744352</Color>
+					<Expression2><![CDATA[MTWarmteSupply]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[MT-warmte]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102429</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-5247250</Color>
+					<Expression2><![CDATA[windElectricitySupply]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Wind op land]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102430</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-10496</Color>
+					<Expression2><![CDATA[householdRooftopPVSupply]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[PV kleinschalig]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102431</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-989556</Color>
+					<Expression2><![CDATA[utilityScalePVRooftop]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[PV grootschalig op dak]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102432</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-6632142</Color>
+					<Expression2><![CDATA[utilityScalePVField]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[PV grootschalig op veld]]></Title>
+					</DatasetExpression>
+					<SamplesToKeep>168</SamplesToKeep>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<LabelFormat>HH_mm</LabelFormat>
+    			</TimeStackChart>
+    			<TimeStackChart>
+					<Id>1644358102445</Id>
+					<Name><![CDATA[energyDemandChart]]></Name>
+					<X>-240</X><Y>-240</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<AutoUpdate>false</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1641542400000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+					</RecurrenceCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Width>470</Width>
+					<Height>210</Height>
+					<BackgroundColor/>
+					<BorderColor/>
+					<ChartArea>
+						<XOffset>50</XOffset>
+						<YOffset>30</YOffset>
+						<Width>390</Width>
+						<Height>120</Height>
+						<BackgroundColor>-1</BackgroundColor>
+						<BorderColor>-16777216</BorderColor>
+						<GridColor>-12566464</GridColor>
+					</ChartArea>
+					<Legend>
+						<Place>SOUTH</Place>
+						<TextColor>-16777216</TextColor>
+						<Size>30</Size>
+					</Legend>
+					<Labels>
+						<HorLabelsPosition>DEFAULT</HorLabelsPosition>
+						<VerLabelsPosition>DEFAULT</VerLabelsPosition>
+						<TextColor>-12566464</TextColor>
+					</Labels>
+					<ShowLegend>true</ShowLegend>
+					<TimeWindowsMovementType>MOVEMENT_WITH_TIME</TimeWindowsMovementType>		
+					<TimeWindowUnits>MODEL_TIME_UNIT</TimeWindowUnits>
+					<TimeWindowExpression><![CDATA[100]]></TimeWindowExpression>
+					<DatasetExpression>
+					<Id>1644358102436</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-4144960</Color>
+					<Expression2><![CDATA[householdsNaturalGasDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Aardgas]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102437</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-6632142</Color>
+					<Expression2><![CDATA[householdsGreenGasDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Groen gas]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102438</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-744352</Color>
+					<Expression2><![CDATA[MTWarmteDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[MT-warmte]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102439</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-9543</Color>
+					<Expression2><![CDATA[LTWarmteDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[LT-warmte]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102440</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-5383962</Color>
+					<Expression2><![CDATA[baseloadElectricityDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Elektriciteit apparaten en licht]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102441</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-8097537</Color>
+					<Expression2><![CDATA[heatPumpElectricityDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Elektriciteit warmtepomp]]></Title>
+					</DatasetExpression>
+					<DatasetExpression>
+					<Id>1644358102442</Id>
+					<Expression><![CDATA[my_dataset]]></Expression>
+					<Color>-12004916</Color>
+					<Expression2><![CDATA[EVElectricityDemand]]></Expression2>
+					<Expression2Flag>true</Expression2Flag>  
+							<Title><![CDATA[Elektriciteit elektrische auto's]]></Title>
+					</DatasetExpression>
+					<SamplesToKeep>168</SamplesToKeep>
+					<VerScaleToExpression><![CDATA[1]]></VerScaleToExpression>
+					<VerScaleType>AUTO</VerScaleType>
+					<LabelFormat>HH_mm</LabelFormat>
+    			</TimeStackChart>
+				<Text>
+					<Id>1644358102447</Id>
+					<Name><![CDATA[text22]]></Name>
+					<X>-200</X><Y>-250</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Energievraag]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1644358102449</Id>
+					<Name><![CDATA[text23]]></Name>
+					<X>-190</X><Y>40</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Energieaanbod (lokaal)]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>22</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -29678,12 +30722,6 @@ if (gisRegion == null ) {
     <RequiredLibraryReference>
 		<LibraryName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></LibraryName>
 		<VersionMajor>1</VersionMajor>
-		<VersionMinor>0</VersionMinor>
-		<VersionBuild>0</VersionBuild>
-    </RequiredLibraryReference>
-    <RequiredLibraryReference>
-		<LibraryName><![CDATA[zenmo_neighborhoods]]></LibraryName>
-		<VersionMajor>0</VersionMajor>
 		<VersionMinor>0</VersionMinor>
 		<VersionBuild>0</VersionBuild>
     </RequiredLibraryReference>

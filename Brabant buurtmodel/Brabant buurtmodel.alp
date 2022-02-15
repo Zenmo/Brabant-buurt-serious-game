@@ -17,7 +17,6 @@
 			<Id>1642419773332</Id>
 			<Name><![CDATA[Main]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
-			<StartupCode><![CDATA[setSun();]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1642419773330</Id>
@@ -21858,7 +21857,10 @@ else {
 			<Id>1642697396840</Id>
 			<Name><![CDATA[Household]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
-			<StartupCode><![CDATA[findGisRegion();
+			<StartupCode><![CDATA[firstDayOfYear = toDate(2022, 0, 1, 00, 00, 00);
+startHour = differenceInCalendarUnits(HOUR, firstDayOfYear, date());
+
+findGisRegion();
 findGisRoute();
 
 if (!buildType.equals("")) {	
@@ -21920,7 +21922,7 @@ if (!buildType.equals("")) {
 	airInfiltration = airInfiltrationRate()/3600 * averageArea * averageHeightFloors; //m3/s
 
 	//Space heating/cooling
-	tempInside = wantedInsideTemp;
+	tempInside = setpointInsideTemp;
 	predictedInsideTemp = tempInside;
 	//insideTempArray.add(tempInside);
 	
@@ -22086,9 +22088,6 @@ if (!buildType.equals("")) {
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
-						<InitialValue Class="CodeValue">
-							<Code><![CDATA[uniform_discr(19,21)]]></Code>
-						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
@@ -22950,6 +22949,21 @@ if (!buildType.equals("")) {
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1644937990068</Id>
+					<Name><![CDATA[setpointInsideTemp]]></Name>
+					<X>200</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[uniform_discr(19,21)]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
@@ -24836,9 +24850,6 @@ heatExchangeEnvironment= - ( heatExchangeGlass + heatExchangeWall + heatExchange
 heatExchangeInfiltration = - 1 * 1.276 * airInfiltration * (predictedInsideTemp - predictedOutsideTemp)/1000; //kW
 heatExchangeVentilation =  - 1 * cpAir * rhoAir * flowRateVentilation * (predictedInsideTemp - predictedOutsideTemp); // kW
 
-
-
-
 // Heat inflow via irradiance
 if (main.sunAltitude.get(i) > 0) {
 	horizontalCompIrradiance = irradiance2018(startHour + time() + i)/tan(toRadians(main.sunAltitude.get(i)));
@@ -24860,10 +24871,15 @@ integrer = main.getMonth()*24 + main.getHourOfDay();
 
 heatDemand = heatExchangeEnvironment + heatExchangeInfiltration + heatExchangeVentilation;
 
-if (predictedInsideTemp < wantedInsideTemp - allowedTempVariation/2) {
+
+wantedInsideTemp = hourOfDay < 6 || hourOfDay > 9 ? 16 : setpointInsideTemp;
+
+
+
+if (predictedInsideTemp < wantedInsideTemp - allowedTempVariation) {
 	predictedStatusHouse = "heating";
 }
-if (predictedStatusHouse == "heating" && predictedInsideTemp >= wantedInsideTemp + allowedTempVariation/2){
+if (predictedStatusHouse == "heating" && predictedInsideTemp >= wantedInsideTemp + allowedTempVariation){
 		predictedStatusHouse = "no heating or cooling needed";
 }
 
@@ -25074,12 +25090,12 @@ integrer = main.getMonth()*24 + main.getHourOfDay();
 
 heatDemand = heatExchangeEnvironment + heatExchangeInfiltration + heatExchangeVentilation;
 
+wantedInsideTemp = hourOfDay < 6 || hourOfDay > 21 ? 16 : setpointInsideTemp;
 
-
-if (predictedInsideTemp < wantedInsideTemp - allowedTempVariation/2) {
+if (predictedInsideTemp < wantedInsideTemp - allowedTempVariation) {
 	predictedStatusHouse = "heating";
 }
-if (predictedStatusHouse == "heating" && predictedInsideTemp >= wantedInsideTemp + allowedTempVariation/2){
+if (predictedStatusHouse == "heating" && predictedInsideTemp >= wantedInsideTemp + allowedTempVariation){
 		predictedStatusHouse = "no heating or cooling needed";
 }
 
@@ -30861,9 +30877,9 @@ if (gisRegion == null ) {
 		<MaximumMemory>512</MaximumMemory>
 		<ModelTimeProperties>
 			<StopOption><![CDATA[Stop at specified time]]></StopOption>
-			<InitialDate><![CDATA[1642377600000]]></InitialDate>	
+			<InitialDate><![CDATA[1644883200000]]></InitialDate>	
 			<InitialTime><![CDATA[0.0]]></InitialTime>	
-			<FinalDate><![CDATA[1645056000000]]></FinalDate>	
+			<FinalDate><![CDATA[1645243200000]]></FinalDate>	
 			<FinalTime><![CDATA[100.0]]></FinalTime>	
 		</ModelTimeProperties>
 		<AnimationProperties>
@@ -30930,7 +30946,7 @@ if (gisRegion == null ) {
 			</PresentationProperties>
 			<ModelTimeProperties>
 				<StopOption><![CDATA[Never]]></StopOption>
-				<InitialDate><![CDATA[1642377600000]]></InitialDate>	
+				<InitialDate><![CDATA[1652832000000]]></InitialDate>	
 				<InitialTime><![CDATA[0.0]]></InitialTime>	
 				<FinalDate><![CDATA[1645056000000]]></FinalDate>	
 				<FinalTime><![CDATA[100.0]]></FinalTime>	

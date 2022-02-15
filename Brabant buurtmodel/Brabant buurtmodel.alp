@@ -1506,6 +1506,9 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 						<Parameter>
 							<Name><![CDATA[internalHeatCapacityHeavy]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[shgc]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -22441,7 +22444,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596556</Id>
 					<Name><![CDATA[heatpumpType]]></Name>
-					<X>460</X><Y>620</Y>
+					<X>460</X><Y>640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22453,7 +22456,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596561</Id>
 					<Name><![CDATA[hpEfficiency]]></Name>
-					<X>660</X><Y>680</Y>
+					<X>660</X><Y>700</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22465,7 +22468,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596566</Id>
 					<Name><![CDATA[COPSpaceHeating]]></Name>
-					<X>660</X><Y>660</Y>
+					<X>660</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22477,7 +22480,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596572</Id>
 					<Name><![CDATA[COPCooling]]></Name>
-					<X>660</X><Y>640</Y>
+					<X>660</X><Y>660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22489,7 +22492,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596577</Id>
 					<Name><![CDATA[spaceHeatingPowerElectric]]></Name>
-					<X>460</X><Y>680</Y>
+					<X>460</X><Y>700</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22501,7 +22504,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596582</Id>
 					<Name><![CDATA[ratedElectricPowerHpHeating]]></Name>
-					<X>460</X><Y>700</Y>
+					<X>460</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22513,7 +22516,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596588</Id>
 					<Name><![CDATA[ratedElectricPowerHpCooling]]></Name>
-					<X>460</X><Y>720</Y>
+					<X>460</X><Y>740</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22525,7 +22528,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596593</Id>
 					<Name><![CDATA[coolingPowerElectric]]></Name>
-					<X>660</X><Y>720</Y>
+					<X>660</X><Y>740</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22537,7 +22540,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596599</Id>
 					<Name><![CDATA[COPDhw]]></Name>
-					<X>660</X><Y>620</Y>
+					<X>660</X><Y>640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22549,7 +22552,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596605</Id>
 					<Name><![CDATA[hpElectricityUsage]]></Name>
-					<X>660</X><Y>760</Y>
+					<X>660</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22561,7 +22564,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720596617</Id>
 					<Name><![CDATA[totalHpElectricityUsage]]></Name>
-					<X>660</X><Y>780</Y>
+					<X>660</X><Y>800</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -22573,7 +22576,7 @@ if (!buildType.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1643720902509</Id>
 					<Name><![CDATA[hpInflow]]></Name>
-					<X>660</X><Y>800</Y>
+					<X>660</X><Y>820</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24231,7 +24234,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720596625</Id>
 					<Name><![CDATA[groundSourceHP]]></Name>
-					<X>460</X><Y>640</Y>
+					<X>460</X><Y>660</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24252,7 +24255,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720596637</Id>
 					<Name><![CDATA[airSourceHP]]></Name>
-					<X>460</X><Y>660</Y>
+					<X>460</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24273,7 +24276,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720596648</Id>
 					<Name><![CDATA[EERcoolingWWHP]]></Name>
-					<X>460</X><Y>820</Y>
+					<X>460</X><Y>840</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24299,7 +24302,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720596659</Id>
 					<Name><![CDATA[EERcoolingAWHP]]></Name>
-					<X>460</X><Y>840</Y>
+					<X>460</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24323,7 +24326,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720596670</Id>
 					<Name><![CDATA[tempGroundWater]]></Name>
-					<X>460</X><Y>800</Y>
+					<X>460</X><Y>820</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24347,7 +24350,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720596682</Id>
 					<Name><![CDATA[tempSpaceHeatingWater]]></Name>
-					<X>460</X><Y>760</Y>
+					<X>460</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24372,7 +24375,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 					<Id>1643720596693</Id>
 					<Name><![CDATA[GSHPpassiveCoolingPowerThermal]]></Name>
 					<Description><![CDATA[kW]]></Description>
-					<X>660</X><Y>700</Y>
+					<X>660</X><Y>720</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24396,7 +24399,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720596713</Id>
 					<Name><![CDATA[DHWTemp]]></Name>
-					<X>460</X><Y>740</Y>
+					<X>460</X><Y>760</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24420,7 +24423,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720874006</Id>
 					<Name><![CDATA[variableStageHP]]></Name>
-					<X>460</X><Y>900</Y>
+					<X>460</X><Y>920</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24444,7 +24447,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720874013</Id>
 					<Name><![CDATA[singleStageHP]]></Name>
-					<X>460</X><Y>860</Y>
+					<X>460</X><Y>880</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24468,7 +24471,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643720874018</Id>
 					<Name><![CDATA[twoStageHP]]></Name>
-					<X>460</X><Y>880</Y>
+					<X>460</X><Y>900</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24492,7 +24495,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1643721009825</Id>
 					<Name><![CDATA[tempSpaceCoolingWater]]></Name>
-					<X>460</X><Y>780</Y>
+					<X>460</X><Y>800</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24611,6 +24614,31 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1644940395044</Id>
+					<Name><![CDATA[shgc]]></Name>
+					<Description><![CDATA[https://www.joostdevree.nl/shtmls/g-waarde.shtml]]></Description>
+					<X>460</X><Y>600</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.7]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1644940395042</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1643719833630</Id>
 					<Name><![CDATA[predictedHeatExchangeArray]]></Name>
@@ -24678,7 +24706,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 					<Id>1643720596534</Id>
 					<Name><![CDATA[hpElectricity]]></Name>
 					<Description><![CDATA[kWh]]></Description>
-					<X>660</X><Y>740</Y>
+					<X>660</X><Y>760</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24858,7 +24886,7 @@ if (main.sunAltitude.get(i) > 0) {
 	surfaceIrradianceSouth = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(i)) + PI)); 
 	surfaceIrradianceWest = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(i)) + 1.5*PI)); 
 
-	heatInflowIrradiance = surfaceIrradianceNorth * glassArea/4 + surfaceIrradianceEast * glassArea/4 + surfaceIrradianceSouth * glassArea/4 + surfaceIrradianceWest * glassArea/4;
+	heatInflowIrradiance = shgc*(surfaceIrradianceNorth * glassArea/4 + surfaceIrradianceEast * glassArea/4 + surfaceIrradianceSouth * glassArea/4 + surfaceIrradianceWest * glassArea/4);
 }
 else {
 	heatInflowIrradiance = 0;
@@ -25074,13 +25102,18 @@ heatExchangeInfiltration = - 1 * 1.276 * airInfiltration * (predictedInsideTemp 
 heatExchangeVentilation =  - 1 * cpAir * rhoAir * flowRateVentilation * (predictedInsideTemp - predictedOutsideTemp); // kW
 
 // Heat inflow via irradiance
-horizontalCompIrradiance = irradiance2018(startHour + time() + 24)/tan(toRadians(main.sunAltitude.get(quarterOfDay)));
-surfaceIrradianceNorth = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(quarterOfDay)))); 
-surfaceIrradianceEast = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(quarterOfDay)) + 0.5*PI));  
-surfaceIrradianceSouth = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(quarterOfDay)) + PI)); 
-surfaceIrradianceWest = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(quarterOfDay)) + 1.5*PI)); 
+if (main.sunAltitude.get(quarterOfDay) > 0) {
+	horizontalCompIrradiance = irradiance2018(startHour + time() + 24)/tan(toRadians(main.sunAltitude.get(quarterOfDay)));
+	surfaceIrradianceNorth = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(quarterOfDay)))); 
+	surfaceIrradianceEast = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(quarterOfDay)) + 0.5*PI));  
+	surfaceIrradianceSouth = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(quarterOfDay)) + PI)); 
+	surfaceIrradianceWest = max(0, horizontalCompIrradiance*sin(toRadians(main.sunAzimuth.get(quarterOfDay)) + 1.5*PI)); 
 
-heatInflowIrradiance = surfaceIrradianceWest * glassArea;
+	heatInflowIrradiance = shgc*(surfaceIrradianceNorth * glassArea/4 + surfaceIrradianceEast * glassArea/4 + surfaceIrradianceSouth * glassArea/4 + surfaceIrradianceWest * glassArea/4);
+}
+else {
+	heatInflowIrradiance = 0;
+}
 
 // Heat inflow via irradiance
 integrer = main.getMonth()*24 + main.getHourOfDay();
@@ -25144,7 +25177,7 @@ heatDemandArray.add(heatDemand);
 heatDemandArray.remove(0);
 
 
-predictedCurrentHeatBalance = heatDemand + hpInflow + ventilationCooling;
+predictedCurrentHeatBalance = heatDemand + hpInflow + ventilationCooling + heatInflowIrradiance;
 predictedTempDifference = ((predictedCurrentHeatBalance/4)/internalHeatCapacity);
 
 //predictedCurrentHeatBalance = predictedCurrentHeatBalance + hpInflow + ventilationCooling;
@@ -25355,7 +25388,7 @@ else {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1643720596550</Id>
 					<Name><![CDATA[predictedHeatPumpLoad]]></Name>
-					<X>660</X><Y>840</Y>
+					<X>660</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -28082,7 +28115,7 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 				<Text>
 					<Id>1643720541707</Id>
 					<Name><![CDATA[text12]]></Name>
-					<X>443</X><Y>590</Y>
+					<X>443</X><Y>610</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>

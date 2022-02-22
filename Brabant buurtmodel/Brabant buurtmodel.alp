@@ -26063,7 +26063,7 @@ bottomTempVariation = getHourOfDay() < 6 || getHourOfDay() > 22 ? tempVariationN
 if (predictedInsideTemp < wantedInsideTemp - bottomTempVariation) {
 	predictedStatusHouse = "heating";
 }
-if (predictedStatusHouse == "heating" && predictedInsideTemp >= wantedInsideTemp){
+if (predictedStatusHouse == "heating" && predictedInsideTemp >= wantedInsideTemp + topTempVariation/2){
 		predictedStatusHouse = "no heating or cooling needed";
 }
 

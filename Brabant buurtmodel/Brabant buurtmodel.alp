@@ -22770,7 +22770,7 @@ if (!woningtype.equals("")) {
 			//checkbox3.setSelected(true);
 			hpEfficiency = 0.4; //εCarnot
 			//COP_cooling = main.EERcoolingWWHP;
-			COPDhw = hpEfficiency * ((DHWTemp + 273.15) / (DHWTemp - tempGroundWater));
+			
 			//COP_space_heating = HPefficiency * ((TSpaceHeatingWater + 273.15) / (TSpaceHeatingWater - TGroundWater));
 			}
 	
@@ -23344,18 +23344,6 @@ if (!woningtype.equals("")) {
 					<Id>1643720596593</Id>
 					<Name><![CDATA[coolingPowerElectric]]></Name>
 					<X>660</X><Y>780</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[double]]></Type>        
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
-					<Id>1643720596599</Id>
-					<Name><![CDATA[COPDhw]]></Name>
-					<X>660</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -28676,7 +28664,7 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1645434588721</Id>
-					<Name><![CDATA[pop_dummyAgentType3]]></Name>
+					<Name><![CDATA[pop_bufferTank]]></Name>
 					<X>50</X><Y>1080</Y>
 					<Label><X>20</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -28684,18 +28672,36 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-						<ClassName><![CDATA[DummyAgentType3]]></ClassName>
+						<ClassName><![CDATA[BufferTank]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[DummyAgentType3]]></ClassName>
+							<ClassName><![CDATA[BufferTank]]></ClassName>
 							<ItemName><![CDATA[1645434577049]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
+						<Parameter>
+							<Name><![CDATA[volumeBufferMax]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[cpWater]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[DHWTemp]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[initialTemperature]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[thermalEnergyBufferMax]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[tapwaterTemp]]></Name>
+						</Parameter>
 					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
+					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
 						<Code><![CDATA[100]]></Code>
 					</Replication>
@@ -28726,7 +28732,7 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationType>EMPTY</InitializationType>
 					<InitializationDatabaseTableQuery>
 						<TableReference>
 						</TableReference>
@@ -32240,8 +32246,11 @@ if (gisRegion == null ) {
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
 			<Id>1645434577051</Id>
-			<Name><![CDATA[DummyAgentType3]]></Name>
+			<Name><![CDATA[BufferTank]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
+			<StartupCode><![CDATA[boilerTempDifference = DHWTemp - tapwaterTemp;
+volumeBufferMax = 15 * household.ratedElectricPowerHpHeating;
+thermalEnergyMax = volumeBufferMax*0.997*cpWater*(boilerTempDifference)/3600000 * 0.9;]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1645434577049</Id>
@@ -32334,6 +32343,275 @@ if (gisRegion == null ) {
 			</ScaleRuler>
 			<CurrentLevel>1645434577050</CurrentLevel>
 			<ConnectionsId>1645434577046</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1645522387920</Id>
+					<Name><![CDATA[heatLoss]]></Name>
+					<X>350</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1645522641906</Id>
+					<Name><![CDATA[copDHW]]></Name>
+					<X>200</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1645525698230</Id>
+					<Name><![CDATA[thermalInflowBuffer]]></Name>
+					<X>200</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1645549849674</Id>
+					<Name><![CDATA[boilerTempDifference]]></Name>
+					<X>30</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1645551365152</Id>
+					<Name><![CDATA[thermalEnergyMax]]></Name>
+					<X>30</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1645521834807</Id>
+					<Name><![CDATA[volumeBufferMax]]></Name>
+					<X>30</X><Y>70</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1645521834805</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1645521981671</Id>
+					<Name><![CDATA[cpWater]]></Name>
+					<Description><![CDATA[J/(kg K)]]></Description>
+					<X>30</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[4184]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1645521981669</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1645522566448</Id>
+					<Name><![CDATA[DHWTemp]]></Name>
+					<X>30</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[60]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1645522566446</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1645526608927</Id>
+					<Name><![CDATA[initialTemperature]]></Name>
+					<X>30</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[60]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1645526608925</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1645526772271</Id>
+					<Name><![CDATA[thermalEnergyBufferMax]]></Name>
+					<X>30</X><Y>90</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1645526772269</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1645549911203</Id>
+					<Name><![CDATA[tapwaterTemp]]></Name>
+					<X>30</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[10]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1645549911201</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+			</Variables>
+			<ActionChartElements>
+				<ActionChartElement Class="ActionChart">
+					<Id>1645522790952</Id>
+					<Name><![CDATA[bufferCalculations]]></Name>
+					<X>570</X><Y>110</Y>
+					<Label><X>-30</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties AccessType="default" StaticFunction="false" Width="20" Height="20" Next="1645522794300" >
+						<FillColor/>
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					</Properties>
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1645524996382</Id>
+					<Name><![CDATA[code1]]></Name>
+					<X>570</X><Y>210</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Buffer inflow]]></Comment>
+					<Properties Width="100" Height="30" Previous="1645522794300" Next="1645522791659" >
+						<FillColor/>
+						<Code><![CDATA[if (VOL){
+	thermalInflowBuffer = 0;
+}
+else if (NIET VOL) {
+	hpInflowBoiler = copDHW * household.ratedElectricPowerHpHeating;
+}
+
+]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Return">
+					<Id>1645522791659</Id>
+					<Name><![CDATA[returnStatement]]></Name>
+					<X>570</X><Y>260</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="80" Height="20" Previous="1645524996382" >
+						<FillColor/>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1645522794300</Id>
+					<Name><![CDATA[code]]></Name>
+					<X>570</X><Y>160</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Buffer setup]]></Comment>
+					<Properties Width="100" Height="30" Previous="1645522790952" Next="1645524996382" >
+						<FillColor/>
+						<Code><![CDATA[//COP DHW
+if (household.heatpumpType.equals("AW")){
+	copDHW = household.hpEfficiency * ((DHWTemp + 273.15)/(DHWTemp - household.tempOutside));
+}
+if (household.heatpumpType.equals("WW")){
+	copDHW = household.hpEfficiency * ((DHWTemp + 273.15)/(DHWTemp - household.tempGroundWater));
+}
+
+ ]]></Code>
+					</Properties>	
+				</ActionChartElement>
+			</ActionChartElements>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1645434577046</Id>
@@ -32398,6 +32676,71 @@ if (gisRegion == null ) {
 					<Z>0</Z>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
+			<Presentation>
+				<Text>
+					<Id>1645521784524</Id>
+					<Name><![CDATA[text2]]></Name>
+					<X>20</X><Y>30</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Buffer characteristics]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>14</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1645522599647</Id>
+					<Name><![CDATA[text3]]></Name>
+					<X>190</X><Y>30</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Buffer inflow]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>14</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1645522612376</Id>
+					<Name><![CDATA[text4]]></Name>
+					<X>340</X><Y>30</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Buffer outflow]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>14</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
 
 				</Level>
 			</Presentation>

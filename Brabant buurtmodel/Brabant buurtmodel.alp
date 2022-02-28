@@ -23940,6 +23940,18 @@ if (!woningtype.equals("")) {
 						<Type><![CDATA[double]]></Type>        
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1645709393431</Id>
+					<Name><![CDATA[hpInflowBuffer]]></Name>
+					<X>1160</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1642697396841</Id>
 					<Name><![CDATA[gid]]></Name>
@@ -25768,6 +25780,57 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 					</Properties>
 				</ActionChartElement>
 				<ActionChartElement Class="Code">
+					<Id>1645709023402</Id>
+					<Name><![CDATA[code7]]></Name>
+					<X>1810</X><Y>784</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Future DHW]]></Comment>
+					<Properties Width="100" Height="30" Previous="1643722059284" Next="1643722059288" >
+						<FillColor/>
+						<Code><![CDATA[if (hpHouse) {
+	bufferTank.bufferSetup();
+
+	bufferTank.bufferSetStatus();
+
+	if (hpInflow == 0 && bufferTank.bufferStatus.equals("Charging optional")) {
+		hpInflowBuffer = bufferTank.copDHW * ratedElectricPowerHpHeating;	
+	}
+}
+ ]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
+					<Id>1643722059288</Id>
+					<Name><![CDATA[code5]]></Name>
+					<X>1810</X><Y>834</Y>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Comment><![CDATA[Future elect]]></Comment>
+					<Properties Width="100" Height="30" Previous="1645709023402" >
+						<FillColor/>
+						<Code><![CDATA[predictedIrradiancePV = irradiance2018(startHour + time() + i/24);
+
+if (!woningtype.equals("other")){
+	baseLoad = householdDemandProfile(startHour + time() + i/24)*baseloadFactor;
+
+	if (pvHouse == true){
+		calculatePvProduction();
+	}
+	else {
+		predictedPvProduction = 0;
+	}
+}
+
+predictedPvProductionArray.add(predictedPvProduction);
+
+predictedBaseLoadConsumptionArray.add(baseLoad);
+]]></Code>
+					</Properties>	
+				</ActionChartElement>
+				<ActionChartElement Class="Code">
 					<Id>1643722059284</Id>
 					<Name><![CDATA[code3]]></Name>
 					<X>1810</X><Y>730</Y>
@@ -25775,7 +25838,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Comment><![CDATA[Future thermal]]></Comment>
-					<Properties Width="100" Height="34" Previous="1643722059281" Next="1643722059288" >
+					<Properties Width="100" Height="34" Previous="1643722059281" Next="1645709023402" >
 						<FillColor/>
 						<Code><![CDATA[ventilationCooling = 0;
 coolingPowerElectric = 0;
@@ -25919,38 +25982,9 @@ totalElectricityConsumptionArray.set(i, totalElectricityConsumptionArray.get(i) 
 					</Properties>	
 				</ActionChartElement>
 				<ActionChartElement Class="Code">
-					<Id>1643722059288</Id>
-					<Name><![CDATA[code5]]></Name>
-					<X>1810</X><Y>784</Y>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Comment><![CDATA[Future elect]]></Comment>
-					<Properties Width="100" Height="30" Previous="1643722059284" >
-						<FillColor/>
-						<Code><![CDATA[predictedIrradiancePV = irradiance2018(startHour + time() + i/24);
-
-if (!woningtype.equals("other")){
-	baseLoad = householdDemandProfile(startHour + time() + i/24)*baseloadFactor;
-
-	if (pvHouse == true){
-		calculatePvProduction();
-	}
-	else {
-		predictedPvProduction = 0;
-	}
-}
-
-predictedPvProductionArray.add(predictedPvProduction);
-
-predictedBaseLoadConsumptionArray.add(baseLoad);
-]]></Code>
-					</Properties>	
-				</ActionChartElement>
-				<ActionChartElement Class="Code">
 					<Id>1643722059291</Id>
 					<Name><![CDATA[code]]></Name>
-					<X>1810</X><Y>854</Y>
+					<X>1810</X><Y>904</Y>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -26189,7 +26223,7 @@ if (helpCount == 4 ) {
 				<ActionChartElement Class="Return">
 					<Id>1643722059307</Id>
 					<Name><![CDATA[returnStatement]]></Name>
-					<X>1700</X><Y>924</Y>
+					<X>1700</X><Y>974</Y>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -28664,7 +28698,7 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1645434588721</Id>
-					<Name><![CDATA[pop_bufferTank]]></Name>
+					<Name><![CDATA[bufferTank]]></Name>
 					<X>50</X><Y>1080</Y>
 					<Label><X>20</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -28700,8 +28734,11 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 						<Parameter>
 							<Name><![CDATA[tapwaterTemp]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[bufferHeatLossPerDay]]></Name>
+						</Parameter>
 					</Parameters>
-					<ReplicationFlag>true</ReplicationFlag>
+					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
 						<Code><![CDATA[100]]></Code>
 					</Replication>
@@ -29598,6 +29635,27 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 			</Presentation>
 
 				</Group>
+				<Text>
+					<Id>1645709329856</Id>
+					<Name><![CDATA[text24]]></Name>
+					<X>1140</X><Y>80</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[DHW buffer]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>14</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
@@ -32248,9 +32306,12 @@ if (gisRegion == null ) {
 			<Id>1645434577051</Id>
 			<Name><![CDATA[BufferTank]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
-			<StartupCode><![CDATA[boilerTempDifference = DHWTemp - tapwaterTemp;
+			<StartupCode><![CDATA[bufferTempDifference = DHWTemp - tapwaterTemp;
 volumeBufferMax = 15 * household.ratedElectricPowerHpHeating;
-thermalEnergyMax = volumeBufferMax*0.997*cpWater*(boilerTempDifference)/3600000 * 0.9;]]></StartupCode>
+thermalEnergyBufferMax = volumeBufferMax*0.997*cpWater*(bufferTempDifference)/3600000 * 0.9;
+bufferHeatLossPerDay = 0.305 * pow((volumeBufferMax*0.997), -0.74);
+//Set initial SoC
+socBuffer = 0.5*thermalEnergyBufferMax + (thermalEnergyBufferMax - 0.5*thermalEnergyBufferMax) * uniform();]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1645434577049</Id>
@@ -32382,7 +32443,7 @@ thermalEnergyMax = volumeBufferMax*0.997*cpWater*(boilerTempDifference)/3600000 
 				</Variable>
 				<Variable Class="PlainVariable">
 					<Id>1645549849674</Id>
-					<Name><![CDATA[boilerTempDifference]]></Name>
+					<Name><![CDATA[bufferTempDifference]]></Name>
 					<X>30</X><Y>170</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -32396,6 +32457,42 @@ thermalEnergyMax = volumeBufferMax*0.997*cpWater*(boilerTempDifference)/3600000 
 					<Id>1645551365152</Id>
 					<Name><![CDATA[thermalEnergyMax]]></Name>
 					<X>30</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1645708535886</Id>
+					<Name><![CDATA[bufferStatus]]></Name>
+					<X>30</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1645709532984</Id>
+					<Name><![CDATA[thermalEnergyBufferCurrent]]></Name>
+					<X>30</X><Y>270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1645710513860</Id>
+					<Name><![CDATA[socBuffer]]></Name>
+					<X>30</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -32543,75 +32640,91 @@ thermalEnergyMax = volumeBufferMax*0.997*cpWater*(boilerTempDifference)/3600000 
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
-			</Variables>
-			<ActionChartElements>
-				<ActionChartElement Class="ActionChart">
-					<Id>1645522790952</Id>
-					<Name><![CDATA[bufferCalculations]]></Name>
-					<X>570</X><Y>110</Y>
-					<Label><X>-30</X><Y>-10</Y></Label>
+				<Variable Class="Parameter">
+					<Id>1645714166627</Id>
+					<Name><![CDATA[bufferHeatLossPerDay]]></Name>
+					<X>30</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties AccessType="default" StaticFunction="false" Width="20" Height="20" Next="1645522794300" >
-						<FillColor/>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1645714166625</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+			</Variables>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
-					</Properties>
-				</ActionChartElement>
-				<ActionChartElement Class="Code">
-					<Id>1645524996382</Id>
-					<Name><![CDATA[code1]]></Name>
-					<X>570</X><Y>210</Y>
+					<Id>1645710333117</Id>
+					<Name><![CDATA[bufferSetup]]></Name>
+					<X>360</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Comment><![CDATA[Buffer inflow]]></Comment>
-					<Properties Width="100" Height="30" Previous="1645522794300" Next="1645522791659" >
-						<FillColor/>
-						<Code><![CDATA[if (VOL){
-	thermalInflowBuffer = 0;
-}
-else if (NIET VOL) {
-	hpInflowBoiler = copDHW * household.ratedElectricPowerHpHeating;
-}
-
-]]></Code>
-					</Properties>	
-				</ActionChartElement>
-				<ActionChartElement Class="Return">
-					<Id>1645522791659</Id>
-					<Name><![CDATA[returnStatement]]></Name>
-					<X>570</X><Y>260</Y>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties Width="80" Height="20" Previous="1645524996382" >
-						<FillColor/>
-					</Properties>	
-				</ActionChartElement>
-				<ActionChartElement Class="Code">
-					<Id>1645522794300</Id>
-					<Name><![CDATA[code]]></Name>
-					<X>570</X><Y>160</Y>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Comment><![CDATA[Buffer setup]]></Comment>
-					<Properties Width="100" Height="30" Previous="1645522790952" Next="1645524996382" >
-						<FillColor/>
-						<Code><![CDATA[//COP DHW
+					<Body><![CDATA[//COP DHW
 if (household.heatpumpType.equals("AW")){
 	copDHW = household.hpEfficiency * ((DHWTemp + 273.15)/(DHWTemp - household.tempOutside));
 }
 if (household.heatpumpType.equals("WW")){
 	copDHW = household.hpEfficiency * ((DHWTemp + 273.15)/(DHWTemp - household.tempGroundWater));
 }
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1645710369324</Id>
+					<Name><![CDATA[bufferSetStatus]]></Name>
+					<X>360</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[if (thermalEnergyBufferCurrent >= 0.95 * thermalEnergyBufferMax){
+	bufferStatus = "Full";
+}
+else if (thermalEnergyBufferCurrent < 0.95 * thermalEnergyBufferMax && thermalEnergyBufferCurrent >= 0.5 * thermalEnergyBufferMax) {
+	bufferStatus = "Charging optional";
+	
+}
+else if (thermalEnergyBufferCurrent < 0.5 * thermalEnergyBufferMax && thermalEnergyBufferCurrent >= 0.2 * thermalEnergyBufferMax) {
+	bufferStatus = "Charging necessary";
+	
+}
 
- ]]></Code>
-					</Properties>	
-				</ActionChartElement>
-			</ActionChartElements>
+else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
+	bufferStatus = "Empty";
+}
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1645710468384</Id>
+					<Name><![CDATA[socUpdate]]></Name>
+					<X>360</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[
+
+socBuffer = socBuffer + household.hpInflowBuffer/4 - bufferHeatLossPerDay/96;
+]]></Body>
+				</Function>
+			</Functions>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1645434577046</Id>

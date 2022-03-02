@@ -17,15 +17,6 @@
 			<Id>1642419773332</Id>
 			<Name><![CDATA[Main]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
-			<StartupCode><![CDATA[//To randomize hhids
-huishoudensIDs.addAll( selectFrom( db_household_sample ).list( db_household_sample.hhid ) );
-
-for (Household h : households){
-	h.f_initializeHousehold();
-}
-
-
-]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1642419773330</Id>
@@ -557,21 +548,6 @@ for (Household h : households){
 						<CollectionInitializer Class="CodeValue">
 							<Code><![CDATA[{sunAzimuthJanuary, sunAzimuthFebruary, sunAzimuthMarch, sunAzimuthApril, sunAzimuthMay, sunAzimuthJune, sunAzimuthJuly, sunAzimuthAugust, sunAzimuthSeptember, sunAzimuthOctober, sunAzimuthNovember, sunAzimuthDecember}]]></Code>
 						</CollectionInitializer>
-					</Properties>
-
-				</Variable>
-				<Variable Class="CollectionVariable">
-					<Id>1646155768445</Id>
-					<Name><![CDATA[huishoudensIDs]]></Name>
-					<X>2200</X><Y>100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[Integer]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 					</Properties>
 
 				</Variable>
@@ -1907,54 +1883,6 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[tempVariationDay]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[age1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[driver1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[work1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[education1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[gender1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[age2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[driver2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[work2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[education2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[gender2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[nbVehicles]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[nbAdults]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[nbChildren]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[id]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[composition]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[nbDriversLicense]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
@@ -22750,8 +22678,6 @@ else {
 			<StartupCode><![CDATA[findGisRegion();
 findGisRoute();
 
-
-
 if (!woningtype.equals("")) {	
 	if (woningtype.equals("tussenwoning")) {
 		opp = 215.5; //toDo: this value is too large, find a more realistic value
@@ -24024,18 +23950,6 @@ if (!woningtype.equals("")) {
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
-					<Id>1646155393818</Id>
-					<Name><![CDATA[randomIDGenerator]]></Name>
-					<X>-300</X><Y>620</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[int]]></Type>        
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
@@ -25667,342 +25581,6 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143827</Id>
-					<Name><![CDATA[age1]]></Name>
-					<X>-200</X><Y>420</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143825</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143844</Id>
-					<Name><![CDATA[driver1]]></Name>
-					<X>-200</X><Y>450</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[boolean]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143842</Id>
-							<EditorContolType>CHECK_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143852</Id>
-					<Name><![CDATA[work1]]></Name>
-					<X>-200</X><Y>480</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143850</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143861</Id>
-					<Name><![CDATA[education1]]></Name>
-					<X>-200</X><Y>510</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143859</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143868</Id>
-					<Name><![CDATA[gender1]]></Name>
-					<X>-200</X><Y>540</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143866</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143876</Id>
-					<Name><![CDATA[age2]]></Name>
-					<X>-70</X><Y>420</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143874</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143881</Id>
-					<Name><![CDATA[driver2]]></Name>
-					<X>-70</X><Y>450</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[boolean]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143879</Id>
-							<EditorContolType>CHECK_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143890</Id>
-					<Name><![CDATA[work2]]></Name>
-					<X>-70</X><Y>480</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143888</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143898</Id>
-					<Name><![CDATA[education2]]></Name>
-					<X>-70</X><Y>510</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143896</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143904</Id>
-					<Name><![CDATA[gender2]]></Name>
-					<X>-70</X><Y>540</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143902</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393821</Id>
-					<Name><![CDATA[nbVehicles]]></Name>
-					<X>-300</X><Y>410</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393819</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393824</Id>
-					<Name><![CDATA[nbAdults]]></Name>
-					<X>-300</X><Y>440</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393822</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393827</Id>
-					<Name><![CDATA[nbChildren]]></Name>
-					<X>-300</X><Y>470</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393825</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393833</Id>
-					<Name><![CDATA[id]]></Name>
-					<X>-300</X><Y>560</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393831</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393836</Id>
-					<Name><![CDATA[composition]]></Name>
-					<X>-300</X><Y>530</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393834</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393839</Id>
-					<Name><![CDATA[nbDriversLicense]]></Name>
-					<X>-300</X><Y>590</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393837</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1643719833630</Id>
 					<Name><![CDATA[predictedHeatExchangeArray]]></Name>
@@ -26892,62 +26470,6 @@ else {
 					<Body><![CDATA[
 predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV * performanceRatio;
 ]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>VOID</ReturnModificator>
-					<ReturnType><![CDATA[double]]></ReturnType>
-					<Id>1646203362834</Id>
-					<Name><![CDATA[f_initializeHousehold]]></Name>
-					<X>-140</X><Y>580</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[//Generate random HHID
-randomIDGenerator = uniform_discr(0, main.huishoudensIDs.size()-1);
-id = main.huishoudensIDs.get(randomIDGenerator);
-
-//Get info from db
-Tuple tup = selectFrom( db_household_sample ).where( db_household_sample.hhid.eq( id ) ).list().get(0);
-
-//Set info to houshold	
-composition = tup.get( db_household_sample.comp );
-nbChildren = tup.get( db_household_sample.child );
-nbVehicles = tup.get( db_household_sample.ncar );
-age1 = tup.get( db_household_sample.age1 );
-age2 = tup.get( db_household_sample.age2 );
-driver1 = tup.get( db_household_sample.driver1 );
-driver2 = tup.get( db_household_sample.driver2 );	
-gender1 = tup.get( db_household_sample.gender1 );
-gender2 = tup.get( db_household_sample.gender2 );
-work1 = tup.get( db_household_sample.work1 );
-work2 = tup.get( db_household_sample.work2 );
-//education1 = tup.get( huishoudens_deel.education1 );
-//education2 = tup.get( huishoudens_deel.education2 );
-
-//Initialize adult 1
-/*
-nbAdults = composition < 2 ? 1 : 2;
-adult1 = main.add_bewoners();
-adult1.memberID = 0;
-adult1.household = this;
-adult1.driversLicense = driver1;
-//adult1.thuisLocatie = gisRegion.randomPointInside();
-//adult1.setLocation( adult1.thuisLocatie);
-bewoners.add( adult1 );
-
-//Initialize adult 2
-if ( nbAdults > 1 ) {
-	adult2 = main.add_bewoners();
-	adult2.memberID = 1;
-	adult2.household = this;
-	adult2.driversLicense = driver2;
-	//adult2.thuisLocatie = gisRegion.randomPointInside();
-	//adult2.setLocation( adult2.thuisLocatie );
-	g_adult2.setVisible(true);
-	bewoners.add( adult2 );
-}
-*/]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -30134,27 +29656,6 @@ if ( nbAdults > 1 ) {
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
-				<Text>
-					<Id>1646155048135</Id>
-					<Name><![CDATA[text25]]></Name>
-					<X>-160</X><Y>340</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-16777216</Color>
-					<Text><![CDATA[Mobility data]]></Text>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>14</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
 			</Presentation>
 
 				</Level>
@@ -33218,7 +32719,9 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[socBuffer = socBuffer + household.hpInflowBuffer/4 - bufferHeatLossPerDay/96;
+					<Body><![CDATA[
+
+socBuffer = socBuffer + household.hpInflowBuffer/4 - bufferHeatLossPerDay/96;
 ]]></Body>
 				</Function>
 			</Functions>
@@ -33854,27 +33357,6 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 				<Password><![CDATA[]]></Password>
 			</ExternalConnection>
 			<ExternalConnection>
-				<Id>1646154980899</Id>
-				<Name><![CDATA[database]]></Name>
-				<X>0</X><Y>0</Y>
-				<Label><X>10</X><Y>0</Y></Label>
-				<PublicFlag>false</PublicFlag>
-				<PresentationFlag>true</PresentationFlag>
-				<ShowLabel>true</ShowLabel>
-				<DatabaseType>EXCEL_ACCESS</DatabaseType>
-				<ConnectionURL><![CDATA[]]></ConnectionURL>
-				<ConnectOnStartup>true</ConnectOnStartup>
-				<DatabaseName><![CDATA[]]></DatabaseName>
-				<ResourceReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[C:/Users/s168027/Documents/GitHub/Brabant-buurt-serious-game/Data/mobility_sample.xlsx]]></ClassName>
-				</ResourceReference>
-				<Host><![CDATA[localhost]]></Host>
-				<JdbcDriverClassName><![CDATA[net.sourceforge.jtds.jdbc.Driver]]></JdbcDriverClassName>
-				<Login><![CDATA[]]></Login>
-				<Password><![CDATA[]]></Password>
-			</ExternalConnection>
-			<ExternalConnection>
 				<Id>1642713730012</Id>
 				<Name><![CDATA[database]]></Name>
 				<X>0</X><Y>0</Y>
@@ -33928,18 +33410,9 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[db_household_sample]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>1</ConnectionIndex>
-				<ExternalTableName><![CDATA["Sample_population"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
 					<ClassName><![CDATA[lv_stations]]></ClassName>
 				</TableReference>
-				<ConnectionIndex>2</ConnectionIndex>
+				<ConnectionIndex>1</ConnectionIndex>
 				<ExternalTableName><![CDATA["Afrikaanderbuurt_midden_lv_stat"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
@@ -33950,15 +33423,6 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
 				<ExternalTableName><![CDATA["May"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[db_activities_sample]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>1</ConnectionIndex>
-				<ExternalTableName><![CDATA["Sample_activities"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
@@ -33982,15 +33446,6 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[sun_september]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>0</ConnectionIndex>
-				<ExternalTableName><![CDATA["September"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
 					<ClassName><![CDATA[sun_april]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
@@ -34000,19 +33455,10 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[sun_june]]></ClassName>
+					<ClassName><![CDATA[sun_september]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
-				<ExternalTableName><![CDATA["June"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[sun_december]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>0</ConnectionIndex>
-				<ExternalTableName><![CDATA["December"]]></ExternalTableName>
+				<ExternalTableName><![CDATA["September"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
@@ -34027,19 +33473,28 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[sun_november]]></ClassName>
+					<ClassName><![CDATA[sun_december]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
-				<ExternalTableName><![CDATA["November"]]></ExternalTableName>
+				<ExternalTableName><![CDATA["December"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[sun_october]]></ClassName>
+					<ClassName><![CDATA[sun_june]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
-				<ExternalTableName><![CDATA["October"]]></ExternalTableName>
+				<ExternalTableName><![CDATA["June"]]></ExternalTableName>
+				<AutoImport>false</AutoImport>
+			</TableImportSettings>
+			<TableImportSettings>
+				<TableReference>
+					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+					<ClassName><![CDATA[sun_november]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>0</ConnectionIndex>
+				<ExternalTableName><![CDATA["November"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
@@ -34054,9 +33509,18 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+					<ClassName><![CDATA[sun_october]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>0</ConnectionIndex>
+				<ExternalTableName><![CDATA["October"]]></ExternalTableName>
+				<AutoImport>false</AutoImport>
+			</TableImportSettings>
+			<TableImportSettings>
+				<TableReference>
+					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
 					<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 				</TableReference>
-				<ConnectionIndex>3</ConnectionIndex>
+				<ConnectionIndex>2</ConnectionIndex>
 				<ExternalTableName><![CDATA["Afrikaanderbuurt_midden_verblij"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
@@ -34223,10 +33687,6 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 		</Resource>
 		<Resource>
 			<Path><![CDATA[C:/Users/s168027/Documents/GitHub/Brabant-buurt-serious-game/Data/all_sun_positions.xlsx]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[C:/Users/s168027/Documents/GitHub/Brabant-buurt-serious-game/Data/mobility_sample.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>

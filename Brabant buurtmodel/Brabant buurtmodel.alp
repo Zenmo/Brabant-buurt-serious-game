@@ -1956,6 +1956,18 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 						<Parameter>
 							<Name><![CDATA[nbDriversLicense]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[adult1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[adult2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[car1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[car2]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -3189,7 +3201,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1645434814661</Id>
-					<Name><![CDATA[pop_dummyAgentType6s]]></Name>
+					<Name><![CDATA[pop_cars]]></Name>
 					<X>-600</X><Y>280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -3197,16 +3209,34 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-						<ClassName><![CDATA[DummyAgentType6]]></ClassName>
+						<ClassName><![CDATA[Car]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[DummyAgentType6]]></ClassName>
+							<ClassName><![CDATA[Car]]></ClassName>
 							<ItemName><![CDATA[1645434814658]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
+						<Parameter>
+							<Name><![CDATA[p_carID]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[p_electric]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[household]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[p_energyConsumption]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[p_maxBatteryCap_kWh]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[p_maxChargingSpeed_kW]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -23992,7 +24022,7 @@ if (!woningtype.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1646155393818</Id>
 					<Name><![CDATA[randomIDGenerator]]></Name>
-					<X>-300</X><Y>620</Y>
+					<X>-400</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25633,7 +25663,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143827</Id>
 					<Name><![CDATA[age1]]></Name>
-					<X>-200</X><Y>420</Y>
+					<X>-300</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25654,7 +25684,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143844</Id>
 					<Name><![CDATA[driver1]]></Name>
-					<X>-200</X><Y>450</Y>
+					<X>-300</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25675,7 +25705,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143852</Id>
 					<Name><![CDATA[work1]]></Name>
-					<X>-200</X><Y>480</Y>
+					<X>-300</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25696,7 +25726,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143861</Id>
 					<Name><![CDATA[education1]]></Name>
-					<X>-200</X><Y>510</Y>
+					<X>-300</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25717,7 +25747,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143868</Id>
 					<Name><![CDATA[gender1]]></Name>
-					<X>-200</X><Y>540</Y>
+					<X>-300</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25738,7 +25768,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143876</Id>
 					<Name><![CDATA[age2]]></Name>
-					<X>-70</X><Y>420</Y>
+					<X>-170</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25759,7 +25789,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143881</Id>
 					<Name><![CDATA[driver2]]></Name>
-					<X>-70</X><Y>450</Y>
+					<X>-170</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25780,7 +25810,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143890</Id>
 					<Name><![CDATA[work2]]></Name>
-					<X>-70</X><Y>480</Y>
+					<X>-170</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25801,7 +25831,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143898</Id>
 					<Name><![CDATA[education2]]></Name>
-					<X>-70</X><Y>510</Y>
+					<X>-170</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25822,7 +25852,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143904</Id>
 					<Name><![CDATA[gender2]]></Name>
-					<X>-70</X><Y>540</Y>
+					<X>-170</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25843,7 +25873,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393821</Id>
 					<Name><![CDATA[nbVehicles]]></Name>
-					<X>-300</X><Y>410</Y>
+					<X>-400</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25864,7 +25894,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393824</Id>
 					<Name><![CDATA[nbAdults]]></Name>
-					<X>-300</X><Y>440</Y>
+					<X>-400</X><Y>500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25885,7 +25915,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393827</Id>
 					<Name><![CDATA[nbChildren]]></Name>
-					<X>-300</X><Y>470</Y>
+					<X>-400</X><Y>530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25906,7 +25936,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393833</Id>
 					<Name><![CDATA[id]]></Name>
-					<X>-300</X><Y>560</Y>
+					<X>-400</X><Y>620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25927,7 +25957,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393836</Id>
 					<Name><![CDATA[composition]]></Name>
-					<X>-300</X><Y>530</Y>
+					<X>-400</X><Y>590</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25948,7 +25978,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393839</Id>
 					<Name><![CDATA[nbDriversLicense]]></Name>
-					<X>-300</X><Y>590</Y>
+					<X>-400</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25959,6 +25989,91 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 						<SdArray>false</SdArray>
 						<ParameterEditor>
 							<Id>1646155393837</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646838976511</Id>
+					<Name><![CDATA[adult1]]></Name>
+					<X>-400</X><Y>760</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[Person]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1646838976509</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646838976515</Id>
+					<Name><![CDATA[adult2]]></Name>
+					<X>-400</X><Y>790</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[Person]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<UnitOfValue Class="RateUnits"><![CDATA[PER_SECOND]]></UnitOfValue>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1646838976513</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646838976518</Id>
+					<Name><![CDATA[car1]]></Name>
+					<X>-250</X><Y>760</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[Car]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1646838976516</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646838976523</Id>
+					<Name><![CDATA[car2]]></Name>
+					<X>-250</X><Y>790</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[Car]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1646838976521</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -26117,6 +26232,42 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
 						<ElementClass><![CDATA[Double]]></ElementClass>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1646838976497</Id>
+					<Name><![CDATA[people]]></Name>
+					<X>-400</X><Y>730</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Person]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1646838976506</Id>
+					<Name><![CDATA[cars]]></Name>
+					<X>-250</X><Y>730</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Car]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ }]]></Code>
+						</CollectionInitializer>
 					</Properties>
 
 				</Variable>
@@ -26861,7 +27012,7 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1646203362834</Id>
 					<Name><![CDATA[f_initializeHousehold]]></Name>
-					<X>-140</X><Y>580</Y>
+					<X>-240</X><Y>640</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -33489,7 +33640,7 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[Auto]]></Type>        
+						<Type><![CDATA[Car]]></Type>        
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
@@ -33624,7 +33775,7 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Huishouden]]></Type>
+						<Type><![CDATA[Household]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<ParameterEditor>
@@ -33726,6 +33877,7 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 				<Variable Class="CollectionVariable">
 					<Id>1646831144064</Id>
 					<Name><![CDATA[shownActivities]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>190</X><Y>1260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33773,6 +33925,7 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144153</Id>
 					<Name><![CDATA[atHome]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1040</X><Y>130</Y>
 					<Label><X>25</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33792,6 +33945,7 @@ isHome = false;]]></ExitAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144155</Id>
 					<Name><![CDATA[moving]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1020</X><Y>210</Y>
 					<Label><X>45</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33806,6 +33960,7 @@ countTrip();]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144157</Id>
 					<Name><![CDATA[activity]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>970</X><Y>320</Y>
 					<Label><X>90</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33820,6 +33975,7 @@ countTrip();]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144159</Id>
 					<Name><![CDATA[idle]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>720</X><Y>565</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33832,6 +33988,7 @@ countTrip();]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144161</Id>
 					<Name><![CDATA[naarAuto]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>770</X><Y>645</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33846,6 +34003,7 @@ moveTo( carInUse );]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144163</Id>
 					<Name><![CDATA[naarBusHalte]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>880</X><Y>645</Y>
 					<Label><X>5</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33860,6 +34018,7 @@ moveTo( main.bushaltesUtrechtNeuhuijsstraat.get( uniform_discr( 0, 2 ) ) );]]></
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144165</Id>
 					<Name><![CDATA[fietsen]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1050</X><Y>645</Y>
 					<Label><X>4</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33878,6 +34037,7 @@ moveTo( main.bestemmingenUtrechtNeuhuijsstraat.get
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144167</Id>
 					<Name><![CDATA[vertekUitWijk]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>770</X><Y>735</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33897,6 +34057,7 @@ moveTo( destination );
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144169</Id>
 					<Name><![CDATA[wachtOpBus]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>890</X><Y>735</Y>
 					<Label><X>-5</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33909,6 +34070,7 @@ moveTo( destination );
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144171</Id>
 					<Name><![CDATA[wegMetFiets]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1060</X><Y>735</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33925,6 +34087,7 @@ figuurLine.setVisible( true );]]></ExitAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144173</Id>
 					<Name><![CDATA[wegMetBus]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>890</X><Y>815</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33941,6 +34104,7 @@ figuurLine.setVisible( true );]]></ExitAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144175</Id>
 					<Name><![CDATA[naarParkeerplaats]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1165</X><Y>645</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33955,6 +34119,7 @@ moveTo( household.parkeerplaatsPoint2 );]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144177</Id>
 					<Name><![CDATA[wegMetAuto]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>720</X><Y>815</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33969,6 +34134,7 @@ moveTo( household.parkeerplaatsPoint2 );]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144179</Id>
 					<Name><![CDATA[vertrekAlsPassagier]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1170</X><Y>735</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33986,6 +34152,7 @@ moveTo( main.bestemmingenUtrechtNeuhuijsstraat.get(uniform_discr( main.bestemmin
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144181</Id>
 					<Name><![CDATA[wegAlsPassagier]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1170</X><Y>815</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34003,6 +34170,7 @@ figuurLine.setVisible( true );
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144183</Id>
 					<Name><![CDATA[terugNaarWijk]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>720</X><Y>735</Y>
 					<Label><X>-90</X><Y>14</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34018,6 +34186,7 @@ carInUse.moveTo( destination );]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144185</Id>
 					<Name><![CDATA[parkeren]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>720</X><Y>645</Y>
 					<Label><X>-56</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34034,6 +34203,7 @@ moveTo( thuisLocatie );]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144187</Id>
 					<Name><![CDATA[terugfietsen]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1110</X><Y>645</Y>
 					<Label><X>3</X><Y>8</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34050,6 +34220,7 @@ figuurLine.setFillColor( white );]]></ExitAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144189</Id>
 					<Name><![CDATA[loopNaarHuis]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>965</X><Y>645</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34063,6 +34234,7 @@ figuurLine.setFillColor( white );]]></ExitAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144191</Id>
 					<Name><![CDATA[wandelNaarHuis]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1260</X><Y>645</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34080,6 +34252,7 @@ moveTo( thuisLocatie );]]></EntryAction>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
 					<Id>1646831144193</Id>
 					<Name><![CDATA[terugAlsPassagier]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1260</X><Y>735</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34093,6 +34266,7 @@ moveTo( thuisLocatie );]]></EntryAction>
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 					<Id>1646831144195</Id>
 					<Name><![CDATA[activityChart]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1090</X><Y>90</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34108,6 +34282,7 @@ moveTo( thuisLocatie );]]></EntryAction>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144197</Id>
 					<Name><![CDATA[departFromHome]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1070</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34151,6 +34326,7 @@ else {
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144199</Id>
 					<Name><![CDATA[arriveActivity]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1070</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34181,6 +34357,7 @@ else {
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144201</Id>
 					<Name><![CDATA[departActivity]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1110</X><Y>320</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34211,6 +34388,7 @@ else {
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144203</Id>
 					<Name><![CDATA[arriveHome]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1110</X><Y>210</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34261,6 +34439,7 @@ if ( carInUse != null ) {
 				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 					<Id>1646831144205</Id>
 					<Name><![CDATA[statechart]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>680</X><Y>580</Y>
 					<Label><X>40</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34276,6 +34455,7 @@ if ( carInUse != null ) {
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144207</Id>
 					<Name><![CDATA[transition]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>820</X><Y>595</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34306,6 +34486,7 @@ if ( carInUse != null ) {
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144209</Id>
 					<Name><![CDATA[transition1]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>930</X><Y>595</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34336,6 +34517,7 @@ if ( carInUse != null ) {
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144211</Id>
 					<Name><![CDATA[transition2]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1080</X><Y>595</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34366,6 +34548,7 @@ if ( carInUse != null ) {
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144213</Id>
 					<Name><![CDATA[transition3]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1210</X><Y>595</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34396,6 +34579,7 @@ if ( carInUse != null ) {
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144215</Id>
 					<Name><![CDATA[transition4]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>825</X><Y>675</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34433,6 +34617,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144217</Id>
 					<Name><![CDATA[transition5]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>820</X><Y>765</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34463,6 +34648,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144219</Id>
 					<Name><![CDATA[transition6]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>920</X><Y>675</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34493,6 +34679,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144221</Id>
 					<Name><![CDATA[transition7]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>920</X><Y>765</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34523,6 +34710,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144223</Id>
 					<Name><![CDATA[transition8]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1080</X><Y>675</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34553,6 +34741,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144225</Id>
 					<Name><![CDATA[transition9]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1210</X><Y>675</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34583,6 +34772,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144227</Id>
 					<Name><![CDATA[transition10]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1205</X><Y>765</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34613,6 +34803,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144229</Id>
 					<Name><![CDATA[transition11]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>740</X><Y>815</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34643,6 +34834,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144231</Id>
 					<Name><![CDATA[transition12]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>740</X><Y>735</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34673,6 +34865,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144233</Id>
 					<Name><![CDATA[transition14]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1000</X><Y>815</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34703,6 +34896,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144235</Id>
 					<Name><![CDATA[transition13]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1130</X><Y>735</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34733,6 +34927,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144237</Id>
 					<Name><![CDATA[transition15]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1135</X><Y>645</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34763,6 +34958,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144239</Id>
 					<Name><![CDATA[transition17]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1000</X><Y>645</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34793,6 +34989,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144241</Id>
 					<Name><![CDATA[transition18]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>740</X><Y>645</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34823,6 +35020,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144243</Id>
 					<Name><![CDATA[transition19]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1310</X><Y>815</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34853,6 +35051,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144245</Id>
 					<Name><![CDATA[transition20]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1310</X><Y>735</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34883,6 +35082,7 @@ carInUse.moveTo( destination );]]></Action>
 				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 					<Id>1646831144247</Id>
 					<Name><![CDATA[transition21]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1310</X><Y>645</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -34988,50 +35188,50 @@ send( message, this);]]></Action>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Parameter>
-						<Name><![CDATA[huishouden]]></Name>
-						<Type><![CDATA[Huishouden]]></Type>
+						<Name><![CDATA[household]]></Name>
+						<Type><![CDATA[Household]]></Type>
 					</Parameter>
 					<Body><![CDATA[// Get trip tuples from this household ID from database
-List< Tuple > tuples = selectFrom( db_activiteiten_ehv).where( db_activiteiten_ehv.hhid.eq( huishouden.id ) ).
-where( db_activiteiten_ehv.mem_id.eq( memberID )).list();
+List< Tuple > tuples = selectFrom( db_activities_sample).where( db_activities_sample.hhid.eq( household.id ) ).
+where( db_activities_sample.mem_id.eq( memberID )).list();
 			
 //Create an activity for each record and set its values	
 for( Tuple tup : tuples ) {
-	Activity a = add_activities();
-	a.type = tup.get ( db_activiteiten_ehv.activity_type );
-	a.modality = tup.get ( db_activiteiten_ehv.mode );
-	a.locStart = tup.get ( db_activiteiten_ehv.orig_loc );
-	a.locEnd = tup.get ( db_activiteiten_ehv.dest_loc );
-	a.leaveTime = tup.get ( db_activiteiten_ehv.leave_time );
-	a.travelTime = tup.get ( db_activiteiten_ehv.travel_time );
-	a.beginTime = tup.get ( db_activiteiten_ehv.begin_time );
-	a.endTime = tup.get ( db_activiteiten_ehv.end_time );
-	a.episode = tup.get ( db_activiteiten_ehv.episode_id);
+	Activity a = add_pop_activities();
+	a.type = tup.get ( db_activities_sample.activity_type );
+	a.modality = tup.get ( db_activities_sample.mode );
+	a.locStart = tup.get ( db_activities_sample.orig_loc );
+	a.locEnd = tup.get ( db_activities_sample.dest_loc );
+	a.leaveTime = tup.get ( db_activities_sample.leave_time );
+	a.travelTime = tup.get ( db_activities_sample.travel_time );
+	a.beginTime = tup.get ( db_activities_sample.begin_time );
+	a.endTime = tup.get ( db_activities_sample.end_time );
+	a.episode = tup.get ( db_activities_sample.episode_id);
 	a.processAlbatrossInput();
 	a.adult = this;
 	a.household = household;
-	if ( ! a.type.equals( "Home" ) ) {
-		drawActivity(a);
-	}
-	if (a.modality.equals("Car")){
-		a.carDistance = a.travelTime * 1.2;
-		main.distanceHistogram.add(a.carDistance);
-	}
+	//if ( ! a.type.equals( "Home" ) ) {
+		//drawActivity(a);
+	//}
+	//if (a.modality.equals("Car")){
+		//a.carDistance = a.travelTime * 1.2;
+		//main.distanceHistogram.add(a.carDistance);
+	//}
 }
 
 
 
-countWork();
+//countWork();
 
 
 //initialize acitivities
-currentActivity = this.activities(0);
+currentActivity = this.pop_activities(0);
 nextActivity = null;
 Activity a = null;
 dummyIndex = currentActivityEpisode;
 
-while ( dummyIndex + 1 < activities.size() ){
-	a = activities.get( dummyIndex + 1 );
+while ( dummyIndex + 1 < pop_activities.size() ){
+	a = pop_activities.get( dummyIndex + 1 );
 	if (currentActivity.type.equals("Home") && a.type.equals("Home") ){
 		dummyIndex ++;
 	}
@@ -35041,7 +35241,7 @@ while ( dummyIndex + 1 < activities.size() ){
 }
 if ( a != null ){
 	nextActivity = a;
-	nextActivityInfo = "Next activity: " + nextActivity.type + " (ep. " + nextActivity.episode + " / " +  activities.size() +
+	nextActivityInfo = "Next activity: " + nextActivity.type + " (ep. " + nextActivity.episode + " / " +  pop_activities.size() +
 	") in: " ;
 }
 else {
@@ -35049,7 +35249,7 @@ else {
 }
 
 // Set the timer for the first activity
-if (activities.size()>1){
+if (pop_activities.size()>1){
 	nextActivityTimer.restart( nextActivity.startMinute, MINUTE );
 }]]></Body>
 				</Function>
@@ -35073,8 +35273,8 @@ nextActivity = null;
 Activity a = null;
 dummyIndex = currentActivityEpisode;
 
-while ( dummyIndex + 1 < activities.size() ){
-	a = activities.get( dummyIndex + 1 );
+while ( dummyIndex + 1 < pop_activities.size() ){
+	a = pop_activities.get( dummyIndex + 1 );
 	if (currentActivity.type.equals("Home") && a.type.equals("Home") ){
 		dummyIndex ++;
 	}
@@ -35084,7 +35284,7 @@ while ( dummyIndex + 1 < activities.size() ){
 }
 if ( a != null ){
 	nextActivity = a;
-	nextActivityInfo = "Next activity: " + nextActivity.type + " (ep. " + nextActivity.episode + " / " +  activities.size() +
+	nextActivityInfo = "Next activity: " + nextActivity.type + " (ep. " + nextActivity.episode + " / " +  pop_activities.size() +
 	") in: " ;
 }
 else {
@@ -35111,9 +35311,9 @@ if ( household.nbVehicles == 0 ) {
 	//traceln( "Error in data: " + this.getName() + " wil met de auto, maar er is geen auto agent in " + household.getName() );	
 }
 else if ( household.nbVehicles == 1 ) {
-	if (household.auto1.isBeschikbaar ) {
-		household.auto1.isBeschikbaar = false;
-		carInUse = household.auto1;
+	if (household.car1.isAvailable ) {
+		household.car1.isAvailable = false;
+		carInUse = household.car1;
 		carInUse.currentTripDistance = currentActivity.travelTime * 1.6; // Tijdelijke oplossing = 60 * 1.2 km/u
 		send("vertrek", carInUse);
 	}
@@ -35125,9 +35325,9 @@ else if ( household.nbVehicles == 1 ) {
 else if ( household.nbVehicles == 2 ) {
 	//Als member of 1, pak auto 1
 	if ( memberID == 0 ) {
-		if (household.auto1.isBeschikbaar ) {
-			household.auto1.isBeschikbaar = false;
-			carInUse = household.auto1;
+		if (household.car1.isAvailable ) {
+			household.car1.isAvailable = false;
+			carInUse = household.car1;
 			carInUse.currentTripDistance = currentActivity.travelTime * 1.2; // Tijdelijke oplossing = 60 * 1.2 km/u
 			send("vertrek", carInUse);
 		}
@@ -35137,9 +35337,9 @@ else if ( household.nbVehicles == 2 ) {
 	}
 	// Als member is 2, pak auto2 of auto1
 	else if ( memberID == 1) {
-		if (household.auto2.isBeschikbaar ) {
-			household.auto2.isBeschikbaar = false;
-			carInUse = household.auto2;
+		if (household.car2.isAvailable ) {
+			household.car2.isAvailable = false;
+			carInUse = household.car2;
 			carInUse.currentTripDistance = currentActivity.travelTime * 1.2; // Tijdelijke oplossing = 60 * 1.2 km/u
 			send("vertrek", carInUse);
 		}
@@ -35167,6 +35367,7 @@ else {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1646831144076</Id>
 					<Name><![CDATA[vertrekVanHuis]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>740</X><Y>480</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -35205,6 +35406,7 @@ else {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1646831144078</Id>
 					<Name><![CDATA[komThuis]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>740</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -35236,191 +35438,9 @@ else {
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
-					<Id>1646831144080</Id>
-					<Name><![CDATA[countTrip]]></Name>
-					<X>760</X><Y>260</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[//Deze funcite kijkt wat voor trip het is en telt de trips. Lijkt veel maar is eenvoudig.
-
-if( currentActivity.modality.equals( "Car" ) ) {
-	main.car ++;
-	if (currentActivity.type.equals( "Work" ) ) {
-		main.werkCar ++;
-		main.werk ++;
-	}
-	else if (currentActivity.type.equals( "Groceries" ) ) {
-		main.boodschapCar ++;
-		main.boodschap ++;
-	}
-	else if (currentActivity.type.equals( "Business" ) ) {
-		main.businessCar ++;
-		main.business ++;
-	}
-	else if (currentActivity.type.equals( "Social" ) ) {
-		main.bezoekCar ++;
-		main.bezoek++;
-	}
-	else if (currentActivity.type.equals( "Leisure" ) ) {
-		main.vrijetijdCar ++;
-		main.vrijetijd++;
-	}
-	else if (currentActivity.type.equals( "NonGroc" ) ) {
-		main.winkelenCar ++;
-		main.winkelen ++;
-	}
-	else if (currentActivity.type.equals( "BringGet" ) ) {
-		main.brengenCar ++;
-		main.brengen ++;
-	}
-	else if (currentActivity.type.equals( "Home" ) ) {
-		//home trips tellen we niet
-	}
-	else if (currentActivity.type.equals( "Services" ) || currentActivity.type.equals( "Other" ) || currentActivity.type.equals( "Touring") )  {
-		main.andersCar ++;
-		main.anders ++;
-	}
-	else {
-		traceln ( getName() + ", cartrip wordt niet geteld in counttrip functie omdat de triptype: " + currentActivity.type + " niet bestaat" );
-	}
-}
-else if ( currentActivity.modality.equals( "Walking or Biking" ) ) {
-	main.fiets ++;
-	if (currentActivity.type.equals( "Work" ) ) {
-		main.werkFiets ++;
-		main.werk ++;
-	}
-	else if (currentActivity.type.equals( "Groceries" ) ) {
-		main.boodschapFiets ++;
-		main.boodschap ++;
-	}
-	else if (currentActivity.type.equals( "Business" ) ) {
-		main.businessFiets ++;
-		main.business ++;
-	}
-	else if (currentActivity.type.equals( "Social" ) ) {
-		main.bezoekFiets ++;
-		main.bezoek++;
-	}
-	else if (currentActivity.type.equals( "Leisure" ) ) {
-		main.vrijetijdFiets ++;
-		main.vrijetijd++;
-	}
-	else if (currentActivity.type.equals( "NonGroc" ) ) {
-		main.winkelenFiets ++;
-		main.winkelen ++;
-	}
-	else if (currentActivity.type.equals( "BringGet" ) ) {
-		main.brengenFiets ++;
-		main.brengen ++;
-	}
-	else if (currentActivity.type.equals( "Home" ) ) {
-		//home trips tellen we niet
-	}
-	else if (currentActivity.type.equals( "Services" ) || currentActivity.type.equals( "Other" ) || currentActivity.type.equals( "Touring" ) ) {
-		main.andersFiets ++;
-		main.anders ++;
-	}
-	else {
-		traceln ( getName() + ", walkingtrip wordt niet geteld in counttrip functie omdat de triptype: " + currentActivity.type + " niet bestaat" );
-	}
-}
-else if ( currentActivity.modality.equals( "Public Transport" ) ) {
-	main.pt ++;
-	if (currentActivity.type.equals( "Work" ) ) {
-		main.werkPT ++;
-		main.werk ++;
-	}
-	else if (currentActivity.type.equals( "Groceries" ) ) {
-		main.boodschapPT ++;
-		main.boodschap ++;
-	}
-	else if (currentActivity.type.equals( "Business" ) ) {
-		main.businessPT ++;
-		main.business ++;
-	}
-	else if (currentActivity.type.equals( "Social" ) ) {
-		main.bezoekPT ++;
-		main.bezoek++;
-	}
-	else if (currentActivity.type.equals( "Leisure" ) ) {
-		main.vrijetijdPT ++;
-		main.vrijetijd++;
-	}
-	else if (currentActivity.type.equals( "NonGroc" ) ) {
-		main.winkelenPT ++;
-		main.winkelen ++;
-	}
-	else if (currentActivity.type.equals( "BringGet" ) ) {
-		main.brengenPT ++;
-		main.brengen ++;
-	}
-	else if (currentActivity.type.equals( "Home" ) ) {
-		//home trips tellen we niet
-	}
-	else if (currentActivity.type.equals( "Services" ) || currentActivity.type.equals( "Other" ) || currentActivity.type.equals( "Touring" ) ) {
-		main.andersPT ++;
-		main.anders ++;
-	}
-	else {
-		traceln ( getName() + ", fietstrip wordt niet geteld in counttrip functie omdat de triptype: " + currentActivity.type + " niet bestaat" );
-	}
-}
-else if ( currentActivity.modality.equals( "Car as Passenger" ) ) {
-	main.pas ++;
-	if (currentActivity.type.equals( "Work" ) ) {
-		main.werkPas ++;
-		main.werk ++;
-	}
-	else if (currentActivity.type.equals( "Groceries" ) ) {
-		main.boodschapPas ++;
-		main.boodschap ++;
-	}
-	else if (currentActivity.type.equals( "Business" ) ) {
-		main.businessPas ++;
-		main.business ++;
-	}
-	else if (currentActivity.type.equals( "Social" ) ) {
-		main.bezoekPas ++;
-		main.bezoek++;
-	}
-	else if (currentActivity.type.equals( "Leisure" ) ) {
-		main.vrijetijdPas ++;
-		main.vrijetijd++;
-	}
-	else if (currentActivity.type.equals( "NonGroc" ) ) {
-		main.winkelenPas ++;
-		main.winkelen ++;
-	}
-	else if (currentActivity.type.equals( "BringGet" ) ) {
-		main.brengenPas ++;
-		main.brengen ++;
-	}
-	else if (currentActivity.type.equals( "Home" ) ) {
-		//home trips tellen we niet
-	}
-	else if (currentActivity.type.equals( "Services" ) || currentActivity.type.equals( "Other" ) || currentActivity.type.equals( "Touring" )) {
-		main.andersPas ++;
-		main.anders ++;
-	}
-	else {
-		traceln ( getName() + ", passagiertrip wordt niet geteld in counttrip functie omdat de triptype: " + currentActivity.type + " niet bestaat" );
-	}
-}
-else if ( currentActivity.modality.equals( "Missing" ) ){
-
-}
-else {
-	traceln ( getName() + ", trip wordt niet geteld in counttrip functie omdat modaliteit niet bestaat" );
-}]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>VOID</ReturnModificator>
-					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1646831144082</Id>
 					<Name><![CDATA[drawActivity]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>40</X><Y>1260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -35490,6 +35510,7 @@ else if (a.type.equals( "Services" ) || a.type.equals( "Other" ) || a.type.equal
 					<ReturnType><![CDATA[Activity]]></ReturnType>
 					<Id>1646831144084</Id>
 					<Name><![CDATA[berekenVolgendeCarTrip]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>40</X><Y>1290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -35535,8 +35556,8 @@ return a;
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[for (iDummy=1; iDummy<activities.size(); iDummy++){
-	if (activities(iDummy-1).type.equals("Home") && activities(iDummy).travelTime > 5 && driversLicense & randomTrue(0.5)){
+					<Body><![CDATA[for (iDummy=1; iDummy<pop_activities.size(); iDummy++){
+	if (pop_activities(iDummy-1).type.equals("Home") && pop_activities(iDummy).travelTime > 5 && driversLicense & randomTrue(0.5)){
 		fillModalShiftCollection();
 		if (household.nbVehicles > 1) {
 			setModalShift();
@@ -35567,13 +35588,13 @@ return a;
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[while (!activities(iDummy).type.equals("Home")){
+					<Body><![CDATA[while (!pop_activities(iDummy).type.equals("Home")){
 	//activities(i).modality = "Car";
-	modalShiftActivities.add(activities(iDummy));
+	modalShiftActivities.add(pop_activities(iDummy));
 	iDummy++; 
 }
 //activities(i).modality = "Car";
-modalShiftActivities.add(activities(iDummy));]]></Body>
+modalShiftActivities.add(pop_activities(iDummy));]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -35586,12 +35607,12 @@ modalShiftActivities.add(activities(iDummy));]]></Body>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Body><![CDATA[noModalityConflict = true;
-for (int j=0; j<household.bewoners.size(); j++) {
-	if (household.bewoners.get(j).memberID != memberID) {
-		for (int k=0; k<household.bewoners.get(j).activities.size(); k++) {	
-			if (household.bewoners.get(j).activities(k).startMinute < modalShiftActivities.get(modalShiftActivities.size()-1).startMinute + modalShiftActivities.get(modalShiftActivities.size()-1).travelTime  
-			&& household.bewoners.get(j).activities(k).endMinute > modalShiftActivities.get(0).startMinute){
-				if (household.bewoners.get(j).activities(k).modality.equals("Car")){
+for (int j=0; j<household.people.size(); j++) {
+	if (household.people.get(j).memberID != memberID) {
+		for (int k=0; k<household.people.get(j).pop_activities.size(); k++) {	
+			if (household.people.get(j).pop_activities(k).startMinute < modalShiftActivities.get(modalShiftActivities.size()-1).startMinute + modalShiftActivities.get(modalShiftActivities.size()-1).travelTime  
+			&& household.people.get(j).pop_activities(k).endMinute > modalShiftActivities.get(0).startMinute){
+				if (household.people.get(j).pop_activities(k).modality.equals("Car")){
 					nbrConflicts = nbrConflicts + 1;
 					noModalityConflict = false;
 					
@@ -35625,12 +35646,13 @@ for (int j=0; j<household.bewoners.size(); j++) {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1646831144094</Id>
 					<Name><![CDATA[countWork]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>-110</X><Y>250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[for (Activity a : activities){
+					<Body><![CDATA[for (Activity a : pop_activities){
 	if (workActivities.isEmpty()){
 		if (a.type.equals("Work") ){
 			workActivities.add( a );
@@ -35660,16 +35682,6 @@ main.nbWorkHistogram.add(nbWorkActivities);]]></Body>
 					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
 					<AgentLinkBidirectional>true</AgentLinkBidirectional>
 					<MessageType><![CDATA[Object]]></MessageType>
-					<StatechartReference>
-						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-						<ClassName><![CDATA[Person]]></ClassName>
-						<ItemName><![CDATA[activityChart]]></ItemName>
-					</StatechartReference>
-					<StatechartReference>
-						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-						<ClassName><![CDATA[Person]]></ClassName>
-						<ItemName><![CDATA[statechart]]></ItemName>
-					</StatechartReference>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16777216</LineColor>
@@ -36204,8 +36216,8 @@ main.nbWorkHistogram.add(nbWorkActivities);]]></Body>
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 10 ) ?
-activities.get (currentActivityEpisode + 10 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 10 ) ?
+pop_activities.get (currentActivityEpisode + 10 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -36229,8 +36241,8 @@ activities.get (currentActivityEpisode + 10 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 3) ?
-activities.get(currentActivityEpisode + 3).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 3) ?
+pop_activities.get(currentActivityEpisode + 3).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -36243,6 +36255,7 @@ activities.get(currentActivityEpisode + 3).episode
 				<Rectangle>
 					<Id>1646831143706</Id>
 					<Name><![CDATA[rectangle18]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>420</X><Y>1240</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -36277,11 +36290,11 @@ activities.get(currentActivityEpisode + 3).episode
 					<Color>-1</Color>
 					<Text><![CDATA[Current activity: swimming (ep. 2 / 10)]]></Text>
 					<TextCode><![CDATA["Current activity: " +
-activities.get( currentActivityEpisode ).type +
+pop_activities.get( currentActivityEpisode ).type +
 " (ep. " +
 currentActivityEpisode +
 " / " + 
-activities.size() +
+pop_activities.size() +
 ")"]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
@@ -36304,8 +36317,8 @@ activities.size() +
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 4 ) ?
-activities.get (currentActivityEpisode + 4 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 4 ) ?
+pop_activities.get (currentActivityEpisode + 4 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -36329,11 +36342,11 @@ activities.get (currentActivityEpisode + 4 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 7 ) ? (
-	activities.get( currentActivityEpisode + 7 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 7 ) ? (
+	pop_activities.get( currentActivityEpisode + 7 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 7 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 7 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -36358,8 +36371,8 @@ activities.get (currentActivityEpisode + 4 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 4 ) ?
-activities.get( currentActivityEpisode + 4 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 4 ) ?
+pop_activities.get( currentActivityEpisode + 4 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -36383,8 +36396,8 @@ activities.get( currentActivityEpisode + 4 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 7) ?
-activities.get(currentActivityEpisode + 7).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 7) ?
+pop_activities.get(currentActivityEpisode + 7).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -36408,8 +36421,8 @@ activities.get(currentActivityEpisode + 7).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 3 ) ?
-activities.get (currentActivityEpisode + 3 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 3 ) ?
+pop_activities.get (currentActivityEpisode + 3 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -36433,8 +36446,8 @@ activities.get (currentActivityEpisode + 3 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 9) ?
-activities.get(currentActivityEpisode + 9).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 9) ?
+pop_activities.get(currentActivityEpisode + 9).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -36468,6 +36481,7 @@ activities.get(currentActivityEpisode + 9).episode
 				<Line>
 					<Id>1646831143724</Id>
 					<Name><![CDATA[line15]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1400</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -36492,6 +36506,7 @@ activities.get(currentActivityEpisode + 9).episode
 				<Oval>
 					<Id>1646831143726</Id>
 					<Name><![CDATA[oval1]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>0</X><Y>1610</Y>
 					<Label><X>0</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -36527,11 +36542,11 @@ activities.get(currentActivityEpisode + 9).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 6 ) ? (
-	activities.get( currentActivityEpisode + 6 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 6 ) ? (
+	pop_activities.get( currentActivityEpisode + 6 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 6 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 6 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -36577,8 +36592,8 @@ activities.get(currentActivityEpisode + 9).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode ) ?
-(activities.get (currentActivityEpisode ).modeChange == true ? activities.get (currentActivityEpisode ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode ) ?
+(pop_activities.get (currentActivityEpisode ).modeChange == true ? pop_activities.get (currentActivityEpisode ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -36602,8 +36617,8 @@ activities.get(currentActivityEpisode + 9).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 12 ) ?
-activities.get( currentActivityEpisode + 12 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 12 ) ?
+pop_activities.get( currentActivityEpisode + 12 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -36616,13 +36631,14 @@ activities.get( currentActivityEpisode + 12 ).endTimeString
 				<Polyline>
 					<Id>1646831143736</Id>
 					<Name><![CDATA[polyline]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1360</X><Y>1165</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[main.bewoners.random().viewActivity.navigateTo();]]></OnClickCode>
+					<OnClickCode><![CDATA[main.person.random().viewActivity.navigateTo();]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<ZHeight>10</ZHeight>
@@ -36657,8 +36673,8 @@ activities.get( currentActivityEpisode + 12 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode ) ?
-activities.get ( currentActivityEpisode ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode ) ?
+pop_activities.get ( currentActivityEpisode ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -36682,8 +36698,8 @@ activities.get ( currentActivityEpisode ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 14 ) ?
-activities.get( currentActivityEpisode + 14 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 14 ) ?
+pop_activities.get( currentActivityEpisode + 14 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -36696,6 +36712,7 @@ activities.get( currentActivityEpisode + 14 ).type
 				<Text>
 					<Id>1646831143742</Id>
 					<Name><![CDATA[text119]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>890</X><Y>1610</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -36749,8 +36766,8 @@ activities.get( currentActivityEpisode + 14 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 2) ?
-activities.get(currentActivityEpisode + 2).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 2) ?
+pop_activities.get(currentActivityEpisode + 2).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -36774,8 +36791,8 @@ activities.get(currentActivityEpisode + 2).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 11 ) ?
-activities.get( currentActivityEpisode + 11 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 11 ) ?
+pop_activities.get( currentActivityEpisode + 11 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -36788,6 +36805,7 @@ activities.get( currentActivityEpisode + 11 ).type
 				<Text>
 					<Id>1646831143750</Id>
 					<Name><![CDATA[text115]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>900</X><Y>545</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -36809,6 +36827,7 @@ activities.get( currentActivityEpisode + 11 ).type
 				<Text>
 					<Id>1646831143752</Id>
 					<Name><![CDATA[text117]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>390</X><Y>1610</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -36841,11 +36860,11 @@ activities.get( currentActivityEpisode + 11 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 12 ) ? (
-	activities.get( currentActivityEpisode + 12 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 12 ) ? (
+	pop_activities.get( currentActivityEpisode + 12 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 12 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 12 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -36870,8 +36889,8 @@ activities.get( currentActivityEpisode + 11 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 10) ?
-activities.get(currentActivityEpisode + 10).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 10) ?
+pop_activities.get(currentActivityEpisode + 10).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -36895,8 +36914,8 @@ activities.get(currentActivityEpisode + 10).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 6 ) ?
-(activities.get (currentActivityEpisode + 6 ).modeChange == true ? activities.get (currentActivityEpisode + 6 ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 6 ) ?
+(pop_activities.get (currentActivityEpisode + 6 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 6 ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -36920,8 +36939,8 @@ activities.get(currentActivityEpisode + 10).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 3 ) ?
-activities.get (currentActivityEpisode + 3).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 3 ) ?
+pop_activities.get (currentActivityEpisode + 3).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -36945,8 +36964,8 @@ activities.get (currentActivityEpisode + 3).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 8 ) ?
-activities.get (currentActivityEpisode + 8 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 8 ) ?
+pop_activities.get (currentActivityEpisode + 8 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -36970,8 +36989,8 @@ activities.get (currentActivityEpisode + 8 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 12 ) ?
-activities.get (currentActivityEpisode + 12 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 12 ) ?
+pop_activities.get (currentActivityEpisode + 12 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -36995,8 +37014,8 @@ activities.get (currentActivityEpisode + 12 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 8 ) ?
-activities.get( currentActivityEpisode + 8 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 8 ) ?
+pop_activities.get( currentActivityEpisode + 8 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37020,8 +37039,8 @@ activities.get( currentActivityEpisode + 8 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 9) ?
-activities.get(currentActivityEpisode + 9).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 9) ?
+pop_activities.get(currentActivityEpisode + 9).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37045,8 +37064,8 @@ activities.get(currentActivityEpisode + 9).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 1) ?
-activities.get(currentActivityEpisode + 1).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 1) ?
+pop_activities.get(currentActivityEpisode + 1).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37070,8 +37089,8 @@ activities.get(currentActivityEpisode + 1).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 7 ) ?
-activities.get (currentActivityEpisode + 7 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 7 ) ?
+pop_activities.get (currentActivityEpisode + 7 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -37095,8 +37114,8 @@ activities.get (currentActivityEpisode + 7 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 13) ?
-activities.get(currentActivityEpisode + 13).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 13) ?
+pop_activities.get(currentActivityEpisode + 13).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -37120,8 +37139,8 @@ activities.get(currentActivityEpisode + 13).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 9 ) ?
-activities.get (currentActivityEpisode + 9 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 9 ) ?
+pop_activities.get (currentActivityEpisode + 9 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -37169,8 +37188,8 @@ activities.get (currentActivityEpisode + 9 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 12) ?
-activities.get(currentActivityEpisode + 12).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 12) ?
+pop_activities.get(currentActivityEpisode + 12).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37194,8 +37213,8 @@ activities.get(currentActivityEpisode + 12).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 2 ) ?
-activities.get (currentActivityEpisode + 2 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 2 ) ?
+pop_activities.get (currentActivityEpisode + 2 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -37241,8 +37260,8 @@ activities.get (currentActivityEpisode + 2 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 11) ?
-activities.get(currentActivityEpisode + 11).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 11) ?
+pop_activities.get(currentActivityEpisode + 11).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -37266,8 +37285,8 @@ activities.get(currentActivityEpisode + 11).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 12) ?
-activities.get(currentActivityEpisode + 12).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 12) ?
+pop_activities.get(currentActivityEpisode + 12).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -37291,8 +37310,8 @@ activities.get(currentActivityEpisode + 12).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 9 ) ?
-activities.get( currentActivityEpisode + 9 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 9 ) ?
+pop_activities.get( currentActivityEpisode + 9 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37316,11 +37335,11 @@ activities.get( currentActivityEpisode + 9 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 14 ) ? (
-	activities.get( currentActivityEpisode + 14 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 14 ) ? (
+	pop_activities.get( currentActivityEpisode + 14 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 14 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 14 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -37345,8 +37364,8 @@ activities.get( currentActivityEpisode + 9 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 11 ) ?
-activities.get (currentActivityEpisode + 11 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 11 ) ?
+pop_activities.get (currentActivityEpisode + 11 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -37370,8 +37389,8 @@ activities.get (currentActivityEpisode + 11 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 4 ) ?
-(activities.get (currentActivityEpisode + 4 ).modeChange == true ? activities.get (currentActivityEpisode + 4 ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 4 ) ?
+(pop_activities.get (currentActivityEpisode + 4 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 4 ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -37395,11 +37414,11 @@ activities.get (currentActivityEpisode + 11 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 13 ) ? (
-	activities.get( currentActivityEpisode + 13 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 13 ) ? (
+	pop_activities.get( currentActivityEpisode + 13 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 13 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 13 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -37424,8 +37443,8 @@ activities.get (currentActivityEpisode + 11 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 2 ) ?
-activities.get( currentActivityEpisode + 2 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 2 ) ?
+pop_activities.get( currentActivityEpisode + 2 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37449,8 +37468,8 @@ activities.get( currentActivityEpisode + 2 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 1 ) ?
-(activities.get (currentActivityEpisode + 1 ).modeChange == true ? activities.get (currentActivityEpisode + 1 ).modeChange : ""):
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 1 ) ?
+(pop_activities.get (currentActivityEpisode + 1 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 1 ).modeChange : ""):
 " "]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
@@ -37473,8 +37492,8 @@ activities.get( currentActivityEpisode + 2 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 2 ) ?
-activities.get (currentActivityEpisode + 2 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 2 ) ?
+pop_activities.get (currentActivityEpisode + 2 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -37487,6 +37506,7 @@ activities.get (currentActivityEpisode + 2 ).modality.toString()
 				<Line>
 					<Id>1646831143812</Id>
 					<Name><![CDATA[line7]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>700</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -37511,6 +37531,7 @@ activities.get (currentActivityEpisode + 2 ).modality.toString()
 				<Text>
 					<Id>1646831143814</Id>
 					<Name><![CDATA[text121]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1090</X><Y>1610</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -37543,11 +37564,11 @@ activities.get (currentActivityEpisode + 2 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 10 ) ? (
-	activities.get( currentActivityEpisode + 10 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 10 ) ? (
+	pop_activities.get( currentActivityEpisode + 10 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 10 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 10 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -37572,8 +37593,8 @@ activities.get (currentActivityEpisode + 2 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 10) ?
-activities.get(currentActivityEpisode + 10).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 10) ?
+pop_activities.get(currentActivityEpisode + 10).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -37597,8 +37618,8 @@ activities.get(currentActivityEpisode + 10).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 3 ) ?
-activities.get (currentActivityEpisode + 3 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 3 ) ?
+pop_activities.get (currentActivityEpisode + 3 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -37622,8 +37643,8 @@ activities.get (currentActivityEpisode + 3 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 10 ) ?
-(activities.get (currentActivityEpisode + 10 ).modeChange == true ? activities.get (currentActivityEpisode + 10 ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 10 ) ?
+(pop_activities.get (currentActivityEpisode + 10 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 10 ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -37647,8 +37668,8 @@ activities.get (currentActivityEpisode + 3 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 4) ?
-activities.get(currentActivityEpisode + 4).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 4) ?
+pop_activities.get(currentActivityEpisode + 4).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37672,8 +37693,8 @@ activities.get(currentActivityEpisode + 4).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 6 ) ?
-activities.get (currentActivityEpisode + 6 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 6 ) ?
+pop_activities.get (currentActivityEpisode + 6 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -37697,8 +37718,8 @@ activities.get (currentActivityEpisode + 6 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 13 ) ?
-activities.get (currentActivityEpisode + 13 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 13 ) ?
+pop_activities.get (currentActivityEpisode + 13 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -37711,6 +37732,7 @@ activities.get (currentActivityEpisode + 13 ).type
 				<Rectangle>
 					<Id>1646831143832</Id>
 					<Name><![CDATA[rectangle17]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>50</X><Y>1450</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -37733,6 +37755,7 @@ activities.get (currentActivityEpisode + 13 ).type
 				<Rectangle>
 					<Id>1646831143834</Id>
 					<Name><![CDATA[rectangle1]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>0</X><Y>1140</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -37766,8 +37789,8 @@ activities.get (currentActivityEpisode + 13 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 13 ) ?
-activities.get( currentActivityEpisode + 13 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 13 ) ?
+pop_activities.get( currentActivityEpisode + 13 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37780,6 +37803,7 @@ activities.get( currentActivityEpisode + 13 ).endTimeString
 				<Line>
 					<Id>1646831143838</Id>
 					<Name><![CDATA[line5]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>400</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -37866,8 +37890,8 @@ activities.get( currentActivityEpisode + 13 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 5 ) ?
-activities.get( currentActivityEpisode + 5 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 5 ) ?
+pop_activities.get( currentActivityEpisode + 5 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -37913,8 +37937,8 @@ activities.get( currentActivityEpisode + 5 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 3 ) ?
-activities.get( currentActivityEpisode + 3 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 3 ) ?
+pop_activities.get( currentActivityEpisode + 3 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37961,8 +37985,8 @@ activities.get( currentActivityEpisode + 3 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 14) ?
-activities.get(currentActivityEpisode + 14).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 14) ?
+pop_activities.get(currentActivityEpisode + 14).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -37986,8 +38010,8 @@ activities.get(currentActivityEpisode + 14).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 2 ) ?
-(activities.get (currentActivityEpisode + 2 ).modeChange == true ? activities.get (currentActivityEpisode + 2 ).modeChange : ""):
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 2 ) ?
+(pop_activities.get (currentActivityEpisode + 2 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 2 ).modeChange : ""):
 " "]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
@@ -37999,6 +38023,7 @@ activities.get(currentActivityEpisode + 14).leaveTimeString
 				<Text>
 					<Id>1646831143856</Id>
 					<Name><![CDATA[text3]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>40</X><Y>1160</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -38032,8 +38057,8 @@ activities.get(currentActivityEpisode + 14).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 2 ) ?
-activities.get (currentActivityEpisode + 2 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 2 ) ?
+pop_activities.get (currentActivityEpisode + 2 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -38057,8 +38082,8 @@ activities.get (currentActivityEpisode + 2 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 7 ) ?
-activities.get (currentActivityEpisode + 7 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 7 ) ?
+pop_activities.get (currentActivityEpisode + 7 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -38082,8 +38107,8 @@ activities.get (currentActivityEpisode + 7 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 6) ?
-activities.get(currentActivityEpisode + 6).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 6) ?
+pop_activities.get(currentActivityEpisode + 6).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -38096,6 +38121,7 @@ activities.get(currentActivityEpisode + 6).episode
 				<Line>
 					<Id>1646831143864</Id>
 					<Name><![CDATA[line8]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>800</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -38131,11 +38157,11 @@ activities.get(currentActivityEpisode + 6).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 2 ) ? (
-	activities.get( currentActivityEpisode + 2 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 2 ) ? (
+	pop_activities.get( currentActivityEpisode + 2 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 2 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 2 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -38149,6 +38175,7 @@ activities.get(currentActivityEpisode + 6).episode
 				<Line>
 					<Id>1646831143868</Id>
 					<Name><![CDATA[line13]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1200</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -38173,6 +38200,7 @@ activities.get(currentActivityEpisode + 6).episode
 				<Text>
 					<Id>1646831143870</Id>
 					<Name><![CDATA[text122]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1290</X><Y>1610</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -38205,8 +38233,8 @@ activities.get(currentActivityEpisode + 6).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 6) ?
-activities.get(currentActivityEpisode + 6).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 6) ?
+pop_activities.get(currentActivityEpisode + 6).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -38219,6 +38247,7 @@ activities.get(currentActivityEpisode + 6).leaveTimeString
 				<Line>
 					<Id>1646831143874</Id>
 					<Name><![CDATA[line6]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>200</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -38254,8 +38283,8 @@ activities.get(currentActivityEpisode + 6).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 11) ?
-activities.get(currentActivityEpisode + 11).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 11) ?
+pop_activities.get(currentActivityEpisode + 11).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -38279,8 +38308,8 @@ activities.get(currentActivityEpisode + 11).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 9 ) ?
-activities.get (currentActivityEpisode + 9).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 9 ) ?
+pop_activities.get (currentActivityEpisode + 9).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -38304,8 +38333,8 @@ activities.get (currentActivityEpisode + 9).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 10 ) ?
-activities.get (currentActivityEpisode + 10 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 10 ) ?
+pop_activities.get (currentActivityEpisode + 10 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -38350,8 +38379,8 @@ activities.get (currentActivityEpisode + 10 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 4) ?
-activities.get(currentActivityEpisode + 4).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 4) ?
+pop_activities.get(currentActivityEpisode + 4).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -38375,8 +38404,8 @@ activities.get(currentActivityEpisode + 4).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 13 ) ?
-activities.get (currentActivityEpisode + 13 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 13 ) ?
+pop_activities.get (currentActivityEpisode + 13 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -38400,8 +38429,8 @@ activities.get (currentActivityEpisode + 13 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 4 ) ?
-activities.get (currentActivityEpisode + 4 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 4 ) ?
+pop_activities.get (currentActivityEpisode + 4 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -38425,8 +38454,8 @@ activities.get (currentActivityEpisode + 4 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 10 ) ?
-activities.get( currentActivityEpisode + 10 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 10 ) ?
+pop_activities.get( currentActivityEpisode + 10 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -38450,11 +38479,11 @@ activities.get( currentActivityEpisode + 10 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 11 ) ? (
-	activities.get( currentActivityEpisode + 11 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 11 ) ? (
+	pop_activities.get( currentActivityEpisode + 11 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 11 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 11 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -38479,8 +38508,8 @@ activities.get( currentActivityEpisode + 10 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 14 ) ?
-activities.get (currentActivityEpisode + 14 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 14 ) ?
+pop_activities.get (currentActivityEpisode + 14 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -38504,8 +38533,8 @@ activities.get (currentActivityEpisode + 14 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 2) ?
-activities.get(currentActivityEpisode + 2).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 2) ?
+pop_activities.get(currentActivityEpisode + 2).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -38518,6 +38547,7 @@ activities.get(currentActivityEpisode + 2).leaveTimeString
 				<Line>
 					<Id>1646831143898</Id>
 					<Name><![CDATA[line10]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1000</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -38553,8 +38583,8 @@ activities.get(currentActivityEpisode + 2).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 1 ) ?
-activities.get( currentActivityEpisode + 1 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 1 ) ?
+pop_activities.get( currentActivityEpisode + 1 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -38578,8 +38608,8 @@ activities.get( currentActivityEpisode + 1 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode ) ?
-activities.get( currentActivityEpisode ).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode ) ?
+pop_activities.get( currentActivityEpisode ).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -38603,11 +38633,11 @@ activities.get( currentActivityEpisode ).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 9 ) ? (
-	activities.get( currentActivityEpisode + 9 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 9 ) ? (
+	pop_activities.get( currentActivityEpisode + 9 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 9 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 9 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -38632,8 +38662,8 @@ activities.get( currentActivityEpisode ).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 3) ?
-activities.get(currentActivityEpisode + 3).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 3) ?
+pop_activities.get(currentActivityEpisode + 3).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -38657,8 +38687,8 @@ activities.get(currentActivityEpisode + 3).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 6 ) ?
-activities.get( currentActivityEpisode + 6 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 6 ) ?
+pop_activities.get( currentActivityEpisode + 6 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -38682,8 +38712,8 @@ activities.get( currentActivityEpisode + 6 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode ) ?
-activities.get (currentActivityEpisode ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode ) ?
+pop_activities.get (currentActivityEpisode ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -38707,8 +38737,8 @@ activities.get (currentActivityEpisode ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 12 ) ?
-(activities.get (currentActivityEpisode + 12 ).modeChange == true ? activities.get (currentActivityEpisode + 12 ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 12 ) ?
+(pop_activities.get (currentActivityEpisode + 12 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 12 ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -38721,6 +38751,7 @@ activities.get (currentActivityEpisode ).modality.toString()
 				<Line>
 					<Id>1646831143914</Id>
 					<Name><![CDATA[line14]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1300</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -38756,8 +38787,8 @@ activities.get (currentActivityEpisode ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 6 ) ?
-activities.get (currentActivityEpisode + 6 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 6 ) ?
+pop_activities.get (currentActivityEpisode + 6 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -38770,6 +38801,7 @@ activities.get (currentActivityEpisode + 6 ).startDay
 				<Line>
 					<Id>1646831143918</Id>
 					<Name><![CDATA[line9]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>600</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -38805,8 +38837,8 @@ activities.get (currentActivityEpisode + 6 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode ) ?
-activities.get( currentActivityEpisode ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode ) ?
+pop_activities.get( currentActivityEpisode ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -38819,6 +38851,7 @@ activities.get( currentActivityEpisode ).endTimeString
 				<Line>
 					<Id>1646831143922</Id>
 					<Name><![CDATA[line12]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1100</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -38854,8 +38887,8 @@ activities.get( currentActivityEpisode ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 13 ) ?
-(activities.get (currentActivityEpisode + 13 ).modeChange == true ? activities.get (currentActivityEpisode + 13 ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 13 ) ?
+(pop_activities.get (currentActivityEpisode + 13 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 13 ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -38879,8 +38912,8 @@ activities.get( currentActivityEpisode ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 7 ) ?
-(activities.get (currentActivityEpisode + 7 ).modeChange == true ? activities.get (currentActivityEpisode + 7 ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 7 ) ?
+(pop_activities.get (currentActivityEpisode + 7 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 7 ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -38904,8 +38937,8 @@ activities.get( currentActivityEpisode ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 1 ) ?
-activities.get (currentActivityEpisode + 1 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 1 ) ?
+pop_activities.get (currentActivityEpisode + 1 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -38929,8 +38962,8 @@ activities.get (currentActivityEpisode + 1 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 1 ) ?
-activities.get (currentActivityEpisode + 1 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 1 ) ?
+pop_activities.get (currentActivityEpisode + 1 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -38954,8 +38987,8 @@ activities.get (currentActivityEpisode + 1 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 4 ) ?
-activities.get (currentActivityEpisode + 4 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 4 ) ?
+pop_activities.get (currentActivityEpisode + 4 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -38979,8 +39012,8 @@ activities.get (currentActivityEpisode + 4 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 5 ) ?
-activities.get( currentActivityEpisode + 5 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 5 ) ?
+pop_activities.get( currentActivityEpisode + 5 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -39004,8 +39037,8 @@ activities.get( currentActivityEpisode + 5 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 12 ) ?
-activities.get (currentActivityEpisode + 12 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 12 ) ?
+pop_activities.get (currentActivityEpisode + 12 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -39029,8 +39062,8 @@ activities.get (currentActivityEpisode + 12 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 12 ) ?
-activities.get (currentActivityEpisode + 12 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 12 ) ?
+pop_activities.get (currentActivityEpisode + 12 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -39054,8 +39087,8 @@ activities.get (currentActivityEpisode + 12 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 13) ?
-activities.get(currentActivityEpisode + 13).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 13) ?
+pop_activities.get(currentActivityEpisode + 13).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -39079,8 +39112,8 @@ activities.get(currentActivityEpisode + 13).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 8 ) ?
-activities.get( currentActivityEpisode + 8 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 8 ) ?
+pop_activities.get( currentActivityEpisode + 8 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -39093,6 +39126,7 @@ activities.get( currentActivityEpisode + 8 ).type
 				<Line>
 					<Id>1646831143948</Id>
 					<Name><![CDATA[line4]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>500</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -39128,8 +39162,8 @@ activities.get( currentActivityEpisode + 8 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 9 ) ?
-(activities.get (currentActivityEpisode + 9 ).modeChange == true ? activities.get (currentActivityEpisode + 9 ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 9 ) ?
+(pop_activities.get (currentActivityEpisode + 9 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 9 ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -39153,11 +39187,11 @@ activities.get( currentActivityEpisode + 8 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 8 ) ? (
-	activities.get( currentActivityEpisode + 8 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 8 ) ? (
+	pop_activities.get( currentActivityEpisode + 8 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 8 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 8 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -39182,8 +39216,8 @@ activities.get( currentActivityEpisode + 8 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 5) ?
-activities.get(currentActivityEpisode + 5).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 5) ?
+pop_activities.get(currentActivityEpisode + 5).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -39207,8 +39241,8 @@ activities.get(currentActivityEpisode + 5).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 14 ) ?
-activities.get (currentActivityEpisode + 14 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 14 ) ?
+pop_activities.get (currentActivityEpisode + 14 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -39221,6 +39255,7 @@ activities.get (currentActivityEpisode + 14 ).startDay
 				<Line>
 					<Id>1646831143964</Id>
 					<Name><![CDATA[line2]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>100</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -39256,8 +39291,8 @@ activities.get (currentActivityEpisode + 14 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 10 ) ?
-activities.get (currentActivityEpisode + 10 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 10 ) ?
+pop_activities.get (currentActivityEpisode + 10 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -39281,8 +39316,8 @@ activities.get (currentActivityEpisode + 10 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 14) ?
-activities.get(currentActivityEpisode + 14).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 14) ?
+pop_activities.get(currentActivityEpisode + 14).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -39295,6 +39330,7 @@ activities.get(currentActivityEpisode + 14).episode
 				<Line>
 					<Id>1646831143970</Id>
 					<Name><![CDATA[line1]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>0</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -39351,8 +39387,8 @@ activities.get(currentActivityEpisode + 14).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 11 ) ?
-activities.get( currentActivityEpisode + 11 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 11 ) ?
+pop_activities.get( currentActivityEpisode + 11 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -39376,8 +39412,8 @@ activities.get( currentActivityEpisode + 11 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 8 ) ?
-activities.get (currentActivityEpisode + 8 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 8 ) ?
+pop_activities.get (currentActivityEpisode + 8 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -39444,8 +39480,8 @@ activities.get (currentActivityEpisode + 8 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 1 ) ?
-activities.get (currentActivityEpisode + 1 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 1 ) ?
+pop_activities.get (currentActivityEpisode + 1 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -39469,8 +39505,8 @@ activities.get (currentActivityEpisode + 1 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 13 ) ?
-activities.get (currentActivityEpisode + 13 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 13 ) ?
+pop_activities.get (currentActivityEpisode + 13 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -39494,11 +39530,11 @@ activities.get (currentActivityEpisode + 13 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 0 ) ? (
-	activities.get( currentActivityEpisode + 0 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 0 ) ? (
+	pop_activities.get( currentActivityEpisode + 0 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 0 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 0 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -39523,8 +39559,8 @@ activities.get (currentActivityEpisode + 13 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 3 ) ?
-(activities.get (currentActivityEpisode + 3 ).modeChange == true ? activities.get (currentActivityEpisode + 3 ).modeChange : ""):
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 3 ) ?
+(pop_activities.get (currentActivityEpisode + 3 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 3 ).modeChange : ""):
 " "]]></TextCode>
 					<Font>
 						<Name>SansSerif</Name>
@@ -39547,11 +39583,11 @@ activities.get (currentActivityEpisode + 13 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 3 ) ? (
-	activities.get( currentActivityEpisode + 3 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 3 ) ? (
+	pop_activities.get( currentActivityEpisode + 3 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 3 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 3 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -39576,8 +39612,8 @@ activities.get (currentActivityEpisode + 13 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 14 ) ?
-activities.get( currentActivityEpisode + 14 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 14 ) ?
+pop_activities.get( currentActivityEpisode + 14 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -39590,6 +39626,7 @@ activities.get( currentActivityEpisode + 14 ).endTimeString
 				<Text>
 					<Id>1646831143996</Id>
 					<Name><![CDATA[text116]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>190</X><Y>1610</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -39622,8 +39659,8 @@ activities.get( currentActivityEpisode + 14 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[groceries]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 6 ) ?
-activities.get (currentActivityEpisode + 6 ).type
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 6 ) ?
+pop_activities.get (currentActivityEpisode + 6 ).type
 :
 " "]]></TextCode>
 					<Font>
@@ -39647,8 +39684,8 @@ activities.get (currentActivityEpisode + 6 ).type
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 7) ?
-activities.get(currentActivityEpisode + 7).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 7) ?
+pop_activities.get(currentActivityEpisode + 7).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -39661,13 +39698,14 @@ activities.get(currentActivityEpisode + 7).episode
 				<Polyline>
 					<Id>1646831144004</Id>
 					<Name><![CDATA[polyline1]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>1380</X><Y>1175</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<OnClickCode><![CDATA[main.bewoners.random().viewActivity.navigateTo();]]></OnClickCode>
+					<OnClickCode><![CDATA[main.person.random().viewActivity.navigateTo();]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<ZHeight>10</ZHeight>
@@ -39702,8 +39740,8 @@ activities.get(currentActivityEpisode + 7).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode) ?
-activities.get(currentActivityEpisode).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode) ?
+pop_activities.get(currentActivityEpisode).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -39727,8 +39765,8 @@ activities.get(currentActivityEpisode).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 8) ?
-activities.get(currentActivityEpisode + 8).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 8) ?
+pop_activities.get(currentActivityEpisode + 8).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -39752,8 +39790,8 @@ activities.get(currentActivityEpisode + 8).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 8) ?
-activities.get(currentActivityEpisode + 8).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 8) ?
+pop_activities.get(currentActivityEpisode + 8).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -39777,8 +39815,8 @@ activities.get(currentActivityEpisode + 8).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 11 ) ?
-(activities.get (currentActivityEpisode + 11).modeChange == true ? activities.get (currentActivityEpisode + 11).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 11 ) ?
+(pop_activities.get (currentActivityEpisode + 11).modeChange == true ? pop_activities.get (currentActivityEpisode + 11).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -39802,8 +39840,8 @@ activities.get(currentActivityEpisode + 8).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[01:21]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 5) ?
-activities.get(currentActivityEpisode + 5).leaveTimeString
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 5) ?
+pop_activities.get(currentActivityEpisode + 5).leaveTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -39827,8 +39865,8 @@ activities.get(currentActivityEpisode + 5).leaveTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > (currentActivityEpisode + 1) ?
-activities.get(currentActivityEpisode + 1).episode
+					<TextCode><![CDATA[pop_activities.size() > (currentActivityEpisode + 1) ?
+pop_activities.get(currentActivityEpisode + 1).episode
 :
 " "]]></TextCode>
 					<Font>
@@ -39852,8 +39890,8 @@ activities.get(currentActivityEpisode + 1).episode
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[02:02]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 7 ) ?
-activities.get( currentActivityEpisode + 7 ).endTimeString
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 7 ) ?
+pop_activities.get( currentActivityEpisode + 7 ).endTimeString
 :
 " "]]></TextCode>
 					<Font>
@@ -39877,11 +39915,11 @@ activities.get( currentActivityEpisode + 7 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 1 ) ? (
-	activities.get( currentActivityEpisode + 1 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 1 ) ? (
+	pop_activities.get( currentActivityEpisode + 1 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 1 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 1 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -39906,8 +39944,8 @@ activities.get( currentActivityEpisode + 7 ).endTimeString
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 11 ) ?
-activities.get (currentActivityEpisode + 11 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 11 ) ?
+pop_activities.get (currentActivityEpisode + 11 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -39920,6 +39958,7 @@ activities.get (currentActivityEpisode + 11 ).modality.toString()
 				<Text>
 					<Id>1646831144032</Id>
 					<Name><![CDATA[text120]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>-10</X><Y>1610</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -39952,8 +39991,8 @@ activities.get (currentActivityEpisode + 11 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode ) ?
-activities.get (currentActivityEpisode ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode ) ?
+pop_activities.get (currentActivityEpisode ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -39966,6 +40005,7 @@ activities.get (currentActivityEpisode ).startDay
 				<Text>
 					<Id>1646831144036</Id>
 					<Name><![CDATA[text118]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>690</X><Y>1610</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -39987,6 +40027,7 @@ activities.get (currentActivityEpisode ).startDay
 				<Line>
 					<Id>1646831144038</Id>
 					<Name><![CDATA[line3]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>300</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -40022,11 +40063,11 @@ activities.get (currentActivityEpisode ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 5 ) ? (
-	activities.get( currentActivityEpisode + 5 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 5 ) ? (
+	pop_activities.get( currentActivityEpisode + 5 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 5 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 5 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -40051,8 +40092,8 @@ activities.get (currentActivityEpisode ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 5 ) ?
-activities.get (currentActivityEpisode + 5 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 5 ) ?
+pop_activities.get (currentActivityEpisode + 5 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -40076,11 +40117,11 @@ activities.get (currentActivityEpisode + 5 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[10 min]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 4 ) ? (
-	activities.get( currentActivityEpisode + 4 ).travelTime == 0 ?
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 4 ) ? (
+	pop_activities.get( currentActivityEpisode + 4 ).travelTime == 0 ?
 	"-"
 	: 
-	activities.get( currentActivityEpisode + 4 ).travelTime + " min"
+	pop_activities.get( currentActivityEpisode + 4 ).travelTime + " min"
 )
 :
 " "]]></TextCode>
@@ -40105,8 +40146,8 @@ activities.get (currentActivityEpisode + 5 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 14 ) ?
-(activities.get (currentActivityEpisode + 14 ).modeChange == true ? activities.get (currentActivityEpisode + 14).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 14 ) ?
+(pop_activities.get (currentActivityEpisode + 14 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 14).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -40130,8 +40171,8 @@ activities.get (currentActivityEpisode + 5 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 7 ) ?
-activities.get (currentActivityEpisode + 7 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 7 ) ?
+pop_activities.get (currentActivityEpisode + 7 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -40155,8 +40196,8 @@ activities.get (currentActivityEpisode + 7 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 5 ) ?
-activities.get (currentActivityEpisode + 5 ).modality.toString()
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 5 ) ?
+pop_activities.get (currentActivityEpisode + 5 ).modality.toString()
 :
 " "]]></TextCode>
 					<Font>
@@ -40169,6 +40210,7 @@ activities.get (currentActivityEpisode + 5 ).modality.toString()
 				<Line>
 					<Id>1646831144052</Id>
 					<Name><![CDATA[line11]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>900</X><Y>1600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -40225,8 +40267,8 @@ activities.get (currentActivityEpisode + 5 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 5 ) ?
-(activities.get (currentActivityEpisode + 5 ).modeChange == true ? activities.get (currentActivityEpisode + 5 ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 5 ) ?
+(pop_activities.get (currentActivityEpisode + 5 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 5 ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -40250,8 +40292,8 @@ activities.get (currentActivityEpisode + 5 ).modality.toString()
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[1]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 9 ) ?
-activities.get (currentActivityEpisode + 9 ).startDay
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 9 ) ?
+pop_activities.get (currentActivityEpisode + 9 ).startDay
 :
 " "]]></TextCode>
 					<Font>
@@ -40275,8 +40317,8 @@ activities.get (currentActivityEpisode + 9 ).startDay
 					<Rotation>0.0</Rotation>
 					<Color>-16777216</Color>
 					<Text><![CDATA[missing]]></Text>
-					<TextCode><![CDATA[activities.size() > ( currentActivityEpisode + 8 ) ?
-(activities.get (currentActivityEpisode + 8 ).modeChange == true ? activities.get (currentActivityEpisode + 8 ).modeChange : "")
+					<TextCode><![CDATA[pop_activities.size() > ( currentActivityEpisode + 8 ) ?
+(pop_activities.get (currentActivityEpisode + 8 ).modeChange == true ? pop_activities.get (currentActivityEpisode + 8 ).modeChange : "")
 :
 " "]]></TextCode>
 					<Font>
@@ -40588,7 +40630,7 @@ activities.get (currentActivityEpisode + 9 ).startDay
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Bewoner]]></Type>
+						<Type><![CDATA[Person]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<ParameterEditor>
@@ -40673,7 +40715,7 @@ activities.get (currentActivityEpisode + 9 ).startDay
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Bewoner]]></Type>
+						<Type><![CDATA[Person]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<ParameterEditor>
@@ -40694,7 +40736,7 @@ activities.get (currentActivityEpisode + 9 ).startDay
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Huishouden]]></Type>
+						<Type><![CDATA[Household]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<ParameterEditor>
@@ -41081,7 +41123,7 @@ else {
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
 			<Id>1645434814660</Id>
-			<Name><![CDATA[DummyAgentType6]]></Name>
+			<Name><![CDATA[Car]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -41175,6 +41217,966 @@ else {
 			</ScaleRuler>
 			<CurrentLevel>1645434814659</CurrentLevel>
 			<ConnectionsId>1645434814655</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1646840035208</Id>
+					<Name><![CDATA[isAvailable]]></Name>
+					<X>260</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035210</Id>
+					<Name><![CDATA[currentBatteryCap]]></Name>
+					<X>50</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[uniform( 0.5, 1 ) * p_maxBatteryCap_kWh]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035212</Id>
+					<Name><![CDATA[currentTripDistance]]></Name>
+					<X>50</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035214</Id>
+					<Name><![CDATA[isCharging]]></Name>
+					<X>260</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035216</Id>
+					<Name><![CDATA[chargeSpeed_kW]]></Name>
+					<X>260</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[5.0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035218</Id>
+					<Name><![CDATA[currentActivity]]></Name>
+					<X>220</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[Activity]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035220</Id>
+					<Name><![CDATA[currentRange]]></Name>
+					<X>50</X><Y>470</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035222</Id>
+					<Name><![CDATA[chargingDemand]]></Name>
+					<X>50</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035224</Id>
+					<Name><![CDATA[laadflexibiliteitTotVolgendVertrek]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>220</X><Y>470</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035226</Id>
+					<Name><![CDATA[nextActivity]]></Name>
+					<X>220</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[Activity]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[null]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035228</Id>
+					<Name><![CDATA[currentPower]]></Name>
+					<X>900</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035230</Id>
+					<Name><![CDATA[contactPower]]></Name>
+					<X>900</X><Y>270</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035232</Id>
+					<Name><![CDATA[totalTripDistance]]></Name>
+					<X>50</X><Y>580</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035234</Id>
+					<Name><![CDATA[plugInTime]]></Name>
+					<X>900</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035236</Id>
+					<Name><![CDATA[plugOutTime]]></Name>
+					<X>1060</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035238</Id>
+					<Name><![CDATA[flexibilityStart]]></Name>
+					<X>460</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035240</Id>
+					<Name><![CDATA[flexibilityEnd]]></Name>
+					<X>460</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035242</Id>
+					<Name><![CDATA[flexibilityTime]]></Name>
+					<X>460</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035244</Id>
+					<Name><![CDATA[flexibilityNewStart]]></Name>
+					<X>460</X><Y>340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035246</Id>
+					<Name><![CDATA[flexibilityNewEnd]]></Name>
+					<X>460</X><Y>370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035248</Id>
+					<Name><![CDATA[flexibilityNewTime]]></Name>
+					<X>460</X><Y>400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035250</Id>
+					<Name><![CDATA[flexibilityNewRange]]></Name>
+					<X>460</X><Y>430</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035252</Id>
+					<Name><![CDATA[flexibilityEmpty]]></Name>
+					<X>460</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035254</Id>
+					<Name><![CDATA[flexibilityNewEmpty]]></Name>
+					<X>460</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1646840035256</Id>
+					<Name><![CDATA[firstCharge]]></Name>
+					<X>460</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646840035265</Id>
+					<Name><![CDATA[p_carID]]></Name>
+					<X>50</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1646840035263</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646840035268</Id>
+					<Name><![CDATA[p_electric]]></Name>
+					<X>50</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[boolean]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1646840035266</Id>
+							<EditorContolType>CHECK_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646840035271</Id>
+					<Name><![CDATA[household]]></Name>
+					<X>50</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[Household]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1646840035269</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646840035274</Id>
+					<Name><![CDATA[p_energyConsumption]]></Name>
+					<Description><![CDATA[kWh/km]]></Description>
+					<X>50</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[uniform(0.2, 0.3)]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1646840035272</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646840035277</Id>
+					<Name><![CDATA[p_maxBatteryCap_kWh]]></Name>
+					<X>50</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[uniform_discr( 35, 100 )]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1646840035275</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1646840035280</Id>
+					<Name><![CDATA[p_maxChargingSpeed_kW]]></Name>
+					<X>50</X><Y>310</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[11]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1646840035278</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1646840035196</Id>
+					<Name><![CDATA[activities]]></Name>
+					<X>50</X><Y>530</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Activity]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1646840035200</Id>
+					<Name><![CDATA[plugInTimeArray]]></Name>
+					<X>900</X><Y>340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1646840035202</Id>
+					<Name><![CDATA[plugOutTimeArray]]></Name>
+					<X>1060</X><Y>340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+			</Variables>
+			<StatechartElements>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1646840035282</Id>
+					<Name><![CDATA[thuis]]></Name>
+					<X>550</X><Y>220</Y>
+					<Label><X>80</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="330" Height="140">
+						<EntryAction><![CDATA[//oval.setFillColor( lightGreen );
+isAvailable = true;]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1646840035284</Id>
+					<Name><![CDATA[weg]]></Name>
+					<X>570</X><Y>410</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="230" Height="30">
+						<EntryAction><![CDATA[//oval.setFillColor( mistyRose );
+nextActivity = null;]]></EntryAction>
+						<FillColor>-6943</FillColor>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="thuis" ParentStateId="1646840035282">
+					<Id>1646840035286</Id>
+					<Name><![CDATA[laden]]></Name>
+					<X>750</X><Y>270</Y>
+					<Label><X>10</X><Y>15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="60" Height="30">
+						<EntryAction><![CDATA[isCharging = true;
+
+plugInTime = time();
+plugInTimeArray.add(plugInTime);]]></EntryAction>
+						<ExitAction><![CDATA[isCharging = false;
+chargeSpeed_kW = 0;]]></ExitAction>
+						<FillColor>-256</FillColor>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="thuis" ParentStateId="1646840035282">
+					<Id>1646840035288</Id>
+					<Name><![CDATA[idle]]></Name>
+					<X>570</X><Y>270</Y>
+					<Label><X>15</X><Y>15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="60" Height="30">
+						<EntryAction><![CDATA[//oval.setFillColor( lightGreen );
+/*if ( currentTripDistance > 0 && elektrisch ) {
+	bepaalLaadbehoefte();
+}
+currentTripDistance = 0;*/]]></EntryAction>
+						<FillColor>-1644806</FillColor>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="thuis" ParentStateId="1646840035282">
+					<Id>1646840035290</Id>
+					<Name><![CDATA[charged]]></Name>
+					<X>660</X><Y>250</Y>
+					<Label><X>0</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="50" Height="30">
+						<ExitAction><![CDATA[plugOutTime = time();
+plugOutTimeArray.add(plugOutTime);]]></ExitAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
+					<Id>1646840035292</Id>
+					<Name><![CDATA[statechart]]></Name>
+					<X>600</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>80</Y></Point>
+					</Points>
+					<Properties Target="1646840035288">
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1646840035294</Id>
+					<Name><![CDATA[transition4]]></Name>
+					<X>590</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>-110</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1646840035284" Target="1646840035288" Trigger="message">
+						<Action><![CDATA[currentTripDistance = 0;
+
+//send( "laden", this );]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["kom thuis"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="thuis" ParentStateId="1646840035282">
+					<Id>1646840035296</Id>
+					<Name><![CDATA[transition5]]></Name>
+					<X>630</X><Y>290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>120</X><Y>0</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1646840035288" Target="1646840035286" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["laden"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="thuis" ParentStateId="1646840035282">
+					<Id>1646840035298</Id>
+					<Name><![CDATA[transition6]]></Name>
+					<X>750</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-40</X><Y>-10</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1646840035286" Target="1646840035290" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[laadtijd]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["stop laden"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1646840035300</Id>
+					<Name><![CDATA[transition7]]></Name>
+					<X>610</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>110</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1646840035288" Target="1646840035284" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["vertrek"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1646840035302</Id>
+					<Name><![CDATA[transition]]></Name>
+					<X>770</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>110</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1646840035286" Target="1646840035284" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["vertrek"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1646840035304</Id>
+					<Name><![CDATA[transition1]]></Name>
+					<X>670</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>130</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1646840035290" Target="1646840035284" Trigger="message">
+						<Action><![CDATA[
+]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["vertrek"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+			</StatechartElements>
+			<Events>
+				<Event>
+					<Id>1646840035259</Id>
+					<Name><![CDATA[updateSoC]]></Name>
+					<X>700</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="cyclic">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1643616000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[//huishouden.energyManager();
+if( inState( laden ) ) {
+	if ( currentBatteryCap >= p_maxBatteryCap_kWh ) {
+		send("stop laden", this);
+		currentBatteryCap = p_maxBatteryCap_kWh;
+	}
+	else{
+		currentBatteryCap = currentBatteryCap + chargeSpeed_kW / 60.0;
+	}
+}
+
+/*
+if( inState( laden ) ) {
+	bepaalLaadsnelheid();
+	if ( huidigBatterijCap >= maxBatterijCap_kWh ) {
+		send("stop laden", this);
+		huidigBatterijCap = maxBatterijCap_kWh;
+	}
+	else {
+		huidigBatterijCap = huidigBatterijCap + laadsnelheid_kW / 360.0;
+	}
+}*/]]></Action>
+				</Event>
+			</Events>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1646840035204</Id>
+					<Name><![CDATA[bepaalFlexibiliteit]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>220</X><Y>500</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[//Deze functie berekent het aantal minuten tot het volgende vertrekmoment van deze auto. Wordt aangeroepen als de auto aankomt.
+// Als dit de tweede auto is, kijk dan alleen naar adult 2
+if (p_carID == 2) {
+	nextActivity = huishouden.adult2.berekenVolgendeCarTrip();
+}
+
+else {
+	// als er maar 1 adult in het huishouden is of als er 2 voertuigen zijn, kijk dan alleen naar adult 1
+	if ( huishouden.nbAdults == 1 || huishouden.nbVehicles == 2 ) {
+		nextActivity = huishouden.adult1.berekenVolgendeCarTrip();
+	}
+	// anders kijk naar welke adult het snelste weg gaat en of ze uberhaupt weg gaan
+	else {
+		// als niemand meer weggaat
+		if ( huishouden.adult1.berekenVolgendeCarTrip() == null && huishouden.adult2.berekenVolgendeCarTrip() == null ){
+			nextActivity = null;
+		}
+		//Als adult 2 niet meer weg gaat en audlt 1 wel
+		else if ( huishouden.adult1.berekenVolgendeCarTrip() != null && huishouden.adult2.berekenVolgendeCarTrip() == null  ) {
+			nextActivity = huishouden.adult1.berekenVolgendeCarTrip();
+		}
+		//Als adult 1 niet meer weg gaat en audlt 2 wel
+		else if ( huishouden.adult1.berekenVolgendeCarTrip() == null && huishouden.adult2.berekenVolgendeCarTrip() != null  ) {
+			nextActivity = huishouden.adult2.berekenVolgendeCarTrip();
+		}
+		//Of als ze allebei nog weg gaan
+		else {
+			if( huishouden.adult1.berekenVolgendeCarTrip().startMinute < huishouden.adult2.berekenVolgendeCarTrip().startMinute ) {
+				nextActivity = huishouden.adult1.berekenVolgendeCarTrip();
+			}
+			else {
+				nextActivity = huishouden.adult2.berekenVolgendeCarTrip();
+			}
+		}
+	}
+}
+
+if ( nextActivity != null ) { 
+	laadflexibiliteitTotVolgendVertrek = nextActivity.startMinute - time(MINUTE);
+	
+}
+
+main.flexData.add( getHourOfDay() + getMinute() / 60.0, laadflexibiliteitTotVolgendVertrek / 60.0 );
+main.flexDataHistogram.add( laadflexibiliteitTotVolgendVertrek / 60.0 );
+main.flexPlot.update();
+
+
+
+//traceln ( getName() + ", min to next departure: " + laadflexibiliteitTotVolgendVertrek);
+//getEngine().pause();]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1646840035206</Id>
+					<Name><![CDATA[socNaTrip]]></Name>
+					<X>50</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[// Bepaal SOC en huidig bereik
+currentBatteryCap = max( 0, currentBatteryCap - currentTripDistance * p_energyConsumption );
+if (currentBatteryCap == 0) {
+	traceln( getName() + " batterij leeg bij thuiskomst!" );
+}
+currentRange = currentBatteryCap / p_energyConsumption;
+
+//In geval van slim laden
+totalTripDistance = totalTripDistance + currentTripDistance;
+
+
+if ( smartChargeCheckbox.isSelected() ) {
+	if (  currentRange < 50 ) { //huidigBereik < nextActivity.getDistance()  ) {
+		chargingDemand = "Hoog";
+	}
+	else if ( currentBatteryCap / p_maxBatteryCap_kWh < 0.6 ) {
+		chargingDemand = "Middel";
+	}
+	else {
+		chargingDemand = "Laag";
+	}
+	send("laden", this );
+}
+
+// Bij dom laden gaat auto direct laden als de laadbehoefte hoog is, kans op laden in andere gevallen
+else{ 
+	if (  currentRange < 100 ) { //huidigBereik < nextActivity.getDistance()  ) {
+		chargingDemand = "Hoog";
+		send( "laden", this );	
+	}
+	else if ( currentRange < 250 ) {
+		chargingDemand = "Middel";
+		if ( randomTrue( 0.75) ) {
+			send("laden", this );
+		}
+	}
+	else {
+		chargingDemand = "Laag";
+		if ( randomTrue( 0.3 ) ) {
+			send("laden", this );
+		}
+	}
+}
+]]></Body>
+				</Function>
+			</Functions>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1645434814655</Id>
@@ -41188,6 +42190,11 @@ else {
 					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
 					<AgentLinkBidirectional>true</AgentLinkBidirectional>
 					<MessageType><![CDATA[Object]]></MessageType>
+					<StatechartReference>
+						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+						<ClassName><![CDATA[Car]]></ClassName>
+						<ItemName><![CDATA[statechart]]></ItemName>
+					</StatechartReference>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16777216</LineColor>
@@ -41226,6 +42233,54 @@ else {
 					<Z>0</Z>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
+			<Presentation>
+				<Text>
+					<Id>1646840035189</Id>
+					<Name><![CDATA[text1]]></Name>
+					<X>570</X><Y>130</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Time to next activity: 12 min]]></Text>
+					<TextCode><![CDATA[nextActivity == null ? " "
+:
+"Time to next activity: " + roundToInt( nextActivity.startMinute - time(MINUTE)) +  " min"]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>20</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1646842865610</Id>
+					<Name><![CDATA[smartChargeCheckbox]]></Name>
+					<X>20</X><Y>80</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Smart charging]]></LabelText>
+						<DefaultValueCode><![CDATA[false]]></DefaultValueCode>
+						<LinkTo>false</LinkTo>
+	 				</ExtendedProperties>
+				</Control>
+			</Presentation>
 
 				</Level>
 			</Presentation>

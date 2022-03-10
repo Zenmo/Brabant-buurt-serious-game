@@ -27060,10 +27060,11 @@ if ( nbAdults > 1 ) {
 	//g_adult2.setVisible(true);
 	people.add( adult2 );
 }
-
+/*
 for( Person p : people ) {
 	p.generateActivities( this );
-}]]></Body>
+}
+*/]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -35197,32 +35198,34 @@ send( message, this);]]></Action>
 					<Body><![CDATA[// Get trip tuples from this household ID from database
 List< Tuple > tuples = selectFrom( db_activities_sample).where( db_activities_sample.hhid.eq( household.id ) ).
 where( db_activities_sample.mem_id.eq( memberID )).list();
-			
+
+if (tuples.size()>0){			
 //Create an activity for each record and set its values	
-for( Tuple tup : tuples ) {
-	Activity a = add_pop_activities();
-	a.type = tup.get ( db_activities_sample.activity_type );
-	a.modality = tup.get ( db_activities_sample.mode );
-	a.locStart = tup.get ( db_activities_sample.orig_loc );
-	a.locEnd = tup.get ( db_activities_sample.dest_loc );
-	a.leaveTime = tup.get ( db_activities_sample.leave_time );
-	a.travelTime = tup.get ( db_activities_sample.travel_time );
-	a.beginTime = tup.get ( db_activities_sample.begin_time );
-	a.endTime = tup.get ( db_activities_sample.end_time );
-	a.episode = tup.get ( db_activities_sample.episode_id);
-	a.processAlbatrossInput();
-	a.adult = this;
-	a.household = household;
-	//if ( ! a.type.equals( "Home" ) ) {
-		//drawActivity(a);
-	//}
-	//if (a.modality.equals("Car")){
-		//a.carDistance = a.travelTime * 1.2;
-		//main.distanceHistogram.add(a.carDistance);
-	//}
+	for( Tuple tup : tuples ) {
+		Activity a = add_pop_activities();
+		a.type = tup.get ( db_activities_sample.activity_type );
+		a.modality = tup.get ( db_activities_sample.mode );
+		a.locStart = tup.get ( db_activities_sample.orig_loc );
+		a.locEnd = tup.get ( db_activities_sample.dest_loc );
+		a.leaveTime = tup.get ( db_activities_sample.leave_time );
+		a.travelTime = tup.get ( db_activities_sample.travel_time );
+		a.beginTime = tup.get ( db_activities_sample.begin_time );
+		a.endTime = tup.get ( db_activities_sample.end_time );
+		a.episode = tup.get ( db_activities_sample.episode_id);
+		a.processAlbatrossInput();
+		a.adult = this;
+		a.household = household;
+		//if ( ! a.type.equals( "Home" ) ) {
+			//drawActivity(a);
+		//}
+		//if (a.modality.equals("Car")){
+			//a.carDistance = a.travelTime * 1.2;
+			//main.distanceHistogram.add(a.carDistance);
+		//}
+	}
 }
 
-
+traceln(pop_activities.size());
 
 //countWork();
 
@@ -35830,7 +35833,7 @@ main.nbWorkHistogram.add(nbWorkActivities);]]></Body>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationType>EMPTY</InitializationType>
 					<InitializationDatabaseTableQuery>
 						<TableReference>
 						</TableReference>

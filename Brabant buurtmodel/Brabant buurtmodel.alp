@@ -24,7 +24,6 @@ for (Household h : households){
 	h.f_initializeHousehold();
 }
 
-
 ]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -26402,10 +26401,10 @@ double heatExchangeWall = uWalls * (predictedInsideTemp - predictedOutsideTemp)/
 double heatExchangeRoof = uRoof * (predictedInsideTemp - predictedOutsideTemp)/1000;
 double heatExchangeFloor = uFloor * (predictedInsideTemp - predictedOutsideTemp)/1000;
 
-traceln(orchid, uWindows * (21 + 5)/1000);
-traceln(indigo, uWalls * (21 + 5)/1000);
-traceln(navy, uRoof * (21 + 5)/1000);
-traceln(steelBlue, uFloor * (21 + 5)/1000);
+//traceln(orchid, uWindows * (21 + 5)/1000);
+//traceln(indigo, uWalls * (21 + 5)/1000);
+//traceln(navy, uRoof * (21 + 5)/1000);
+//traceln(steelBlue, uFloor * (21 + 5)/1000);
 
 heatExchangeEnvironment= - ( heatExchangeGlass + heatExchangeWall + heatExchangeRoof + heatExchangeFloor);
 
@@ -27040,28 +27039,31 @@ work2 = tup.get( db_household_sample.work2 );
 //education2 = tup.get( huishoudens_deel.education2 );
 
 //Initialize adult 1
-/*
+
 nbAdults = composition < 2 ? 1 : 2;
-adult1 = main.add_bewoners();
+adult1 = main.add_pop_people();
 adult1.memberID = 0;
 adult1.household = this;
 adult1.driversLicense = driver1;
 //adult1.thuisLocatie = gisRegion.randomPointInside();
 //adult1.setLocation( adult1.thuisLocatie);
-bewoners.add( adult1 );
+people.add( adult1 );
 
 //Initialize adult 2
 if ( nbAdults > 1 ) {
-	adult2 = main.add_bewoners();
+	adult2 = main.add_pop_people();
 	adult2.memberID = 1;
 	adult2.household = this;
 	adult2.driversLicense = driver2;
 	//adult2.thuisLocatie = gisRegion.randomPointInside();
 	//adult2.setLocation( adult2.thuisLocatie );
-	g_adult2.setVisible(true);
-	bewoners.add( adult2 );
+	//g_adult2.setVisible(true);
+	people.add( adult2 );
 }
-*/]]></Body>
+
+for( Person p : people ) {
+	p.generateActivities( this );
+}]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -29230,6 +29232,7 @@ if ( nbAdults > 1 ) {
 				<EmbeddedObject>
 					<Id>1645434461583</Id>
 					<Name><![CDATA[pop_dummyAgentType]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>50</X><Y>1050</Y>
 					<Label><X>20</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -35225,6 +35228,7 @@ for( Tuple tup : tuples ) {
 
 
 //initialize acitivities
+/*
 currentActivity = this.pop_activities(0);
 nextActivity = null;
 Activity a = null;
@@ -35251,7 +35255,8 @@ else {
 // Set the timer for the first activity
 if (pop_activities.size()>1){
 	nextActivityTimer.restart( nextActivity.startMinute, MINUTE );
-}]]></Body>
+}
+*/]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -42567,7 +42572,7 @@ else{
 			<Name><![CDATA[Simulation]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<MaximumMemory>512</MaximumMemory>
+			<MaximumMemory>1024</MaximumMemory>
 			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
 			<SeedValue>1</SeedValue>

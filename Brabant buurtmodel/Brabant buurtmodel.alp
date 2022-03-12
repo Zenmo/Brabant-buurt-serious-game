@@ -11,6 +11,76 @@
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[brabant_buurtmodel]]></JavaPackageName>
 	<ModelTimeUnit><![CDATA[Hour]]></ModelTimeUnit>
+	<OptionLists>
+		<OptionList>
+			<Id>1647119493314</Id>
+			<Name><![CDATA[Gebouwtype]]></Name>
+			<Option>
+				<Id>1647119493315</Id>
+				<Name><![CDATA[Flatwoning]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119493316</Id>
+				<Name><![CDATA[Twee_onder_een_kap]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119493317</Id>
+				<Name><![CDATA[Rijwoning_tussen]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119493318</Id>
+				<Name><![CDATA[Rijwoning_hoek]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119493319</Id>
+				<Name><![CDATA[Appartement]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119493320</Id>
+				<Name><![CDATA[Maisonnette]]></Name>
+			</Option>
+			<Option>
+				<Id>1647121096602</Id>
+				<Name><![CDATA[Onbekend]]></Name>
+			</Option>
+		</OptionList>
+		<OptionList>
+			<Id>1647119570720</Id>
+			<Name><![CDATA[GebouwSubtype]]></Name>
+			<Option>
+				<Id>1647119570721</Id>
+				<Name><![CDATA[Hoekdak]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119570722</Id>
+				<Name><![CDATA[Hoekmidden]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119570723</Id>
+				<Name><![CDATA[Hoekvloer]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119570724</Id>
+				<Name><![CDATA[Tussendak]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119573369</Id>
+				<Name><![CDATA[Tussendakvloer]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119579291</Id>
+				<Name><![CDATA[Tussenmidden]]></Name>
+			</Option>
+			<Option>
+				<Id>1647119584425</Id>
+				<Name><![CDATA[Tussenvloer]]></Name>
+			</Option>
+			<Option>
+				<Id>1647120305782</Id>
+				<Name><![CDATA[Rijwoning]]></Name>
+			</Option>
+		</OptionList>
+	</OptionLists>
 	<ActiveObjectClasses>
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
@@ -1967,6 +2037,18 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 						<Parameter>
 							<Name><![CDATA[car2]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[buildingTypeString]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[buildingSubType]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[energyLabel]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[buildingTypeOL]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -2003,12 +2085,12 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 					<InitializationDatabaseTableQuery>
 						<TableReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+							<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 						</TableReference>
 						<Condition>
 							<ColumnReference>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[gebruiksdo]]></ItemName>
 							</ColumnReference>
 							<Value Class="CodeValue">
@@ -2029,7 +2111,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[gid]]></ItemName>
 							</Value>
 						</Item>
@@ -2041,7 +2123,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[identifica]]></ItemName>
 							</Value>
 						</Item>
@@ -2053,7 +2135,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[oppervlakt]]></ItemName>
 							</Value>
 						</Item>
@@ -2065,7 +2147,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[status]]></ItemName>
 							</Value>
 						</Item>
@@ -2077,7 +2159,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[gebruiksdo]]></ItemName>
 							</Value>
 						</Item>
@@ -2089,7 +2171,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[openbare_r]]></ItemName>
 							</Value>
 						</Item>
@@ -2101,7 +2183,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[huisnummer]]></ItemName>
 							</Value>
 						</Item>
@@ -2113,7 +2195,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[huisletter]]></ItemName>
 							</Value>
 						</Item>
@@ -2125,7 +2207,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[toevoeging]]></ItemName>
 							</Value>
 						</Item>
@@ -2137,7 +2219,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[postcode]]></ItemName>
 							</Value>
 						</Item>
@@ -2149,7 +2231,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[woonplaats]]></ItemName>
 							</Value>
 						</Item>
@@ -2161,7 +2243,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[bouwjaar]]></ItemName>
 							</Value>
 						</Item>
@@ -2173,7 +2255,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[pandidenti]]></ItemName>
 							</Value>
 						</Item>
@@ -2185,7 +2267,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[pandstatus]]></ItemName>
 							</Value>
 						</Item>
@@ -2197,7 +2279,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[rdf_seeals]]></ItemName>
 							</Value>
 						</Item>
@@ -2209,7 +2291,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[xcoord]]></ItemName>
 							</Value>
 						</Item>
@@ -2221,7 +2303,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[ycoord]]></ItemName>
 							</Value>
 						</Item>
@@ -2233,40 +2315,44 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[woningtype]]></ItemName>
-							</Value>
-						</Item>
-						<Item>
-							<Key>
-								FAKE_PARAMETER_GIS_LOCATION_LONGITUDE_xjal
-							</Key>
-							<Value>
-								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
-								<ItemName><![CDATA[xcoord]]></ItemName>
-							</Value>
-						</Item>
-						<Item>
-							<Key>
-								FAKE_PARAMETER_GIS_LOCATION_LATITUDE_xjal
-							</Key>
-							<Value>
-								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
-								<ItemName><![CDATA[ycoord]]></ItemName>
 							</Value>
 						</Item>
 						<Item>
 							<Key>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
 								<ClassName><![CDATA[Household]]></ClassName>
-								<ItemName><![CDATA[usage]]></ItemName>
+								<ItemName><![CDATA[buildingTypeString]]></ItemName>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
-								<ItemName><![CDATA[gebruiksdo]]></ItemName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ItemName><![CDATA[gebouwtype]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[Household]]></ClassName>
+								<ItemName><![CDATA[buildingSubType]]></ItemName>
+							</Key>
+							<Value>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ItemName><![CDATA[gebouwsubtype]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[Household]]></ClassName>
+								<ItemName><![CDATA[energyLabel]]></ItemName>
+							</Key>
+							<Value>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ItemName><![CDATA[energieklasse]]></ItemName>
 							</Value>
 						</Item>	
 					</ParameterToDatabaseColumnMapping>
@@ -2385,12 +2471,12 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 					<InitializationDatabaseTableQuery>
 						<TableReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+							<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 						</TableReference>
 						<Condition>
 							<ColumnReference>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[gebruiksdo]]></ItemName>
 							</ColumnReference>
 							<Value Class="CodeValue">
@@ -2411,7 +2497,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[gid]]></ItemName>
 							</Value>
 						</Item>
@@ -2423,7 +2509,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[identifica]]></ItemName>
 							</Value>
 						</Item>
@@ -2435,7 +2521,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[oppervlakt]]></ItemName>
 							</Value>
 						</Item>
@@ -2447,7 +2533,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[status]]></ItemName>
 							</Value>
 						</Item>
@@ -2459,7 +2545,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[gebruiksdo]]></ItemName>
 							</Value>
 						</Item>
@@ -2471,7 +2557,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[openbare_r]]></ItemName>
 							</Value>
 						</Item>
@@ -2483,7 +2569,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[huisnummer]]></ItemName>
 							</Value>
 						</Item>
@@ -2495,7 +2581,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[huisletter]]></ItemName>
 							</Value>
 						</Item>
@@ -2507,7 +2593,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[toevoeging]]></ItemName>
 							</Value>
 						</Item>
@@ -2519,7 +2605,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[postcode]]></ItemName>
 							</Value>
 						</Item>
@@ -2531,7 +2617,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[woonplaats]]></ItemName>
 							</Value>
 						</Item>
@@ -2543,7 +2629,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[bouwjaar]]></ItemName>
 							</Value>
 						</Item>
@@ -2555,7 +2641,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[pandidenti]]></ItemName>
 							</Value>
 						</Item>
@@ -2567,7 +2653,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[pandstatus]]></ItemName>
 							</Value>
 						</Item>
@@ -2579,7 +2665,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[rdf_seeals]]></ItemName>
 							</Value>
 						</Item>
@@ -2591,7 +2677,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[xcoord]]></ItemName>
 							</Value>
 						</Item>
@@ -2603,7 +2689,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[ycoord]]></ItemName>
 							</Value>
 						</Item>
@@ -2615,28 +2701,8 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
 								<ItemName><![CDATA[woningtype]]></ItemName>
-							</Value>
-						</Item>
-						<Item>
-							<Key>
-								FAKE_PARAMETER_GIS_LOCATION_LATITUDE_xjal
-							</Key>
-							<Value>
-								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
-								<ItemName><![CDATA[ycoord]]></ItemName>
-							</Value>
-						</Item>
-						<Item>
-							<Key>
-								FAKE_PARAMETER_GIS_LOCATION_LONGITUDE_xjal
-							</Key>
-							<Value>
-								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
-								<ItemName><![CDATA[xcoord]]></ItemName>
 							</Value>
 						</Item>	
 					</ParameterToDatabaseColumnMapping>
@@ -22965,6 +23031,7 @@ else {
 			<StartupCode><![CDATA[findGisRegion();
 findGisRoute();
 
+//buildingTypeOL = f_getBuildingTypeOL(buildingTypeString, buildingSubType);
 
 
 if (!woningtype.equals("")) {	
@@ -24244,7 +24311,7 @@ if (!woningtype.equals("")) {
 				<Variable Class="PlainVariable">
 					<Id>1646155393818</Id>
 					<Name><![CDATA[randomIDGenerator]]></Name>
-					<X>-400</X><Y>680</Y>
+					<X>-400</X><Y>710</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25885,7 +25952,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143827</Id>
 					<Name><![CDATA[age1]]></Name>
-					<X>-300</X><Y>480</Y>
+					<X>-300</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25906,7 +25973,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143844</Id>
 					<Name><![CDATA[driver1]]></Name>
-					<X>-300</X><Y>510</Y>
+					<X>-300</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25927,7 +25994,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143852</Id>
 					<Name><![CDATA[work1]]></Name>
-					<X>-300</X><Y>540</Y>
+					<X>-300</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25948,7 +26015,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143861</Id>
 					<Name><![CDATA[education1]]></Name>
-					<X>-300</X><Y>570</Y>
+					<X>-300</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25969,7 +26036,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143868</Id>
 					<Name><![CDATA[gender1]]></Name>
-					<X>-300</X><Y>600</Y>
+					<X>-300</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -25990,7 +26057,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143876</Id>
 					<Name><![CDATA[age2]]></Name>
-					<X>-170</X><Y>480</Y>
+					<X>-170</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26011,7 +26078,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143881</Id>
 					<Name><![CDATA[driver2]]></Name>
-					<X>-170</X><Y>510</Y>
+					<X>-170</X><Y>540</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26032,7 +26099,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143890</Id>
 					<Name><![CDATA[work2]]></Name>
-					<X>-170</X><Y>540</Y>
+					<X>-170</X><Y>570</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26053,7 +26120,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143898</Id>
 					<Name><![CDATA[education2]]></Name>
-					<X>-170</X><Y>570</Y>
+					<X>-170</X><Y>600</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26074,7 +26141,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155143904</Id>
 					<Name><![CDATA[gender2]]></Name>
-					<X>-170</X><Y>600</Y>
+					<X>-170</X><Y>630</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26095,7 +26162,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393821</Id>
 					<Name><![CDATA[nbVehicles]]></Name>
-					<X>-400</X><Y>470</Y>
+					<X>-400</X><Y>500</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26116,7 +26183,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393824</Id>
 					<Name><![CDATA[nbAdults]]></Name>
-					<X>-400</X><Y>500</Y>
+					<X>-400</X><Y>530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26137,7 +26204,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393827</Id>
 					<Name><![CDATA[nbChildren]]></Name>
-					<X>-400</X><Y>530</Y>
+					<X>-400</X><Y>560</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26158,7 +26225,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393833</Id>
 					<Name><![CDATA[id]]></Name>
-					<X>-400</X><Y>620</Y>
+					<X>-400</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26179,7 +26246,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393836</Id>
 					<Name><![CDATA[composition]]></Name>
-					<X>-400</X><Y>590</Y>
+					<X>-400</X><Y>620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26200,7 +26267,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646155393839</Id>
 					<Name><![CDATA[nbDriversLicense]]></Name>
-					<X>-400</X><Y>650</Y>
+					<X>-400</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26221,7 +26288,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646838976511</Id>
 					<Name><![CDATA[adult1]]></Name>
-					<X>-400</X><Y>760</Y>
+					<X>-400</X><Y>790</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26242,7 +26309,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646838976515</Id>
 					<Name><![CDATA[adult2]]></Name>
-					<X>-400</X><Y>790</Y>
+					<X>-400</X><Y>820</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26264,7 +26331,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646838976518</Id>
 					<Name><![CDATA[car1]]></Name>
-					<X>-250</X><Y>760</Y>
+					<X>-250</X><Y>790</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26285,7 +26352,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="Parameter">
 					<Id>1646838976523</Id>
 					<Name><![CDATA[car2]]></Name>
-					<X>-250</X><Y>790</Y>
+					<X>-250</X><Y>820</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26296,6 +26363,90 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 						<SdArray>false</SdArray>
 						<ParameterEditor>
 							<Id>1646838976521</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647119855502</Id>
+					<Name><![CDATA[buildingTypeString]]></Name>
+					<X>-400</X><Y>400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647119855500</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647119872216</Id>
+					<Name><![CDATA[buildingSubType]]></Name>
+					<X>-400</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[GebouwSubtype]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647119872214</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647119959723</Id>
+					<Name><![CDATA[energyLabel]]></Name>
+					<X>-400</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647119959721</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647120041326</Id>
+					<Name><![CDATA[buildingTypeOL]]></Name>
+					<X>-400</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[Gebouwtype]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647120041324</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -26460,7 +26611,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="CollectionVariable">
 					<Id>1646838976497</Id>
 					<Name><![CDATA[people]]></Name>
-					<X>-400</X><Y>730</Y>
+					<X>-400</X><Y>760</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26478,7 +26629,7 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 				<Variable Class="CollectionVariable">
 					<Id>1646838976506</Id>
 					<Name><![CDATA[cars]]></Name>
-					<X>-250</X><Y>730</Y>
+					<X>-250</X><Y>760</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -26634,7 +26785,7 @@ heatExchangeEnvironment= - ( heatExchangeGlass + heatExchangeWall + heatExchange
 heatExchangeInfiltration = - 1 * 1.276 * airInfiltration * (predictedInsideTemp - predictedOutsideTemp)/1000; //kW
 heatExchangeVentilation =  - 1 * cpAir * rhoAir * flowRateVentilation * (predictedInsideTemp - predictedOutsideTemp); // kW
 
-traceln(crimson, cpAir * rhoAir * flowRateVentilation * (20 + 5));
+//traceln(crimson, cpAir * rhoAir * flowRateVentilation * (20 + 5));
 
 
 // Heat inflow via irradiance
@@ -27234,7 +27385,7 @@ predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV *
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1646203362834</Id>
 					<Name><![CDATA[f_initializeHousehold]]></Name>
-					<X>-240</X><Y>640</Y>
+					<X>-240</X><Y>670</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -27288,6 +27439,52 @@ for( Person p : people ) {
 	p.generateActivities( this );
 }
 */]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[Gebouwtype]]></ReturnType>
+					<Id>1647119648380</Id>
+					<Name><![CDATA[f_getBuildingTypeOL]]></Name>
+					<Description><![CDATA[To go from string database values to option list building types
+
+@returns Gebouwtype
+
+@author naud@zenmo.com
+@since 12/03/2022]]></Description>
+					<X>-240</X><Y>690</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[buildingTypeString]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[buildingSubType]]></Name>
+						<Type><![CDATA[GebouwSubtype]]></Type>
+					</Parameter>
+					<Body><![CDATA[if (buildingTypeString == "Flatwoning (overig)") {
+	return Flatwoning;
+}
+else if (buildingTypeString == "Rijwoning tussen"){
+	return Rijwoning_tussen;
+}
+else if (buildingTypeString == "Twee-onder-een-kap / rijwoning hoek" && buildingSubType == Rijwoning){
+	return Rijwoning_hoek;
+}
+else if (buildingTypeString == "Twee-onder-een-kap / rijwoning hoek"){
+	return Twee_onder_een_kap;
+}
+else if (buildingTypeString == "Appartement"){
+	return Appartement;
+}
+else if (buildingTypeString == "Maisonnette"){
+	return Maisonnette;
+}
+else {
+	return Onbekend;
+}]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -30190,7 +30387,7 @@ for( Person p : people ) {
 					<Name><![CDATA[vraagEnAanbodGroup]]></Name>
 					<X>1100</X><Y>1290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -42883,6 +43080,27 @@ else{
 				<Password><![CDATA[]]></Password>
 			</ExternalConnection>
 			<ExternalConnection>
+				<Id>1647121445532</Id>
+				<Name><![CDATA[database]]></Name>
+				<X>0</X><Y>0</Y>
+				<Label><X>10</X><Y>0</Y></Label>
+				<PublicFlag>false</PublicFlag>
+				<PresentationFlag>true</PresentationFlag>
+				<ShowLabel>true</ShowLabel>
+				<DatabaseType>EXCEL_ACCESS</DatabaseType>
+				<ConnectionURL><![CDATA[]]></ConnectionURL>
+				<ConnectOnStartup>true</ConnectOnStartup>
+				<DatabaseName><![CDATA[]]></DatabaseName>
+				<ResourceReference>
+					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+					<ClassName><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-serious-game/Data/Buurten-infra-data.xlsx]]></ClassName>
+				</ResourceReference>
+				<Host><![CDATA[localhost]]></Host>
+				<JdbcDriverClassName><![CDATA[net.sourceforge.jtds.jdbc.Driver]]></JdbcDriverClassName>
+				<Login><![CDATA[]]></Login>
+				<Password><![CDATA[]]></Password>
+			</ExternalConnection>
+			<ExternalConnection>
 				<Id>1642713730012</Id>
 				<Name><![CDATA[database]]></Name>
 				<X>0</X><Y>0</Y>
@@ -42904,7 +43122,7 @@ else{
 				<Password><![CDATA[]]></Password>
 			</ExternalConnection>
 			<ExternalConnection>
-				<Id>1642697282785</Id>
+				<Id>1647118963017</Id>
 				<Name><![CDATA[database]]></Name>
 				<X>0</X><Y>0</Y>
 				<Label><X>10</X><Y>0</Y></Label>
@@ -42917,7 +43135,7 @@ else{
 				<DatabaseName><![CDATA[]]></DatabaseName>
 				<ResourceReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-scerious-game/Data/Afrikaanderbuurt_midden_verblijfsobjecten.xlsx]]></ClassName>
+					<ClassName><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-serious-game/Data/Afrikaanderbuurt_midden_verblijfsobjecten.xlsx]]></ClassName>
 				</ResourceReference>
 				<Host><![CDATA[localhost]]></Host>
 				<JdbcDriverClassName><![CDATA[net.sourceforge.jtds.jdbc.Driver]]></JdbcDriverClassName>
@@ -42945,9 +43163,18 @@ else{
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[lv_stations]]></ClassName>
+					<ClassName><![CDATA[warmtenet]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>2</ConnectionIndex>
+				<ExternalTableName><![CDATA["warmtenet"]]></ExternalTableName>
+				<AutoImport>false</AutoImport>
+			</TableImportSettings>
+			<TableImportSettings>
+				<TableReference>
+					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+					<ClassName><![CDATA[lv_stations]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>3</ConnectionIndex>
 				<ExternalTableName><![CDATA["Afrikaanderbuurt_midden_lv_stat"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
@@ -42972,10 +43199,28 @@ else{
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+					<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>4</ConnectionIndex>
+				<ExternalTableName><![CDATA["Afrikaanderbuurt_midden_verblij"]]></ExternalTableName>
+				<AutoImport>false</AutoImport>
+			</TableImportSettings>
+			<TableImportSettings>
+				<TableReference>
+					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
 					<ClassName><![CDATA[sun_march]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
 				<ExternalTableName><![CDATA["March"]]></ExternalTableName>
+				<AutoImport>false</AutoImport>
+			</TableImportSettings>
+			<TableImportSettings>
+				<TableReference>
+					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+					<ClassName><![CDATA[general_neighborhood_info]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>2</ConnectionIndex>
+				<ExternalTableName><![CDATA["general_neighborhood_info"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
@@ -43003,6 +43248,15 @@ else{
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
 				<ExternalTableName><![CDATA["April"]]></ExternalTableName>
+				<AutoImport>false</AutoImport>
+			</TableImportSettings>
+			<TableImportSettings>
+				<TableReference>
+					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+					<ClassName><![CDATA[e_g_infra]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>2</ConnectionIndex>
+				<ExternalTableName><![CDATA["E_G_infra"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
@@ -43057,15 +43311,6 @@ else{
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
 				<ExternalTableName><![CDATA["February"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>3</ConnectionIndex>
-				<ExternalTableName><![CDATA["Afrikaanderbuurt_midden_verblij"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 		</ImportSettings>
@@ -43235,6 +43480,14 @@ else{
 		</Resource>
 		<Resource>
 			<Path><![CDATA[C:/Users/s168027/Documents/GitHub/Brabant-buurt-serious-game/Data/mobility_sample.xlsx]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-serious-game/Data/Afrikaanderbuurt_midden_verblijfsobjecten.xlsx]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-serious-game/Data/Buurten-infra-data.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>

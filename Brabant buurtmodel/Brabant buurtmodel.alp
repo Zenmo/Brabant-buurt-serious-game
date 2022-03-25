@@ -3771,7 +3771,6 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
-					<Lock>true</Lock>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<OnClickCode><![CDATA[previousNearestPoint = 1000000;
 

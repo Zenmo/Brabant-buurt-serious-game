@@ -4,83 +4,13 @@
 	         AnyLogic Project File 
 *************************************************	         
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.10.202202091745" AlpVersion="8.7.3">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.7.10.202202091718" AlpVersion="8.7.3">
 <Model>
 	<Id>1642419773326</Id>
 	<Name><![CDATA[Brabant buurtmodel]]></Name>
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[brabant_buurtmodel]]></JavaPackageName>
 	<ModelTimeUnit><![CDATA[Hour]]></ModelTimeUnit>
-	<OptionLists>
-		<OptionList>
-			<Id>1647119493314</Id>
-			<Name><![CDATA[Gebouwtype]]></Name>
-			<Option>
-				<Id>1647119493315</Id>
-				<Name><![CDATA[Flatwoning]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119493316</Id>
-				<Name><![CDATA[Twee_onder_een_kap]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119493317</Id>
-				<Name><![CDATA[Rijwoning_tussen]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119493318</Id>
-				<Name><![CDATA[Rijwoning_hoek]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119493319</Id>
-				<Name><![CDATA[Appartement]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119493320</Id>
-				<Name><![CDATA[Maisonnette]]></Name>
-			</Option>
-			<Option>
-				<Id>1647121096602</Id>
-				<Name><![CDATA[Onbekend]]></Name>
-			</Option>
-		</OptionList>
-		<OptionList>
-			<Id>1647119570720</Id>
-			<Name><![CDATA[GebouwSubtype]]></Name>
-			<Option>
-				<Id>1647119570721</Id>
-				<Name><![CDATA[Hoekdak]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119570722</Id>
-				<Name><![CDATA[Hoekmidden]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119570723</Id>
-				<Name><![CDATA[Hoekvloer]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119570724</Id>
-				<Name><![CDATA[Tussendak]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119573369</Id>
-				<Name><![CDATA[Tussendakvloer]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119579291</Id>
-				<Name><![CDATA[Tussenmidden]]></Name>
-			</Option>
-			<Option>
-				<Id>1647119584425</Id>
-				<Name><![CDATA[Tussenvloer]]></Name>
-			</Option>
-			<Option>
-				<Id>1647120305782</Id>
-				<Name><![CDATA[Rijwoning]]></Name>
-			</Option>
-		</OptionList>
-	</OptionLists>
 	<ActiveObjectClasses>
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
@@ -90,11 +20,17 @@
 			<StartupCode><![CDATA[//To randomize hhids
 huishoudensIDs.addAll( selectFrom( db_household_sample ).list( db_household_sample.hhid ) );
 
-for (Household h : households){
-	h.f_initializeHousehold();
+for (int i=0; i<huishoudensIDs.size(); i++){
+	add_pop_sampleHouseholds();
 }
 
-]]></StartupCode>
+for (SampleHousehold s : pop_sampleHouseholds){
+	s.f_initializeHousehold();
+	s.f_initializeCars();
+	s.f_generateActivities(s);
+}
+
+f_linkSamples();]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1642419773330</Id>
@@ -924,6 +860,23 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 //for (TableFunction t : sunAltitudes){
 	
 //}]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647336952483</Id>
+					<Name><![CDATA[f_linkSamples]]></Name>
+					<X>-600</X><Y>360</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[for (Household h : households){
+	int randomSample = uniform_discr(0, pop_sampleHouseholds.size()-1);
+	h.sampleHouseholdLinked = pop_sampleHouseholds(randomSample);
+	pop_sampleHouseholds(randomSample).c_linkedHouseholds.add( h ); 
+}
+]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -1977,78 +1930,6 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 						<Parameter>
 							<Name><![CDATA[tempVariationDay]]></Name>
 						</Parameter>
-						<Parameter>
-							<Name><![CDATA[age1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[driver1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[work1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[education1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[gender1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[age2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[driver2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[work2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[education2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[gender2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[nbVehicles]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[nbAdults]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[nbChildren]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[id]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[composition]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[nbDriversLicense]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[adult1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[adult2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[car1]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[car2]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[buildingTypeString]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[buildingSubType]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[energyLabel]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[buildingTypeOL]]></Name>
-						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -2085,12 +1966,12 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 					<InitializationDatabaseTableQuery>
 						<TableReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+							<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 						</TableReference>
 						<Condition>
 							<ColumnReference>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[gebruiksdo]]></ItemName>
 							</ColumnReference>
 							<Value Class="CodeValue">
@@ -2111,7 +1992,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[gid]]></ItemName>
 							</Value>
 						</Item>
@@ -2123,7 +2004,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[identifica]]></ItemName>
 							</Value>
 						</Item>
@@ -2135,7 +2016,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[oppervlakt]]></ItemName>
 							</Value>
 						</Item>
@@ -2147,7 +2028,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[status]]></ItemName>
 							</Value>
 						</Item>
@@ -2159,7 +2040,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[gebruiksdo]]></ItemName>
 							</Value>
 						</Item>
@@ -2171,7 +2052,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[openbare_r]]></ItemName>
 							</Value>
 						</Item>
@@ -2183,7 +2064,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[huisnummer]]></ItemName>
 							</Value>
 						</Item>
@@ -2195,7 +2076,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[huisletter]]></ItemName>
 							</Value>
 						</Item>
@@ -2207,7 +2088,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[toevoeging]]></ItemName>
 							</Value>
 						</Item>
@@ -2219,7 +2100,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[postcode]]></ItemName>
 							</Value>
 						</Item>
@@ -2231,7 +2112,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[woonplaats]]></ItemName>
 							</Value>
 						</Item>
@@ -2243,7 +2124,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[bouwjaar]]></ItemName>
 							</Value>
 						</Item>
@@ -2255,7 +2136,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[pandidenti]]></ItemName>
 							</Value>
 						</Item>
@@ -2267,7 +2148,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[pandstatus]]></ItemName>
 							</Value>
 						</Item>
@@ -2279,7 +2160,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[rdf_seeals]]></ItemName>
 							</Value>
 						</Item>
@@ -2291,7 +2172,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[xcoord]]></ItemName>
 							</Value>
 						</Item>
@@ -2303,7 +2184,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[ycoord]]></ItemName>
 							</Value>
 						</Item>
@@ -2315,44 +2196,40 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[woningtype]]></ItemName>
 							</Value>
 						</Item>
 						<Item>
 							<Key>
-								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[Household]]></ClassName>
-								<ItemName><![CDATA[buildingTypeString]]></ItemName>
+								FAKE_PARAMETER_GIS_LOCATION_LONGITUDE_xjal
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
-								<ItemName><![CDATA[gebouwtype]]></ItemName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ItemName><![CDATA[xcoord]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								FAKE_PARAMETER_GIS_LOCATION_LATITUDE_xjal
+							</Key>
+							<Value>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ItemName><![CDATA[ycoord]]></ItemName>
 							</Value>
 						</Item>
 						<Item>
 							<Key>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
 								<ClassName><![CDATA[Household]]></ClassName>
-								<ItemName><![CDATA[buildingSubType]]></ItemName>
+								<ItemName><![CDATA[usage]]></ItemName>
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
-								<ItemName><![CDATA[gebouwsubtype]]></ItemName>
-							</Value>
-						</Item>
-						<Item>
-							<Key>
-								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[Household]]></ClassName>
-								<ItemName><![CDATA[energyLabel]]></ItemName>
-							</Key>
-							<Value>
-								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
-								<ItemName><![CDATA[energieklasse]]></ItemName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ItemName><![CDATA[gebruiksdo]]></ItemName>
 							</Value>
 						</Item>	
 					</ParameterToDatabaseColumnMapping>
@@ -2471,12 +2348,12 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 					<InitializationDatabaseTableQuery>
 						<TableReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+							<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 						</TableReference>
 						<Condition>
 							<ColumnReference>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[gebruiksdo]]></ItemName>
 							</ColumnReference>
 							<Value Class="CodeValue">
@@ -2497,7 +2374,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[gid]]></ItemName>
 							</Value>
 						</Item>
@@ -2509,7 +2386,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[identifica]]></ItemName>
 							</Value>
 						</Item>
@@ -2521,7 +2398,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[oppervlakt]]></ItemName>
 							</Value>
 						</Item>
@@ -2533,7 +2410,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[status]]></ItemName>
 							</Value>
 						</Item>
@@ -2545,7 +2422,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[gebruiksdo]]></ItemName>
 							</Value>
 						</Item>
@@ -2557,7 +2434,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[openbare_r]]></ItemName>
 							</Value>
 						</Item>
@@ -2569,7 +2446,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[huisnummer]]></ItemName>
 							</Value>
 						</Item>
@@ -2581,7 +2458,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[huisletter]]></ItemName>
 							</Value>
 						</Item>
@@ -2593,7 +2470,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[toevoeging]]></ItemName>
 							</Value>
 						</Item>
@@ -2605,7 +2482,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[postcode]]></ItemName>
 							</Value>
 						</Item>
@@ -2617,7 +2494,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[woonplaats]]></ItemName>
 							</Value>
 						</Item>
@@ -2629,7 +2506,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[bouwjaar]]></ItemName>
 							</Value>
 						</Item>
@@ -2641,7 +2518,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[pandidenti]]></ItemName>
 							</Value>
 						</Item>
@@ -2653,7 +2530,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[pandstatus]]></ItemName>
 							</Value>
 						</Item>
@@ -2665,7 +2542,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[rdf_seeals]]></ItemName>
 							</Value>
 						</Item>
@@ -2677,7 +2554,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[xcoord]]></ItemName>
 							</Value>
 						</Item>
@@ -2689,7 +2566,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[ycoord]]></ItemName>
 							</Value>
 						</Item>
@@ -2701,8 +2578,28 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 							</Key>
 							<Value>
 								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-								<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
 								<ItemName><![CDATA[woningtype]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								FAKE_PARAMETER_GIS_LOCATION_LATITUDE_xjal
+							</Key>
+							<Value>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ItemName><![CDATA[ycoord]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								FAKE_PARAMETER_GIS_LOCATION_LONGITUDE_xjal
+							</Key>
+							<Value>
+								<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+								<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+								<ItemName><![CDATA[xcoord]]></ItemName>
 							</Value>
 						</Item>	
 					</ParameterToDatabaseColumnMapping>
@@ -3220,9 +3117,6 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 						<Parameter>
 							<Name><![CDATA[driversLicense]]></Name>
 						</Parameter>
-						<Parameter>
-							<Name><![CDATA[modalShiftTimeDecrease]]></Name>
-						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -3267,6 +3161,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 				<EmbeddedObject>
 					<Id>1645434814661</Id>
 					<Name><![CDATA[pop_cars]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>-600</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -3345,7 +3240,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1647104822129</Id>
-					<Name><![CDATA[pop_dummyAgentType3]]></Name>
+					<Name><![CDATA[pop_sampleCars]]></Name>
 					<X>-600</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -3354,16 +3249,34 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 					<PresentationId>1647104822131</PresentationId>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-						<ClassName><![CDATA[DummyAgentType3]]></ClassName>
+						<ClassName><![CDATA[SampleCar]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[DummyAgentType3]]></ClassName>
+							<ClassName><![CDATA[SampleCar]]></ClassName>
 							<ItemName><![CDATA[1647104764991]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
+						<Parameter>
+							<Name><![CDATA[p_carID]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[p_electric]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[household]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[p_energyConsumption]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[p_maxBatteryCap_kWh]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[p_maxChargingSpeed_kW]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -3407,7 +3320,7 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1647104906965</Id>
-					<Name><![CDATA[pop_dummyAgentTypeWithPopInside]]></Name>
+					<Name><![CDATA[pop_sampleHouseholds]]></Name>
 					<X>-600</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -3416,16 +3329,70 @@ sunAzimuth.add(sunAzimuths.get(getMonth()).get(i+1));
 					<PresentationId>1647104906966</PresentationId>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-						<ClassName><![CDATA[DummyAgentType]]></ClassName>
+						<ClassName><![CDATA[SampleHousehold]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[DummyAgentType]]></ClassName>
+							<ClassName><![CDATA[SampleHousehold]]></ClassName>
 							<ItemName><![CDATA[1645434362751]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
+						<Parameter>
+							<Name><![CDATA[age1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[driver1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[work1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[education1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[gender1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[age2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[driver2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[work2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[education2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[gender2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[nbVehicles]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[nbAdults]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[nbChildren]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[id]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[composition]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[nbDriversLicense]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[car1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[car2]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -22970,7 +22937,7 @@ else {
 				</Level>
 				<EmbeddedObjectPresentation>
 					<Id>1647104822131</Id>
-					<Name><![CDATA[pop_dummyAgentType3_presentation]]></Name>
+					<Name><![CDATA[pop_sampleCars_presentation]]></Name>
 					<X>-500</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -22989,7 +22956,7 @@ else {
 				</EmbeddedObjectPresentation>
 				<EmbeddedObjectPresentation>
 					<Id>1647104906966</Id>
-					<Name><![CDATA[pop_dummyAgentTypeWithPopInside_presentation]]></Name>
+					<Name><![CDATA[pop_sampleHouseholds_presentation]]></Name>
 					<X>-500</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -23031,7 +22998,6 @@ else {
 			<StartupCode><![CDATA[findGisRegion();
 findGisRoute();
 
-//buildingTypeOL = f_getBuildingTypeOL(buildingTypeString, buildingSubType);
 
 
 if (!woningtype.equals("")) {	
@@ -24309,15 +24275,15 @@ if (!woningtype.equals("")) {
 					</Properties>
 				</Variable>
 				<Variable Class="PlainVariable">
-					<Id>1646155393818</Id>
-					<Name><![CDATA[randomIDGenerator]]></Name>
-					<X>-400</X><Y>710</Y>
+					<Id>1647334902954</Id>
+					<Name><![CDATA[sampleHouseholdLinked]]></Name>
+					<X>-150</X><Y>380</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[int]]></Type>        
+						<Type><![CDATA[SampleHousehold]]></Type>        
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
@@ -25949,511 +25915,6 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143827</Id>
-					<Name><![CDATA[age1]]></Name>
-					<X>-300</X><Y>510</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143825</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143844</Id>
-					<Name><![CDATA[driver1]]></Name>
-					<X>-300</X><Y>540</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[boolean]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143842</Id>
-							<EditorContolType>CHECK_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143852</Id>
-					<Name><![CDATA[work1]]></Name>
-					<X>-300</X><Y>570</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143850</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143861</Id>
-					<Name><![CDATA[education1]]></Name>
-					<X>-300</X><Y>600</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143859</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143868</Id>
-					<Name><![CDATA[gender1]]></Name>
-					<X>-300</X><Y>630</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143866</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143876</Id>
-					<Name><![CDATA[age2]]></Name>
-					<X>-170</X><Y>510</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143874</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143881</Id>
-					<Name><![CDATA[driver2]]></Name>
-					<X>-170</X><Y>540</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[boolean]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143879</Id>
-							<EditorContolType>CHECK_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143890</Id>
-					<Name><![CDATA[work2]]></Name>
-					<X>-170</X><Y>570</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143888</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143898</Id>
-					<Name><![CDATA[education2]]></Name>
-					<X>-170</X><Y>600</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143896</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155143904</Id>
-					<Name><![CDATA[gender2]]></Name>
-					<X>-170</X><Y>630</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155143902</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393821</Id>
-					<Name><![CDATA[nbVehicles]]></Name>
-					<X>-400</X><Y>500</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393819</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393824</Id>
-					<Name><![CDATA[nbAdults]]></Name>
-					<X>-400</X><Y>530</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393822</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393827</Id>
-					<Name><![CDATA[nbChildren]]></Name>
-					<X>-400</X><Y>560</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393825</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393833</Id>
-					<Name><![CDATA[id]]></Name>
-					<X>-400</X><Y>650</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393831</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393836</Id>
-					<Name><![CDATA[composition]]></Name>
-					<X>-400</X><Y>620</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393834</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646155393839</Id>
-					<Name><![CDATA[nbDriversLicense]]></Name>
-					<X>-400</X><Y>680</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[int]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646155393837</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646838976511</Id>
-					<Name><![CDATA[adult1]]></Name>
-					<X>-400</X><Y>790</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Person]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646838976509</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646838976515</Id>
-					<Name><![CDATA[adult2]]></Name>
-					<X>-400</X><Y>820</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Person]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<UnitOfValue Class="RateUnits"><![CDATA[PER_SECOND]]></UnitOfValue>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646838976513</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646838976518</Id>
-					<Name><![CDATA[car1]]></Name>
-					<X>-250</X><Y>790</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Car]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646838976516</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646838976523</Id>
-					<Name><![CDATA[car2]]></Name>
-					<X>-250</X><Y>820</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Car]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1646838976521</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1647119855502</Id>
-					<Name><![CDATA[buildingTypeString]]></Name>
-					<X>-400</X><Y>400</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[String]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1647119855500</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1647119872216</Id>
-					<Name><![CDATA[buildingSubType]]></Name>
-					<X>-400</X><Y>420</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[GebouwSubtype]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1647119872214</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1647119959723</Id>
-					<Name><![CDATA[energyLabel]]></Name>
-					<X>-400</X><Y>440</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[String]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1647119959721</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1647120041326</Id>
-					<Name><![CDATA[buildingTypeOL]]></Name>
-					<X>-400</X><Y>460</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Gebouwtype]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<ParameterEditor>
-							<Id>1647120041324</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1643719833630</Id>
 					<Name><![CDATA[predictedHeatExchangeArray]]></Name>
@@ -26608,42 +26069,6 @@ https://www.sciencedirect.com/science/article/pii/S0360544212007086#bib43]]></De
 					</Properties>
 
 				</Variable>
-				<Variable Class="CollectionVariable">
-					<Id>1646838976497</Id>
-					<Name><![CDATA[people]]></Name>
-					<X>-400</X><Y>760</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[Person]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ }]]></Code>
-						</CollectionInitializer>
-					</Properties>
-
-				</Variable>
-				<Variable Class="CollectionVariable">
-					<Id>1646838976506</Id>
-					<Name><![CDATA[cars]]></Name>
-					<X>-250</X><Y>760</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[Car]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ }]]></Code>
-						</CollectionInitializer>
-					</Properties>
-
-				</Variable>
 			</Variables>
 			<ActionChartElements>
 				<ActionChartElement Class="ActionChart">
@@ -26784,9 +26209,6 @@ heatExchangeEnvironment= - ( heatExchangeGlass + heatExchangeWall + heatExchange
 
 heatExchangeInfiltration = - 1 * 1.276 * airInfiltration * (predictedInsideTemp - predictedOutsideTemp)/1000; //kW
 heatExchangeVentilation =  - 1 * cpAir * rhoAir * flowRateVentilation * (predictedInsideTemp - predictedOutsideTemp); // kW
-
-//traceln(crimson, cpAir * rhoAir * flowRateVentilation * (20 + 5));
-
 
 // Heat inflow via irradiance
 if (main.sunAltitude.get(i) > 0) {
@@ -27379,112 +26801,6 @@ else {
 					<Body><![CDATA[
 predictedPvProduction = installedAreaPV * predictedIrradiancePV * efficiencyPV * performanceRatio;
 ]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>VOID</ReturnModificator>
-					<ReturnType><![CDATA[double]]></ReturnType>
-					<Id>1646203362834</Id>
-					<Name><![CDATA[f_initializeHousehold]]></Name>
-					<X>-240</X><Y>670</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[//Generate random HHID
-randomIDGenerator = uniform_discr(0, main.huishoudensIDs.size()-1);
-id = main.huishoudensIDs.get(randomIDGenerator);
-
-//Get info from db
-Tuple tup = selectFrom( db_household_sample ).where( db_household_sample.hhid.eq( id ) ).list().get(0);
-
-//Set info to houshold	
-composition = tup.get( db_household_sample.comp );
-nbChildren = tup.get( db_household_sample.child );
-nbVehicles = tup.get( db_household_sample.ncar );
-age1 = tup.get( db_household_sample.age1 );
-age2 = tup.get( db_household_sample.age2 );
-driver1 = tup.get( db_household_sample.driver1 );
-driver2 = tup.get( db_household_sample.driver2 );	
-gender1 = tup.get( db_household_sample.gender1 );
-gender2 = tup.get( db_household_sample.gender2 );
-work1 = tup.get( db_household_sample.work1 );
-work2 = tup.get( db_household_sample.work2 );
-//education1 = tup.get( huishoudens_deel.education1 );
-//education2 = tup.get( huishoudens_deel.education2 );
-
-//Initialize adult 1
-
-nbAdults = composition < 2 ? 1 : 2;
-adult1 = main.add_pop_people();
-adult1.memberID = 0;
-adult1.household = this;
-adult1.driversLicense = driver1;
-//adult1.thuisLocatie = gisRegion.randomPointInside();
-//adult1.setLocation( adult1.thuisLocatie);
-people.add( adult1 );
-
-//Initialize adult 2
-if ( nbAdults > 1 ) {
-	adult2 = main.add_pop_people();
-	adult2.memberID = 1;
-	adult2.household = this;
-	adult2.driversLicense = driver2;
-	//adult2.thuisLocatie = gisRegion.randomPointInside();
-	//adult2.setLocation( adult2.thuisLocatie );
-	//g_adult2.setVisible(true);
-	people.add( adult2 );
-}
-/*
-for( Person p : people ) {
-	p.generateActivities( this );
-}
-*/]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
-					<ReturnType><![CDATA[Gebouwtype]]></ReturnType>
-					<Id>1647119648380</Id>
-					<Name><![CDATA[f_getBuildingTypeOL]]></Name>
-					<Description><![CDATA[To go from string database values to option list building types
-
-@returns Gebouwtype
-
-@author naud@zenmo.com
-@since 12/03/2022]]></Description>
-					<X>-240</X><Y>690</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Parameter>
-						<Name><![CDATA[buildingTypeString]]></Name>
-						<Type><![CDATA[String]]></Type>
-					</Parameter>
-					<Parameter>
-						<Name><![CDATA[buildingSubType]]></Name>
-						<Type><![CDATA[GebouwSubtype]]></Type>
-					</Parameter>
-					<Body><![CDATA[if (buildingTypeString == "Flatwoning (overig)") {
-	return Flatwoning;
-}
-else if (buildingTypeString == "Rijwoning tussen"){
-	return Rijwoning_tussen;
-}
-else if (buildingTypeString == "Twee-onder-een-kap / rijwoning hoek" && buildingSubType == Rijwoning){
-	return Rijwoning_hoek;
-}
-else if (buildingTypeString == "Twee-onder-een-kap / rijwoning hoek"){
-	return Twee_onder_een_kap;
-}
-else if (buildingTypeString == "Appartement"){
-	return Appartement;
-}
-else if (buildingTypeString == "Maisonnette"){
-	return Maisonnette;
-}
-else {
-	return Onbekend;
-}]]></Body>
 				</Function>
 			</Functions>
 			<TableFunctions>
@@ -29661,16 +28977,70 @@ else {
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-						<ClassName><![CDATA[DummyAgentType]]></ClassName>
+						<ClassName><![CDATA[SampleHousehold]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[DummyAgentType]]></ClassName>
+							<ClassName><![CDATA[SampleHousehold]]></ClassName>
 							<ItemName><![CDATA[1645434362751]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
+						<Parameter>
+							<Name><![CDATA[age1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[driver1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[work1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[education1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[gender1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[age2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[driver2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[work2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[education2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[gender2]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[nbVehicles]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[nbAdults]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[nbChildren]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[id]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[composition]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[nbDriversLicense]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[car1]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[car2]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -30387,7 +29757,7 @@ else {
 					<Name><![CDATA[vraagEnAanbodGroup]]></Name>
 					<X>1100</X><Y>1290</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
+					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -32933,7 +32303,7 @@ if (gisRegion == null ) {
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
 			<Id>1645434362753</Id>
-			<Name><![CDATA[DummyAgentType]]></Name>
+			<Name><![CDATA[SampleHousehold]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -33027,6 +32397,1155 @@ if (gisRegion == null ) {
 			</ScaleRuler>
 			<CurrentLevel>1645434362752</CurrentLevel>
 			<ConnectionsId>1645434362748</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1647265322806</Id>
+					<Name><![CDATA[randomIDGenerator]]></Name>
+					<X>70</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647351001182</Id>
+					<Name><![CDATA[dummyIndex]]></Name>
+					<X>700</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647351204030</Id>
+					<Name><![CDATA[upcomingActivity1]]></Name>
+					<X>700</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[SampleActivity]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647351208742</Id>
+					<Name><![CDATA[homeActivity1]]></Name>
+					<X>700</X><Y>70</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[SampleActivity]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647351266502</Id>
+					<Name><![CDATA[upcomingActivity2]]></Name>
+					<X>850</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[SampleActivity]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647351266506</Id>
+					<Name><![CDATA[homeActivity2]]></Name>
+					<X>850</X><Y>70</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[SampleActivity]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647424535926</Id>
+					<Name><![CDATA[resetMobilityWeek]]></Name>
+					<X>700</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647424828481</Id>
+					<Name><![CDATA[mobilityWeekNb]]></Name>
+					<X>700</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647856207087</Id>
+					<Name><![CDATA[dummyIndex2]]></Name>
+					<X>850</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647856207089</Id>
+					<Name><![CDATA[resetMobilityWeek2]]></Name>
+					<X>850</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647856207091</Id>
+					<Name><![CDATA[mobilityWeekNb2]]></Name>
+					<X>850</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322809</Id>
+					<Name><![CDATA[age1]]></Name>
+					<X>390</X><Y>30</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322807</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322819</Id>
+					<Name><![CDATA[driver1]]></Name>
+					<X>390</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[boolean]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322817</Id>
+							<EditorContolType>CHECK_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322822</Id>
+					<Name><![CDATA[work1]]></Name>
+					<X>390</X><Y>90</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322820</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322825</Id>
+					<Name><![CDATA[education1]]></Name>
+					<X>390</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322823</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322828</Id>
+					<Name><![CDATA[gender1]]></Name>
+					<X>390</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322826</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322831</Id>
+					<Name><![CDATA[age2]]></Name>
+					<X>520</X><Y>30</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322829</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322834</Id>
+					<Name><![CDATA[driver2]]></Name>
+					<X>520</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[boolean]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322832</Id>
+							<EditorContolType>CHECK_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322837</Id>
+					<Name><![CDATA[work2]]></Name>
+					<X>520</X><Y>90</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322835</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322840</Id>
+					<Name><![CDATA[education2]]></Name>
+					<X>520</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322838</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322843</Id>
+					<Name><![CDATA[gender2]]></Name>
+					<X>520</X><Y>150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322841</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322846</Id>
+					<Name><![CDATA[nbVehicles]]></Name>
+					<X>250</X><Y>30</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322844</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322849</Id>
+					<Name><![CDATA[nbAdults]]></Name>
+					<X>250</X><Y>60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322847</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322852</Id>
+					<Name><![CDATA[nbChildren]]></Name>
+					<X>250</X><Y>90</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322850</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322855</Id>
+					<Name><![CDATA[id]]></Name>
+					<X>70</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322853</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322858</Id>
+					<Name><![CDATA[composition]]></Name>
+					<X>70</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322856</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322861</Id>
+					<Name><![CDATA[nbDriversLicense]]></Name>
+					<X>70</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322859</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322870</Id>
+					<Name><![CDATA[car1]]></Name>
+					<X>70</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[SampleCar]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322868</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647265322873</Id>
+					<Name><![CDATA[car2]]></Name>
+					<X>70</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[SampleCar]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647265322871</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1647265322801</Id>
+					<Name><![CDATA[cars]]></Name>
+					<X>70</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[SampleCar]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1647265768139</Id>
+					<Name><![CDATA[c_person1Activities]]></Name>
+					<X>700</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[SampleActivity]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1647265786630</Id>
+					<Name><![CDATA[c_person2Activities]]></Name>
+					<X>850</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[SampleActivity]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1647340825583</Id>
+					<Name><![CDATA[c_linkedHouseholds]]></Name>
+					<X>70</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Household]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+			</Variables>
+			<Events>
+				<Event>
+					<Id>1647350240952</Id>
+					<Name><![CDATA[carStartTimer1]]></Name>
+					<X>700</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="userControls">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1d / 0d]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1647417600000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[send("vertrek", car1);
+f_resetCarStartTimer();]]></Action>
+				</Event>
+				<Event>
+					<Id>1647354837867</Id>
+					<Name><![CDATA[carEndTimer1]]></Name>
+					<X>700</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="userControls">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1d / 0d]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1647417600000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[send("kom thuis", car1);
+f_resetCarEndTimer();]]></Action>
+				</Event>
+				<Event>
+					<Id>1647856207094</Id>
+					<Name><![CDATA[carStartTimer2]]></Name>
+					<X>850</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="userControls">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1d / 0d]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1647417600000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[if (nbVehicles == 1){
+	send("vertrek", car1);
+}
+else {
+	send("vertrek", car2);
+}
+//send("vertrek", car1) : send("vertrek", car2);
+
+f_resetCarStartTimer2();]]></Action>
+				</Event>
+				<Event>
+					<Id>1647856207102</Id>
+					<Name><![CDATA[carEndTimer2]]></Name>
+					<X>850</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="userControls">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1d / 0d]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1647417600000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[0]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[if (nbVehicles == 1){
+	send("kom thuis", car1);
+}
+else {
+	send("kom thuis", car2);
+}
+f_resetCarEndTimer2();]]></Action>
+				</Event>
+			</Events>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647265322804</Id>
+					<Name><![CDATA[f_initializeHousehold]]></Name>
+					<X>70</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[//Generate random HHID
+randomIDGenerator = uniform_discr(0, main.huishoudensIDs.size()-1);
+id = main.huishoudensIDs.get(0);
+main.huishoudensIDs.remove(0);
+
+//Get info from db
+Tuple tup = selectFrom( db_household_sample ).where( db_household_sample.hhid.eq( id ) ).list().get(0);
+
+//Set info to houshold	
+composition = tup.get( db_household_sample.comp );
+nbChildren = tup.get( db_household_sample.child );
+nbVehicles = tup.get( db_household_sample.ncar );
+age1 = tup.get( db_household_sample.age1 );
+age2 = tup.get( db_household_sample.age2 );
+driver1 = tup.get( db_household_sample.driver1 );
+driver2 = tup.get( db_household_sample.driver2 );	
+gender1 = tup.get( db_household_sample.gender1 );
+gender2 = tup.get( db_household_sample.gender2 );
+work1 = tup.get( db_household_sample.work1 );
+work2 = tup.get( db_household_sample.work2 );
+//education1 = tup.get( huishoudens_deel.education1 );
+//education2 = tup.get( huishoudens_deel.education2 );
+
+//Initialize adult 1
+
+nbAdults = composition < 2 ? 1 : 2;
+//adult1 = main.add_pop_people();
+//adult1.memberID = 0;
+//adult1.household = this;
+//adult1.driversLicense = driver1;
+//adult1.thuisLocatie = gisRegion.randomPointInside();
+//adult1.setLocation( adult1.thuisLocatie);
+//people.add( adult1 );
+
+//Initialize adult 2
+/*
+if ( nbAdults > 1 ) {
+	adult2 = main.add_pop_people();
+	adult2.memberID = 1;
+	adult2.household = this;
+	adult2.driversLicense = driver2;
+	//adult2.thuisLocatie = gisRegion.randomPointInside();
+	//adult2.setLocation( adult2.thuisLocatie );
+	//g_adult2.setVisible(true);
+	people.add( adult2 );
+}
+
+for( Person p : people ) {
+	p.generateActivities( this );
+}
+*/]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[Activity[]]]></ReturnType>
+					<Id>1647265703812</Id>
+					<Name><![CDATA[f_generateActivities]]></Name>
+					<X>1000</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[sampleHousehold]]></Name>
+						<Type><![CDATA[SampleHousehold]]></Type>
+					</Parameter>
+					<Body><![CDATA[// Get trip tuples from this household ID from database
+List< Tuple > tuples = selectFrom( db_activities_sample).where( db_activities_sample.hhid.eq( sampleHousehold.id ) ).list();
+
+if (tuples.size()>0){			
+//Create an activity for each record and set its values	
+	for( Tuple tup : tuples ) {
+		SampleActivity s = add_pop_sampleActivities();
+		s.type = tup.get ( db_activities_sample.activity_type );
+		s.modality = tup.get ( db_activities_sample.mode );
+		s.locStart = tup.get ( db_activities_sample.orig_loc );
+		s.locEnd = tup.get ( db_activities_sample.dest_loc );
+		s.leaveTime = tup.get ( db_activities_sample.leave_time );
+		s.travelTime = tup.get ( db_activities_sample.travel_time );
+		s.beginTime = tup.get ( db_activities_sample.begin_time );
+		s.endTime = tup.get ( db_activities_sample.end_time );
+		s.episode = tup.get ( db_activities_sample.episode_id);
+		s.processAlbatrossInput();
+		s.personID = tup.get ( db_activities_sample.mem_id);
+		s.householdID = tup.get ( db_activities_sample.hhid );
+		//if ( ! a.type.equals( "Home" ) ) {
+			//drawActivity(a);
+		//}
+		//if (a.modality.equals("Car")){
+			//a.carDistance = a.travelTime * 1.2;
+			//main.distanceHistogram.add(a.carDistance);
+		//}
+	}
+}
+
+f_assignActivities();
+
+if (c_person1Activities.size() > 0){
+	f_setFirstActivities1();
+}
+
+if (c_person2Activities.size() > 0){
+	f_setFirstActivities2();
+}
+//countWork();
+
+
+//initialize acitivities
+/*
+currentActivity = this.pop_activities(0);
+nextActivity = null;
+Activity a = null;
+dummyIndex = currentActivityEpisode;
+
+while ( dummyIndex + 1 < pop_activities.size() ){
+	a = pop_activities.get( dummyIndex + 1 );
+	if (currentActivity.type.equals("Home") && a.type.equals("Home") ){
+		dummyIndex ++;
+	}
+	else{
+		break;
+	}
+}
+if ( a != null ){
+	nextActivity = a;
+	nextActivityInfo = "Next activity: " + nextActivity.type + " (ep. " + nextActivity.episode + " / " +  pop_activities.size() +
+	") in: " ;
+}
+else {
+	nextActivityInfo = "No next activity "; 
+}
+
+// Set the timer for the first activity
+if (pop_activities.size()>1){
+	nextActivityTimer.restart( nextActivity.startMinute, MINUTE );
+}
+*/]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647265835539</Id>
+					<Name><![CDATA[f_assignActivities]]></Name>
+					<X>1000</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[for (SampleActivity s : pop_sampleActivities){
+	if (s.personID == 0){
+		c_person1Activities.add( s );
+	}
+	else {
+		c_person2Activities.add( s );
+	}
+}]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647347926561</Id>
+					<Name><![CDATA[f_initializeCars]]></Name>
+					<X>70</X><Y>40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[//Initialize auto 1
+if( nbVehicles > 0){
+	car1 = main.add_pop_sampleCars();
+	car1.p_carID = 1;
+	car1.household = this;
+	cars.add( car1 );
+	car1.p_electric = true;
+	
+	//Initialize auto 2
+	if( nbVehicles > 1) {
+		car2 = main.add_pop_sampleCars();
+		car2.p_carID = 2;
+		car2.household = this;
+		cars.add( car2 );
+		car2.p_electric = true;
+	}
+}
+
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647355757830</Id>
+					<Name><![CDATA[f_setFirstActivities1]]></Name>
+					<X>1000</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[upcomingActivity1 = c_person1Activities.get(0);
+homeActivity1 = null;
+SampleActivity a = null;
+dummyIndex = 0;
+
+while ( dummyIndex  < c_person1Activities.size() ){
+	a = c_person1Activities.get( dummyIndex + 1 );
+	if (!a.type.equals("Home") ){
+		dummyIndex++;
+	}
+	else{
+		break;
+	}
+}
+
+if (c_person1Activities.size() > 1){
+	homeActivity1 = a;
+}
+
+traceln(homeActivity1.getIndex());
+carStartTimer1.restart(upcomingActivity1.startMinute, MINUTE );;
+carEndTimer1.restart(homeActivity1.startMinute+homeActivity1.travelTime, MINUTE);]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647358365496</Id>
+					<Name><![CDATA[f_resetCarStartTimer]]></Name>
+					<X>700</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[if (homeActivity1.getIndex()< c_person1Activities.size()-1){
+	traceln(homeActivity1.getIndex());
+	upcomingActivity1 = c_person1Activities.get(homeActivity1.getIndex()+1);
+	homeActivity1 = null;
+	SampleActivity a = null;
+	//dummyIndex = homeActivity1.getIndex()+1;
+	traceln(crimson, dummyIndex);
+	dummyIndex++;
+	while ( dummyIndex  < c_person1Activities.size() ){
+		a = c_person1Activities.get( dummyIndex + 1 );
+		if (!a.type.equals("Home") ){
+			dummyIndex++;
+		}
+		else{
+			break;
+		}
+	}
+
+	if (c_person1Activities.size() > 1){
+		homeActivity1 = a;
+	}
+
+	carStartTimer1.restart(upcomingActivity1.startMinute + (10080 * (mobilityWeekNb - 1)) - time(MINUTE), MINUTE );;
+	//carEndTimer1.restart(homeActivity1.startMinute+homeActivity1.travelTime, MINUTE);
+}
+else{
+	upcomingActivity1 = c_person1Activities.get(0);
+	homeActivity1 = null;
+	SampleActivity a = null;
+	dummyIndex = 0;
+
+	while ( dummyIndex  < c_person1Activities.size() ){
+		a = c_person1Activities.get( dummyIndex + 1 );
+		if (!a.type.equals("Home") ){
+			dummyIndex++;
+		}
+		else{
+			break;
+		}
+	}
+
+	if (c_person1Activities.size() > 1){
+		homeActivity1 = a;
+	}
+
+	traceln(homeActivity1.getIndex());
+	carStartTimer1.restart(upcomingActivity1.startMinute + ((10080 * mobilityWeekNb) - time(MINUTE)), MINUTE );;
+	resetMobilityWeek = true;
+}]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647358413873</Id>
+					<Name><![CDATA[f_resetCarEndTimer]]></Name>
+					<X>700</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[if (!resetMobilityWeek){
+	carEndTimer1.restart((homeActivity1.startMinute+homeActivity1.travelTime)- time(MINUTE) + (10080 * (mobilityWeekNb - 1)), MINUTE);
+}
+else {
+	carEndTimer1.restart((homeActivity1.startMinute+homeActivity1.travelTime) + ((10080 * mobilityWeekNb) - time(MINUTE)) , MINUTE);
+	mobilityWeekNb++;
+	resetMobilityWeek = false;
+}]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647856207075</Id>
+					<Name><![CDATA[f_resetCarStartTimer2]]></Name>
+					<X>850</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[if (homeActivity2.getIndex()< c_person2Activities.size()-1){
+	upcomingActivity2 = c_person2Activities.get(homeActivity2.getIndex()+1);
+	homeActivity2 = null;
+	SampleActivity a = null;
+	//dummyIndex = homeActivity1.getIndex()+1;
+	traceln(crimson, dummyIndex2);
+	dummyIndex2++;
+	while ( dummyIndex2  < c_person2Activities.size() ){
+		a = c_person2Activities.get( dummyIndex2 + 1 );
+		if (!a.type.equals("Home") ){
+			dummyIndex2++;
+		}
+		else{
+			break;
+		}
+	}
+
+	if (c_person2Activities.size() > 1){
+		homeActivity2 = a;
+	}
+
+	carStartTimer2.restart(upcomingActivity2.startMinute + (10080 * (mobilityWeekNb2 - 1)) - time(MINUTE), MINUTE );
+	//carEndTimer1.restart(homeActivity1.startMinute+homeActivity1.travelTime, MINUTE);
+}
+else{
+	upcomingActivity2 = c_person2Activities.get(0);
+	homeActivity2 = null;
+	SampleActivity a = null;
+	dummyIndex2 = 0;
+
+	while ( dummyIndex2  < c_person2Activities.size() ){
+		a = c_person2Activities.get( dummyIndex2 + 1 );
+		if (!a.type.equals("Home") ){
+			dummyIndex2++;
+		}
+		else{
+			break;
+		}
+	}
+
+	if (c_person2Activities.size() > 1){
+		homeActivity2 = a;
+	}
+
+	traceln(homeActivity2.getIndex());
+	carStartTimer2.restart(upcomingActivity2.startMinute + ((10080 * mobilityWeekNb2) - time(MINUTE)), MINUTE );;
+	resetMobilityWeek2 = true;
+}]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647856207083</Id>
+					<Name><![CDATA[f_resetCarEndTimer2]]></Name>
+					<X>850</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[if (!resetMobilityWeek2){
+	carEndTimer2.restart((homeActivity2.startMinute+homeActivity2.travelTime)- time(MINUTE) + (10080 * (mobilityWeekNb2 - 1)), MINUTE);
+}
+else {
+	carEndTimer2.restart((homeActivity2.startMinute+homeActivity2.travelTime) + ((10080 * mobilityWeekNb2) - time(MINUTE)) , MINUTE);
+	mobilityWeekNb2++;
+	resetMobilityWeek2 = false;
+}]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647856602646</Id>
+					<Name><![CDATA[f_setFirstActivities2]]></Name>
+					<X>1000</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[upcomingActivity2 = c_person2Activities.get(0);
+homeActivity2 = null;
+SampleActivity a = null;
+dummyIndex2 = 0;
+
+while ( dummyIndex2  < c_person2Activities.size() ){
+	a = c_person2Activities.get( dummyIndex2 + 1 );
+	if (!a.type.equals("Home") ){
+		dummyIndex2++;
+	}
+	else{
+		break;
+	}
+}
+
+if (c_person2Activities.size() > 1){
+	homeActivity2 = a;
+}
+carStartTimer2.restart(upcomingActivity2.startMinute, MINUTE );;
+carEndTimer2.restart(homeActivity2.startMinute+homeActivity2.travelTime, MINUTE);]]></Body>
+				</Function>
+			</Functions>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1645434362748</Id>
@@ -33080,7 +33599,7 @@ if (gisRegion == null ) {
 			<EmbeddedObjects>
 				<EmbeddedObject>
 					<Id>1645434416979</Id>
-					<Name><![CDATA[pop_dummyAgentType2]]></Name>
+					<Name><![CDATA[pop_sampleActivities]]></Name>
 					<X>70</X><Y>60</Y>
 					<Label><X>20</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33088,16 +33607,76 @@ if (gisRegion == null ) {
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-						<ClassName><![CDATA[DummyAgentType2]]></ClassName>
+						<ClassName><![CDATA[SampleActivity]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-							<ClassName><![CDATA[DummyAgentType2]]></ClassName>
+							<ClassName><![CDATA[SampleActivity]]></ClassName>
 							<ItemName><![CDATA[1645434396853]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
+						<Parameter>
+							<Name><![CDATA[modality]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[type]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[leaveTime]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[travelTime]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locStart]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locEnd]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[distance]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[personID]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[beginTime]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[endTime]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[duration]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[episode]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[startMinute]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[leaveTimeString]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[endTimeString]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[startDay]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[endDay]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[endMinute]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[modalityShort]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[householdID]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -33162,7 +33741,7 @@ if (gisRegion == null ) {
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
 			<Id>1645434396855</Id>
-			<Name><![CDATA[DummyAgentType2]]></Name>
+			<Name><![CDATA[SampleActivity]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -33256,6 +33835,477 @@ if (gisRegion == null ) {
 			</ScaleRuler>
 			<CurrentLevel>1645434396854</CurrentLevel>
 			<ConnectionsId>1645434396850</ConnectionsId>
+			<Variables>
+				<Variable Class="Parameter">
+					<Id>1647266056619</Id>
+					<Name><![CDATA[modality]]></Name>
+					<X>140</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056617</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056622</Id>
+					<Name><![CDATA[type]]></Name>
+					<X>140</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<UnitOfValue Class="RotationSpeedUnits"><![CDATA[RPM]]></UnitOfValue>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056620</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056625</Id>
+					<Name><![CDATA[leaveTime]]></Name>
+					<X>140</X><Y>230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<UnitOfValue Class="TimeUnits"><![CDATA[SECOND]]></UnitOfValue>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056623</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056628</Id>
+					<Name><![CDATA[travelTime]]></Name>
+					<X>140</X><Y>260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<UnitOfValue Class="TimeUnits"><![CDATA[MINUTE]]></UnitOfValue>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056626</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056631</Id>
+					<Name><![CDATA[locStart]]></Name>
+					<X>140</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056629</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056634</Id>
+					<Name><![CDATA[locEnd]]></Name>
+					<X>140</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056632</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056637</Id>
+					<Name><![CDATA[distance]]></Name>
+					<X>140</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056635</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056640</Id>
+					<Name><![CDATA[personID]]></Name>
+					<X>140</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056638</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056643</Id>
+					<Name><![CDATA[beginTime]]></Name>
+					<X>140</X><Y>290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056641</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056646</Id>
+					<Name><![CDATA[endTime]]></Name>
+					<X>140</X><Y>320</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056644</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056649</Id>
+					<Name><![CDATA[duration]]></Name>
+					<X>400</X><Y>200</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<UnitOfValue Class="TimeUnits"><![CDATA[MINUTE]]></UnitOfValue>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056647</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056655</Id>
+					<Name><![CDATA[householdID]]></Name>
+					<X>140</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056653</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056658</Id>
+					<Name><![CDATA[episode]]></Name>
+					<X>140</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056656</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056661</Id>
+					<Name><![CDATA[startMinute]]></Name>
+					<Description><![CDATA[The amount of minutes that have passed since 0:00 on day one that the adult departs for this activity]]></Description>
+					<X>400</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056659</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056664</Id>
+					<Name><![CDATA[leaveTimeString]]></Name>
+					<X>400</X><Y>230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056662</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056667</Id>
+					<Name><![CDATA[endTimeString]]></Name>
+					<X>400</X><Y>260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056665</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056670</Id>
+					<Name><![CDATA[startDay]]></Name>
+					<X>400</X><Y>140</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056668</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056673</Id>
+					<Name><![CDATA[endDay]]></Name>
+					<X>400</X><Y>170</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056671</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056676</Id>
+					<Name><![CDATA[endMinute]]></Name>
+					<Description><![CDATA[The amount of minutes that have passed since 0:00 on day one that the adult ends this activity]]></Description>
+					<X>400</X><Y>110</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056674</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647266056679</Id>
+					<Name><![CDATA[modalityShort]]></Name>
+					<X>400</X><Y>290</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647266056677</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+			</Variables>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647266056612</Id>
+					<Name><![CDATA[processAlbatrossInput]]></Name>
+					<X>140</X><Y>450</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[//split the strings met tijden 
+String[] s = leaveTime.split( ":|\\+" );
+String[] p = beginTime.split( ":|\\+" );
+String[] x = endTime.split( ":|\\+" );
+
+//Bepaal de startmomenten van activity
+startMinute = Integer.valueOf(s[0]) * 60 +  Integer.valueOf(s[1]) +  Integer.valueOf(s[2]) * 24 * 60;
+startDay = Integer.valueOf(s[2]);
+leaveTimeString = s[0] + ":" + s[1];
+
+
+//Bepaal de eindmomenten van activity
+endMinute = Integer.valueOf(x[0]) * 60 +  Integer.valueOf(x[1]) +  Integer.valueOf(x[2]) * 24 * 60;
+endDay = Integer.valueOf(x[2]);
+endTimeString =  x[0] + ":" + x[1];
+
+//Bepaal duration
+duration = endMinute - startMinute;
+
+//Set mode string
+if ( modality.equals("Car as Passenger") ) {
+	modalityShort = "Passenger";
+}
+else if ( modality.equals("Walking or Biking") ) {
+	modalityShort = "Bike";
+}
+else {
+	modalityShort = modality;
+}
+]]></Body>
+				</Function>
+			</Functions>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1645434396850</Id>
@@ -33281,7 +34331,7 @@ if (gisRegion == null ) {
 			<ContainerLinks>
 				<ContainerLink>
 					<Id>1645434418258</Id>
-					<Name><![CDATA[dummyAgentType]]></Name>
+					<Name><![CDATA[sampleHousehold]]></Name>
 					<X>50</X><Y>-100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -33289,7 +34339,7 @@ if (gisRegion == null ) {
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-						<ClassName><![CDATA[DummyAgentType]]></ClassName>
+						<ClassName><![CDATA[SampleHousehold]]></ClassName>
 					</ActiveObjectClass>
 				</ContainerLink>
 				<ContainerLink>
@@ -33333,6 +34383,50 @@ if (gisRegion == null ) {
 					<Z>0</Z>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
+			<Presentation>
+				<Text>
+					<Id>1647266056604</Id>
+					<Name><![CDATA[text2]]></Name>
+					<X>390</X><Y>40</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[postprocessing]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1647266056610</Id>
+					<Name><![CDATA[text1]]></Name>
+					<X>110</X><Y>40</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Loaded from database]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+			</Presentation>
 
 				</Level>
 			</Presentation>
@@ -34268,30 +35362,6 @@ else if (thermalEnergyBufferCurrent < 0.2 * thermalEnergyBufferMax){
 						<ParameterEditor>
 							<Id>1646831144146</Id>
 							<EditorContolType>CHECK_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
-					<Id>1646831144151</Id>
-					<Name><![CDATA[modalShiftTimeDecrease]]></Name>
-					<X>300</X><Y>240</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[double]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0.3]]></Code>
-						</DefaultValue>
-						<ParameterEditor>
-							<Id>1646831144149</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
 							<DelimeterType>NO_DELIMETER</DelimeterType>
@@ -35603,86 +36673,6 @@ send( message, this);]]></Action>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
-					<ReturnType><![CDATA[Activity[]]]></ReturnType>
-					<Id>1646831144070</Id>
-					<Name><![CDATA[generateActivities]]></Name>
-					<X>50</X><Y>250</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Parameter>
-						<Name><![CDATA[household]]></Name>
-						<Type><![CDATA[Household]]></Type>
-					</Parameter>
-					<Body><![CDATA[// Get trip tuples from this household ID from database
-List< Tuple > tuples = selectFrom( db_activities_sample).where( db_activities_sample.hhid.eq( household.id ) ).
-where( db_activities_sample.mem_id.eq( memberID )).list();
-
-if (tuples.size()>0){			
-//Create an activity for each record and set its values	
-	for( Tuple tup : tuples ) {
-		Activity a = add_pop_activities();
-		a.type = tup.get ( db_activities_sample.activity_type );
-		a.modality = tup.get ( db_activities_sample.mode );
-		a.locStart = tup.get ( db_activities_sample.orig_loc );
-		a.locEnd = tup.get ( db_activities_sample.dest_loc );
-		a.leaveTime = tup.get ( db_activities_sample.leave_time );
-		a.travelTime = tup.get ( db_activities_sample.travel_time );
-		a.beginTime = tup.get ( db_activities_sample.begin_time );
-		a.endTime = tup.get ( db_activities_sample.end_time );
-		a.episode = tup.get ( db_activities_sample.episode_id);
-		a.processAlbatrossInput();
-		a.adult = this;
-		a.household = household;
-		//if ( ! a.type.equals( "Home" ) ) {
-			//drawActivity(a);
-		//}
-		//if (a.modality.equals("Car")){
-			//a.carDistance = a.travelTime * 1.2;
-			//main.distanceHistogram.add(a.carDistance);
-		//}
-	}
-}
-
-traceln(pop_activities.size());
-
-//countWork();
-
-
-//initialize acitivities
-/*
-currentActivity = this.pop_activities(0);
-nextActivity = null;
-Activity a = null;
-dummyIndex = currentActivityEpisode;
-
-while ( dummyIndex + 1 < pop_activities.size() ){
-	a = pop_activities.get( dummyIndex + 1 );
-	if (currentActivity.type.equals("Home") && a.type.equals("Home") ){
-		dummyIndex ++;
-	}
-	else{
-		break;
-	}
-}
-if ( a != null ){
-	nextActivity = a;
-	nextActivityInfo = "Next activity: " + nextActivity.type + " (ep. " + nextActivity.episode + " / " +  pop_activities.size() +
-	") in: " ;
-}
-else {
-	nextActivityInfo = "No next activity "; 
-}
-
-// Set the timer for the first activity
-if (pop_activities.size()>1){
-	nextActivityTimer.restart( nextActivity.startMinute, MINUTE );
-}
-*/]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>VOID</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1646831144072</Id>
 					<Name><![CDATA[startNextActivity]]></Name>
@@ -35726,6 +36716,7 @@ else {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1646831144074</Id>
 					<Name><![CDATA[getCar]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>760</X><Y>230</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -35973,101 +36964,6 @@ a = activities.get( i + 1 );
 //traceln(" ");
 return a;
 ]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>VOID</ReturnModificator>
-					<ReturnType><![CDATA[double]]></ReturnType>
-					<Id>1646831144086</Id>
-					<Name><![CDATA[modalShift]]></Name>
-					<X>200</X><Y>240</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[for (iDummy=1; iDummy<pop_activities.size(); iDummy++){
-	if (pop_activities(iDummy-1).type.equals("Home") && pop_activities(iDummy).travelTime > 5 && driversLicense & randomTrue(0.5)){
-		fillModalShiftCollection();
-		if (household.nbVehicles > 1) {
-			setModalShift();
-		}
-		if (household.nbVehicles == 1) {
-			if (household.nbDriversLicense == 1) {
-				setModalShift();			
-			}
-			if (household.nbDriversLicense == 2) { //toDo: add extra step for if the other does not have a drivers license
-				conflictModalShift();
-				if (noModalityConflict){
-					setModalShift();
-				}	
-			}
-		}
-		modalShiftActivities.clear();
-	
-	}
-}]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>VOID</ReturnModificator>
-					<ReturnType><![CDATA[double]]></ReturnType>
-					<Id>1646831144088</Id>
-					<Name><![CDATA[fillModalShiftCollection]]></Name>
-					<X>200</X><Y>260</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[while (!pop_activities(iDummy).type.equals("Home")){
-	//activities(i).modality = "Car";
-	modalShiftActivities.add(pop_activities(iDummy));
-	iDummy++; 
-}
-//activities(i).modality = "Car";
-modalShiftActivities.add(pop_activities(iDummy));]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>VOID</ReturnModificator>
-					<ReturnType><![CDATA[double]]></ReturnType>
-					<Id>1646831144090</Id>
-					<Name><![CDATA[conflictModalShift]]></Name>
-					<X>460</X><Y>260</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[noModalityConflict = true;
-for (int j=0; j<household.people.size(); j++) {
-	if (household.people.get(j).memberID != memberID) {
-		for (int k=0; k<household.people.get(j).pop_activities.size(); k++) {	
-			if (household.people.get(j).pop_activities(k).startMinute < modalShiftActivities.get(modalShiftActivities.size()-1).startMinute + modalShiftActivities.get(modalShiftActivities.size()-1).travelTime  
-			&& household.people.get(j).pop_activities(k).endMinute > modalShiftActivities.get(0).startMinute){
-				if (household.people.get(j).pop_activities(k).modality.equals("Car")){
-					nbrConflicts = nbrConflicts + 1;
-					noModalityConflict = false;
-					
-				}
-			}
-		
-		}
-										
-	}
-}]]></Body>
-				</Function>
-				<Function AccessType="default" StaticFunction="false">
-					<ReturnModificator>VOID</ReturnModificator>
-					<ReturnType><![CDATA[double]]></ReturnType>
-					<Id>1646831144092</Id>
-					<Name><![CDATA[setModalShift]]></Name>
-					<X>360</X><Y>260</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[for (Activity a : modalShiftActivities) {
-	a.modality = "Car";
-	a.modeChange = true;
-	a.extraTravelTime = a.travelTime * modalShiftTimeDecrease;
-	a.travelTime = a.travelTime - (int)a.extraTravelTime;
-}]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -42022,7 +42918,7 @@ else {
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Household]]></Type>
+						<Type><![CDATA[SampleHousehold]]></Type>
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<ParameterEditor>
@@ -42717,7 +43613,7 @@ else{
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
 			<Id>1647104764993</Id>
-			<Name><![CDATA[DummyAgentType3]]></Name>
+			<Name><![CDATA[SampleCar]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<Generic>false</Generic>
 			<GenericParameter>
@@ -42811,6 +43707,966 @@ else{
 			</ScaleRuler>
 			<CurrentLevel>1647104764992</CurrentLevel>
 			<ConnectionsId>1647104764988</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1647347801892</Id>
+					<Name><![CDATA[isAvailable]]></Name>
+					<X>260</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801894</Id>
+					<Name><![CDATA[currentBatteryCap]]></Name>
+					<X>50</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[uniform( 0.5, 1 ) * p_maxBatteryCap_kWh]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801896</Id>
+					<Name><![CDATA[currentTripDistance]]></Name>
+					<X>50</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801898</Id>
+					<Name><![CDATA[isCharging]]></Name>
+					<X>260</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801900</Id>
+					<Name><![CDATA[chargeSpeed_kW]]></Name>
+					<X>260</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[5.0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801902</Id>
+					<Name><![CDATA[currentActivity]]></Name>
+					<X>220</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[Activity]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801904</Id>
+					<Name><![CDATA[currentRange]]></Name>
+					<X>50</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801906</Id>
+					<Name><![CDATA[chargingDemand]]></Name>
+					<X>50</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801908</Id>
+					<Name><![CDATA[laadflexibiliteitTotVolgendVertrek]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>220</X><Y>410</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801910</Id>
+					<Name><![CDATA[nextActivity]]></Name>
+					<X>220</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[Activity]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[null]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801912</Id>
+					<Name><![CDATA[currentPower]]></Name>
+					<X>900</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801914</Id>
+					<Name><![CDATA[contactPower]]></Name>
+					<X>900</X><Y>210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801916</Id>
+					<Name><![CDATA[totalTripDistance]]></Name>
+					<X>50</X><Y>520</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801918</Id>
+					<Name><![CDATA[plugInTime]]></Name>
+					<X>900</X><Y>260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801920</Id>
+					<Name><![CDATA[plugOutTime]]></Name>
+					<X>1060</X><Y>260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801922</Id>
+					<Name><![CDATA[flexibilityStart]]></Name>
+					<X>460</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801924</Id>
+					<Name><![CDATA[flexibilityEnd]]></Name>
+					<X>460</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801926</Id>
+					<Name><![CDATA[flexibilityTime]]></Name>
+					<X>460</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801928</Id>
+					<Name><![CDATA[flexibilityNewStart]]></Name>
+					<X>460</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801930</Id>
+					<Name><![CDATA[flexibilityNewEnd]]></Name>
+					<X>460</X><Y>310</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801932</Id>
+					<Name><![CDATA[flexibilityNewTime]]></Name>
+					<X>460</X><Y>340</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801934</Id>
+					<Name><![CDATA[flexibilityNewRange]]></Name>
+					<X>460</X><Y>370</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801936</Id>
+					<Name><![CDATA[flexibilityEmpty]]></Name>
+					<X>460</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801938</Id>
+					<Name><![CDATA[flexibilityNewEmpty]]></Name>
+					<X>460</X><Y>120</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[true]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1647347801940</Id>
+					<Name><![CDATA[firstCharge]]></Name>
+					<X>460</X><Y>400</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[boolean]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[false]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647347801946</Id>
+					<Name><![CDATA[p_carID]]></Name>
+					<X>50</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647347801944</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647347801949</Id>
+					<Name><![CDATA[p_electric]]></Name>
+					<X>50</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[boolean]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647347801947</Id>
+							<EditorContolType>CHECK_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647347801952</Id>
+					<Name><![CDATA[household]]></Name>
+					<X>50</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[SampleHousehold]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1647347801950</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647347801955</Id>
+					<Name><![CDATA[p_energyConsumption]]></Name>
+					<Description><![CDATA[kWh/km]]></Description>
+					<X>50</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[uniform(0.2, 0.3)]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1647347801953</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647347801958</Id>
+					<Name><![CDATA[p_maxBatteryCap_kWh]]></Name>
+					<X>50</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[uniform_discr( 35, 100 )]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1647347801956</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1647347801961</Id>
+					<Name><![CDATA[p_maxChargingSpeed_kW]]></Name>
+					<X>50</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[11]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1647347801959</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1647347801881</Id>
+					<Name><![CDATA[activities]]></Name>
+					<X>50</X><Y>470</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Activity]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1647347801884</Id>
+					<Name><![CDATA[plugInTimeArray]]></Name>
+					<X>900</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1647347801886</Id>
+					<Name><![CDATA[plugOutTimeArray]]></Name>
+					<X>1060</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+					</Properties>
+
+				</Variable>
+			</Variables>
+			<StatechartElements>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1647347801963</Id>
+					<Name><![CDATA[thuis]]></Name>
+					<X>550</X><Y>160</Y>
+					<Label><X>80</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="330" Height="140">
+						<EntryAction><![CDATA[//oval.setFillColor( lightGreen );
+isAvailable = true;]]></EntryAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="ROOT_NODE">
+					<Id>1647347801965</Id>
+					<Name><![CDATA[weg]]></Name>
+					<X>570</X><Y>350</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="230" Height="30">
+						<EntryAction><![CDATA[//oval.setFillColor( mistyRose );
+nextActivity = null;]]></EntryAction>
+						<FillColor>-6943</FillColor>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="thuis" ParentStateId="1647347801963">
+					<Id>1647347801967</Id>
+					<Name><![CDATA[laden]]></Name>
+					<X>750</X><Y>210</Y>
+					<Label><X>10</X><Y>15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="60" Height="30">
+						<EntryAction><![CDATA[isCharging = true;
+
+plugInTime = time();
+plugInTimeArray.add(plugInTime);]]></EntryAction>
+						<ExitAction><![CDATA[isCharging = false;
+chargeSpeed_kW = 0;]]></ExitAction>
+						<FillColor>-256</FillColor>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="thuis" ParentStateId="1647347801963">
+					<Id>1647347801969</Id>
+					<Name><![CDATA[idle]]></Name>
+					<X>570</X><Y>210</Y>
+					<Label><X>15</X><Y>15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="60" Height="30">
+						<EntryAction><![CDATA[//oval.setFillColor( lightGreen );
+/*if ( currentTripDistance > 0 && elektrisch ) {
+	bepaalLaadbehoefte();
+}
+currentTripDistance = 0;*/]]></EntryAction>
+						<FillColor>-1644806</FillColor>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="State" ParentState="thuis" ParentStateId="1647347801963">
+					<Id>1647347801971</Id>
+					<Name><![CDATA[charged]]></Name>
+					<X>660</X><Y>190</Y>
+					<Label><X>0</X><Y>10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties Width="50" Height="30">
+						<ExitAction><![CDATA[plugOutTime = time();
+plugOutTimeArray.add(plugOutTime);]]></ExitAction>
+						<FillColor/>
+					</Properties>
+				</StatechartElement>
+				<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
+					<Id>1647347801973</Id>
+					<Name><![CDATA[statechart]]></Name>
+					<X>600</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>80</Y></Point>
+					</Points>
+					<Properties Target="1647347801969">
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1647347801975</Id>
+					<Name><![CDATA[transition4]]></Name>
+					<X>590</X><Y>350</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>-110</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1647347801965" Target="1647347801969" Trigger="message">
+						<Action><![CDATA[currentTripDistance = 0;
+
+//send( "laden", this );]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["kom thuis"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="thuis" ParentStateId="1647347801963">
+					<Id>1647347801977</Id>
+					<Name><![CDATA[transition5]]></Name>
+					<X>630</X><Y>230</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>120</X><Y>0</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1647347801969" Target="1647347801967" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["laden"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="thuis" ParentStateId="1647347801963">
+					<Id>1647347801979</Id>
+					<Name><![CDATA[transition6]]></Name>
+					<X>750</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-40</X><Y>-10</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1647347801967" Target="1647347801971" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[laadtijd]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["stop laden"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1647347801981</Id>
+					<Name><![CDATA[transition7]]></Name>
+					<X>610</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>110</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1647347801969" Target="1647347801965" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["vertrek"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1647347801983</Id>
+					<Name><![CDATA[transition]]></Name>
+					<X>770</X><Y>240</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>110</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1647347801967" Target="1647347801965" Trigger="message">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["vertrek"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+				<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+					<Id>1647347801985</Id>
+					<Name><![CDATA[transition1]]></Name>
+					<X>670</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>130</Y></Point>
+					</Points>
+					<IconOffset>20.0</IconOffset>
+					<Properties Source="1647347801971" Target="1647347801965" Trigger="message">
+						<Action><![CDATA[
+]]></Action>
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Condition><![CDATA[true]]></Condition>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<MessageType><![CDATA[Object]]></MessageType>
+						<DefaultTransition>true</DefaultTransition>
+						<FilterType><![CDATA[equalsTo]]></FilterType>
+						<EqualsExpression><![CDATA["vertrek"]]></EqualsExpression>
+						<SatisfiesExpression><![CDATA[true]]></SatisfiesExpression>
+					</Properties>	
+				</StatechartElement>
+			</StatechartElements>
+			<Events>
+				<Event>
+					<Id>1647347801943</Id>
+					<Name><![CDATA[updateSoC]]></Name>
+					<X>700</X><Y>130</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="cyclic">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[HOUR]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1643616000000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+					<Action><![CDATA[//huishouden.energyManager();
+if( inState( laden ) ) {
+	if ( currentBatteryCap >= p_maxBatteryCap_kWh ) {
+		send("stop laden", this);
+		currentBatteryCap = p_maxBatteryCap_kWh;
+	}
+	else{
+		currentBatteryCap = currentBatteryCap + chargeSpeed_kW / 60.0;
+	}
+}
+
+/*
+if( inState( laden ) ) {
+	bepaalLaadsnelheid();
+	if ( huidigBatterijCap >= maxBatterijCap_kWh ) {
+		send("stop laden", this);
+		huidigBatterijCap = maxBatterijCap_kWh;
+	}
+	else {
+		huidigBatterijCap = huidigBatterijCap + laadsnelheid_kW / 360.0;
+	}
+}*/]]></Action>
+				</Event>
+			</Events>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647347801888</Id>
+					<Name><![CDATA[bepaalFlexibiliteit]]></Name>
+					<ExcludeFromBuild>true</ExcludeFromBuild>
+					<X>220</X><Y>440</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[//Deze functie berekent het aantal minuten tot het volgende vertrekmoment van deze auto. Wordt aangeroepen als de auto aankomt.
+// Als dit de tweede auto is, kijk dan alleen naar adult 2
+if (p_carID == 2) {
+	nextActivity = huishouden.adult2.berekenVolgendeCarTrip();
+}
+
+else {
+	// als er maar 1 adult in het huishouden is of als er 2 voertuigen zijn, kijk dan alleen naar adult 1
+	if ( huishouden.nbAdults == 1 || huishouden.nbVehicles == 2 ) {
+		nextActivity = huishouden.adult1.berekenVolgendeCarTrip();
+	}
+	// anders kijk naar welke adult het snelste weg gaat en of ze uberhaupt weg gaan
+	else {
+		// als niemand meer weggaat
+		if ( huishouden.adult1.berekenVolgendeCarTrip() == null && huishouden.adult2.berekenVolgendeCarTrip() == null ){
+			nextActivity = null;
+		}
+		//Als adult 2 niet meer weg gaat en audlt 1 wel
+		else if ( huishouden.adult1.berekenVolgendeCarTrip() != null && huishouden.adult2.berekenVolgendeCarTrip() == null  ) {
+			nextActivity = huishouden.adult1.berekenVolgendeCarTrip();
+		}
+		//Als adult 1 niet meer weg gaat en audlt 2 wel
+		else if ( huishouden.adult1.berekenVolgendeCarTrip() == null && huishouden.adult2.berekenVolgendeCarTrip() != null  ) {
+			nextActivity = huishouden.adult2.berekenVolgendeCarTrip();
+		}
+		//Of als ze allebei nog weg gaan
+		else {
+			if( huishouden.adult1.berekenVolgendeCarTrip().startMinute < huishouden.adult2.berekenVolgendeCarTrip().startMinute ) {
+				nextActivity = huishouden.adult1.berekenVolgendeCarTrip();
+			}
+			else {
+				nextActivity = huishouden.adult2.berekenVolgendeCarTrip();
+			}
+		}
+	}
+}
+
+if ( nextActivity != null ) { 
+	laadflexibiliteitTotVolgendVertrek = nextActivity.startMinute - time(MINUTE);
+	
+}
+
+main.flexData.add( getHourOfDay() + getMinute() / 60.0, laadflexibiliteitTotVolgendVertrek / 60.0 );
+main.flexDataHistogram.add( laadflexibiliteitTotVolgendVertrek / 60.0 );
+main.flexPlot.update();
+
+
+
+//traceln ( getName() + ", min to next departure: " + laadflexibiliteitTotVolgendVertrek);
+//getEngine().pause();]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1647347801890</Id>
+					<Name><![CDATA[socNaTrip]]></Name>
+					<X>50</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[// Bepaal SOC en huidig bereik
+currentBatteryCap = max( 0, currentBatteryCap - currentTripDistance * p_energyConsumption );
+if (currentBatteryCap == 0) {
+	traceln( getName() + " batterij leeg bij thuiskomst!" );
+}
+currentRange = currentBatteryCap / p_energyConsumption;
+
+//In geval van slim laden
+totalTripDistance = totalTripDistance + currentTripDistance;
+
+
+if ( smartChargeCheckbox.isSelected() ) {
+	if (  currentRange < 50 ) { //huidigBereik < nextActivity.getDistance()  ) {
+		chargingDemand = "Hoog";
+	}
+	else if ( currentBatteryCap / p_maxBatteryCap_kWh < 0.6 ) {
+		chargingDemand = "Middel";
+	}
+	else {
+		chargingDemand = "Laag";
+	}
+	send("laden", this );
+}
+
+// Bij dom laden gaat auto direct laden als de laadbehoefte hoog is, kans op laden in andere gevallen
+else{ 
+	if (  currentRange < 100 ) { //huidigBereik < nextActivity.getDistance()  ) {
+		chargingDemand = "Hoog";
+		send( "laden", this );	
+	}
+	else if ( currentRange < 250 ) {
+		chargingDemand = "Middel";
+		if ( randomTrue( 0.75) ) {
+			send("laden", this );
+		}
+	}
+	else {
+		chargingDemand = "Laag";
+		if ( randomTrue( 0.3 ) ) {
+			send("laden", this );
+		}
+	}
+}
+]]></Body>
+				</Function>
+			</Functions>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1647104764988</Id>
@@ -42824,6 +44680,11 @@ else{
 					<AgentLinkType>COLLECTION_OF_LINKS</AgentLinkType>
 					<AgentLinkBidirectional>true</AgentLinkBidirectional>
 					<MessageType><![CDATA[Object]]></MessageType>
+					<StatechartReference>
+						<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+						<ClassName><![CDATA[SampleCar]]></ClassName>
+						<ItemName><![CDATA[statechart]]></ItemName>
+					</StatechartReference>
 					<LineStyle>SOLID</LineStyle>
 					<LineWidth>1</LineWidth>
 					<LineColor>-16777216</LineColor>
@@ -42862,6 +44723,54 @@ else{
 					<Z>0</Z>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
+			<Presentation>
+				<Text>
+					<Id>1647347801873</Id>
+					<Name><![CDATA[text1]]></Name>
+					<X>570</X><Y>70</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Time to next activity: 12 min]]></Text>
+					<TextCode><![CDATA[nextActivity == null ? " "
+:
+"Time to next activity: " + roundToInt( nextActivity.startMinute - time(MINUTE)) +  " min"]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>20</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Control Type="CheckBox">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1647347801877</Id>
+					<Name><![CDATA[smartChargeCheckbox]]></Name>
+					<X>20</X><Y>20</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Smart charging]]></LabelText>
+						<DefaultValueCode><![CDATA[false]]></DefaultValueCode>
+						<LinkTo>false</LinkTo>
+	 				</ExtendedProperties>
+				</Control>
+			</Presentation>
 
 				</Level>
 			</Presentation>
@@ -43080,27 +44989,6 @@ else{
 				<Password><![CDATA[]]></Password>
 			</ExternalConnection>
 			<ExternalConnection>
-				<Id>1647121445532</Id>
-				<Name><![CDATA[database]]></Name>
-				<X>0</X><Y>0</Y>
-				<Label><X>10</X><Y>0</Y></Label>
-				<PublicFlag>false</PublicFlag>
-				<PresentationFlag>true</PresentationFlag>
-				<ShowLabel>true</ShowLabel>
-				<DatabaseType>EXCEL_ACCESS</DatabaseType>
-				<ConnectionURL><![CDATA[]]></ConnectionURL>
-				<ConnectOnStartup>true</ConnectOnStartup>
-				<DatabaseName><![CDATA[]]></DatabaseName>
-				<ResourceReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-serious-game/Data/Buurten-infra-data.xlsx]]></ClassName>
-				</ResourceReference>
-				<Host><![CDATA[localhost]]></Host>
-				<JdbcDriverClassName><![CDATA[net.sourceforge.jtds.jdbc.Driver]]></JdbcDriverClassName>
-				<Login><![CDATA[]]></Login>
-				<Password><![CDATA[]]></Password>
-			</ExternalConnection>
-			<ExternalConnection>
 				<Id>1642713730012</Id>
 				<Name><![CDATA[database]]></Name>
 				<X>0</X><Y>0</Y>
@@ -43122,7 +45010,7 @@ else{
 				<Password><![CDATA[]]></Password>
 			</ExternalConnection>
 			<ExternalConnection>
-				<Id>1647118963017</Id>
+				<Id>1642697282785</Id>
 				<Name><![CDATA[database]]></Name>
 				<X>0</X><Y>0</Y>
 				<Label><X>10</X><Y>0</Y></Label>
@@ -43135,7 +45023,7 @@ else{
 				<DatabaseName><![CDATA[]]></DatabaseName>
 				<ResourceReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-serious-game/Data/Afrikaanderbuurt_midden_verblijfsobjecten.xlsx]]></ClassName>
+					<ClassName><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-scerious-game/Data/Afrikaanderbuurt_midden_verblijfsobjecten.xlsx]]></ClassName>
 				</ResourceReference>
 				<Host><![CDATA[localhost]]></Host>
 				<JdbcDriverClassName><![CDATA[net.sourceforge.jtds.jdbc.Driver]]></JdbcDriverClassName>
@@ -43163,18 +45051,9 @@ else{
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[warmtenet]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>2</ConnectionIndex>
-				<ExternalTableName><![CDATA["warmtenet"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
 					<ClassName><![CDATA[lv_stations]]></ClassName>
 				</TableReference>
-				<ConnectionIndex>3</ConnectionIndex>
+				<ConnectionIndex>2</ConnectionIndex>
 				<ExternalTableName><![CDATA["Afrikaanderbuurt_midden_lv_stat"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
@@ -43199,28 +45078,10 @@ else{
 			<TableImportSettings>
 				<TableReference>
 					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[afrikaanderbuurt_midden_verblij]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>4</ConnectionIndex>
-				<ExternalTableName><![CDATA["Afrikaanderbuurt_midden_verblij"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
 					<ClassName><![CDATA[sun_march]]></ClassName>
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
 				<ExternalTableName><![CDATA["March"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[general_neighborhood_info]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>2</ConnectionIndex>
-				<ExternalTableName><![CDATA["general_neighborhood_info"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
@@ -43248,15 +45109,6 @@ else{
 				</TableReference>
 				<ConnectionIndex>0</ConnectionIndex>
 				<ExternalTableName><![CDATA["April"]]></ExternalTableName>
-				<AutoImport>false</AutoImport>
-			</TableImportSettings>
-			<TableImportSettings>
-				<TableReference>
-					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
-					<ClassName><![CDATA[e_g_infra]]></ClassName>
-				</TableReference>
-				<ConnectionIndex>2</ConnectionIndex>
-				<ExternalTableName><![CDATA["E_G_infra"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
 			<TableImportSettings>
@@ -43313,6 +45165,15 @@ else{
 				<ExternalTableName><![CDATA["February"]]></ExternalTableName>
 				<AutoImport>false</AutoImport>
 			</TableImportSettings>
+			<TableImportSettings>
+				<TableReference>
+					<PackageName><![CDATA[brabant_buurtmodel]]></PackageName>
+					<ClassName><![CDATA[verblijfsobjecten]]></ClassName>
+				</TableReference>
+				<ConnectionIndex>3</ConnectionIndex>
+				<ExternalTableName><![CDATA["Afrikaanderbuurt_midden_verblij"]]></ExternalTableName>
+				<AutoImport>false</AutoImport>
+			</TableImportSettings>
 		</ImportSettings>
 		<ExportSettings>
 		</ExportSettings>
@@ -43349,7 +45210,7 @@ else{
 			<Name><![CDATA[Simulation]]></Name>
 			<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<MaximumMemory>1024</MaximumMemory>
+			<MaximumMemory>2048</MaximumMemory>
 			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
 			<SeedValue>1</SeedValue>
@@ -43435,6 +45296,10 @@ else{
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 		<Resource>
+			<Path><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-scerious-game/Data/Afrikaanderbuurt_midden_verblijfsobjecten.xlsx]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
 			<Path><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-scerious-game/Data/Afrikaanderbuurt_midden_lv_stations.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
@@ -43476,14 +45341,6 @@ else{
 		</Resource>
 		<Resource>
 			<Path><![CDATA[C:/Users/s168027/Documents/GitHub/Brabant-buurt-serious-game/Data/mobility_sample.xlsx]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-serious-game/Data/Afrikaanderbuurt_midden_verblijfsobjecten.xlsx]]></Path>
-			<ReferencedFromUserCode>false</ReferencedFromUserCode>
-		</Resource>
-		<Resource>
-			<Path><![CDATA[C:/Users/s124129/Documents/GitHub/Brabant-buurt-serious-game/Data/Buurten-infra-data.xlsx]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>

@@ -66,5 +66,5 @@ The model is aimed at giving insight in key dynamics and trade-offs in energy tr
 This is an open-source model which can be used, modified and distributed under GLU 3.0 License, see [link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/LICENSE).
 
 
-## Contact en vragen
+## Contact and questions
 The model has been developed by Naud Loomans, PhD. student at the Eindhoven University of Technology and employee at Zenmo Simulations. Click [here](https://research.tue.nl/nl/persons/naud-loomans) for an overview of the academic research profile related to this model. For contact or questions read the docs or send an email to [naud@zenmo.com](mailto:naud@zenmo.com).

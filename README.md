@@ -1,5 +1,5 @@
 # Dutch version  ![Dutch flag](Images/nederlands.png) 
-Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/README.md#english-version--) for an English version. ![English flag](Images/engels.png)
+Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/README.md#english-version-) for an English version. ![English flag](Images/engels.png)
 
 
 ## Brabant Bliksemse buurt serious game

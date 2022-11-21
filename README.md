@@ -1,4 +1,4 @@
-# Dutch version
+# Dutch version ![A test image](image.png)
 Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/README.md#english-version) for an English version.
 
 

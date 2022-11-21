@@ -1,5 +1,5 @@
-# ![Dutch flag](nederlands.png) Dutch version
-Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/README.md#english-version) for an English version.
+# Dutch version  ![Dutch flag](Images/nederlands.png) 
+Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/README.md#english-version) for an English version. ![English flag](Images/engels.png)
 
 
 ## Brabant Bliksemse buurt serious game
@@ -31,8 +31,8 @@ Dit is een open-source model wat te gebruiken, wijzigen en verspreiden onder GLU
 Dit model is ontwikkeld door Naud Loomans als promovendus aan de Technische Universiteit Eindhoven en werknemer bij Zenmo Simulations. Zie [hier](https://research.tue.nl/nl/persons/naud-loomans) een overzicht van academische werkzaamheden . Voor contact en vragen kijk in de documentatie of mail naar [naud@zenmo.com](mailto:naud@zenmo.com).
 
 
-# ![English flag](engels.png) English version
-Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/README.md#dutch-version) for a Dutch version.
+# English version ![English flag](Images/engels.png)
+Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/README.md#dutch-version) for a Dutch version. ![Dutch flag](Images/nederlands.png) 
 
 ## Brabant Bliksemse neighborhood serious game
 This model is made for a ***serious game***, aimed at policy makers. The main goal of the game is for policy makers to gain insight into the ***system effects, key choices and trade-offs*** in creating sustainability strategies for their neighborhoods. We start by modelling indivdual households in ***neighborhoods*** and scale-up to show grid congestion and availability of heat sources on a ***province*** level.

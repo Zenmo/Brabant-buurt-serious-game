@@ -16,17 +16,16 @@ Wil je zelf met het model aan de gang dan moet je AnyLogic downloaden. Voor non-
 
 
 ## Eigendom en gebruik
-Dit model is ontwikkeld door [Zenmo Simulations](https://zenmo.com/) en de [Technische Universiteit Eindhoven](https://tue.nl). Gebruik is voor eigen risico, Zenmo en de TU/e zijn niet aansprakelijk voor gebruik door derden, er wordt geen garantie gegeven noch op software noch op data, kentallen en gegevens. Voor gebruiksvoorwaarden, zie licentie (License).
+Dit model is ontwikkeld door [Zenmo Simulations](https://zenmo.com/) en de [Technische Universiteit Eindhoven](https://tue.nl) in opdracht van Provincie Noord-Brabant en Enexis. Gebruik is voor eigen risico, Zenmo en de TU/e zijn niet aansprakelijk voor gebruik door derden, er wordt geen garantie gegeven noch op software noch op data, kentallen en gegevens. Voor gebruiksvoorwaarden, zie licentie (License).
 
 Het model is bedoeld om inzicht te geven in belangrijk dynamieken en trade-offs in de energie transitie op buurtniveau. Wil je het model gebruiken voor het ontwikkelen van duurzaamheidsstrategiën en investeringsbeslissingen neem dan contact met ons op door te mailen naar [naud@zenmo.com](mailto:naud@zenmo.com).
 
 ## Licentie
-Dit model is te gebruiken onder GLU 2.0 Licentie, zie [link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/LICENSE).
-
+Dit model is te gebruiken onder GLU 3.0 Licentie, zie [link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/LICENSE).
 
 
 ## Contact en vragen
-Dit model is ontwikkeld door Naud Loomans
+Dit model is ontwikkeld door Naud Loomans als promovendus aan de Technische Universiteit Eindhoven en werknemer bij Zenmo Simulations. Zie [hier](https://research.tue.nl/nl/persons/naud-loomans) een overzicht van academische werkzaamheden . Voor contact en vragen kijk in de documentatie of mail naar [naud@zenmo.com](mailto:naud@zenmo.com).
 
 
 # English version

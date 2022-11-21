@@ -1,5 +1,5 @@
-# Language
-Scroll down for an English version.
+# Dutch version
+Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/README.md#english-version) for an English version.
 
 
 ## Brabant-buurt-serious-game

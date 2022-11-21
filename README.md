@@ -30,6 +30,12 @@ Dit is een open-source model wat te gebruiken, wijzigen en verspreiden onder GLU
 ## Contact en vragen
 Dit model is ontwikkeld door Naud Loomans als promovendus aan de Technische Universiteit Eindhoven en werknemer bij Zenmo Simulations. Zie [hier](https://research.tue.nl/nl/persons/naud-loomans) een overzicht van academische werkzaamheden . Voor contact en vragen kijk in de documentatie of mail naar [naud@zenmo.com](mailto:naud@zenmo.com).
 
+<br>
+</br>
+
+--------
+<br>
+</br>
 
 # English version ![English flag](Images/engels.png)
 Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-game/blob/main/README.md#dutch-version--) for a Dutch version. ![Dutch flag](Images/nederlands.png) 

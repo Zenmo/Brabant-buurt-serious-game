@@ -1,13 +1,10 @@
-Welcome to Lumache's documentation!
-===================================
+Welcome to the Brabant neighborhood serious game documentation
+==============================================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
+The **tool** can be found at `Brabant serious game <https://zenmo.com/brabant-serious-game-energietransitie/>`_
 and offers a *simple* and *intuitive* API.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out the :doc:`usage` section for further information
 
 .. note::
 
@@ -19,4 +16,5 @@ Contents
 .. toctree::
 
    usage
+      test
    api

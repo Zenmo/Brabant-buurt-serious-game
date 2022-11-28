@@ -6,6 +6,8 @@ Usage
 Installation
 ------------
 
+Adding some additional text
+
 To use Lumache, first install it using 
 
 

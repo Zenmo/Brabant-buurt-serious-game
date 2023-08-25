@@ -6,7 +6,7 @@ Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-
 De bliksemse buurt is een ***‘serious game‘*** gemaakt voor beleidsmakers om de ***systeemeffecten*** van de verduurzaming van de warmtevraag te ontdekken. We beginnen bij individuele bewoners in ***buurten*** en schalen op naar netcongestie en warmtebronnen op ***provincie*** niveau.
 
 Wil je zelf aan de slag met de modellen? Begin dan [hier](https://zenmo.com/brabant-serious-game-energietransitie/) met het spelen van de challenges en ontdek de modellen. Hier op Github valt de code en input data te downloaden. Daarnaast staan hier bestanden met resultaten van optimale scenario's.
-Om de verbinding met het provincie model te maken, klik [hier voor de docs]() en [hier voor de code](https://github.com/ZEnMo/Brabant-systeem-integratie-model) van het provincie model.
+Om de verbinding met het provincie model te maken, klik [hier voor de docs](https://digital-twin-brabant-docs.readthedocs.io/en/latest/) en [hier voor de code](https://github.com/ZEnMo/Brabant-systeem-integratie-model) van het provincie model.
 
 Zou je zo'n model graag voor jouw eigen buurt, gemeente, provincie, of energiecoöperatie  willen hebben, neem dan contact op en mail naar [naud@zenmo.com](mailto:naud@zenmo.com).
 
@@ -44,7 +44,7 @@ Scroll down or [click this link](https://github.com/ZEnMo/Brabant-buurt-serious-
 This model is made for a ***serious game***, aimed at policy makers. The main goal of the game is for policy makers to gain insight into the ***system effects, key choices and trade-offs*** in creating sustainability strategies for their neighborhoods. We start by modelling indivdual households in ***neighborhoods*** and scale-up to show grid congestion and availability of heat sources on a ***province*** level.
 
 Do you want to get started with the models? Start [here](https://zenmo.com/brabant-serious-game-energietransitie/) by playing the challenges and discovering the models. Here on Github you can download the code and input data. Furthermore you'll find files with optimal scenarios.
-To connect to the province level model you can click [here for the docs]() and [here for the code](https://github.com/ZEnMo/Brabant-systeem-integratie-model).
+To connect to the province level model you can click [here for the docs](https://digital-twin-brabant-docs.readthedocs.io/en/latest/) and [here for the code](https://github.com/ZEnMo/Brabant-systeem-integratie-model).
 
 Would you like to work with your own neighborhood, muncipality, province or energy cooperation. Get into contact to discuss the possibilities by mailing to [naud@zenmo.com](mailto:naud@zenmo.com).
 
